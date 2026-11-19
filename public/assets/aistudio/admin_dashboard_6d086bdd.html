@@ -1,0 +1,413 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary":"#adc6ff","on-secondary":"#003824","outline-variant":"#424754","surface-container":"#102034","secondary-container":"#00a572","tertiary-fixed-dim":"#ffb3ad","on-secondary-fixed":"#002113","tertiary-container":"#ff5451","secondary-fixed":"#6ffbbe","on-tertiary-fixed-variant":"#930013","surface-tint":"#adc6ff","on-secondary-fixed-variant":"#005236","outline":"#8c909f","on-secondary-container":"#00311f","inverse-surface":"#d3e4fe","inverse-primary":"#005ac2","surface-container-low":"#0b1c30","error-container":"#93000a","tertiary-fixed":"#ffdad7","primary-fixed-dim":"#adc6ff","on-tertiary":"#68000a","on-tertiary-fixed":"#410004","on-tertiary-container":"#5c0008","surface-dim":"#031427","error":"#ffb4ab","surface-container-lowest":"#000f21","surface-bright":"#2a3a4f","on-primary-fixed-variant":"#004395","background":"#031427","on-surface-variant":"#c2c6d6","on-background":"#d3e4fe","primary-fixed":"#d8e2ff","on-primary-fixed":"#001a42","on-surface":"#d3e4fe","secondary":"#4edea3","inverse-on-surface":"#213145","primary-container":"#4d8eff","on-primary":"#002e6a","secondary-fixed-dim":"#4edea3","on-primary-container":"#00285d","on-error-container":"#ffdad6","tertiary":"#ffb3ad","surface-container-highest":"#26364a","surface-variant":"#26364a","surface-container-high":"#1b2b3f","surface":"#031427","on-error":"#690005"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-lg":"1rem","margin":"1.5rem","space-2xl":"2rem","space-md":"0.75rem","space-xs":"0.25rem","space-xl":"1.5rem","gutter-mobile":"0.5rem","gutter":"1rem","space-sm":"0.5rem","gutter-tablet":"0.75rem","space-2xs":"0.125rem"},fontFamily:{"label-caps":["Inter"],"headline-lg":["Inter"],"body-md":["Inter"],"headline-lg-mobile":["Inter"],"body-lg":["Inter"],"headline-sm":["Inter"],"body-sm":["Inter"],"headline-md":["Inter"],"badge-mono":["JetBrains Mono"],"metric-stat":["JetBrains Mono"],"display-lg":["Inter"],"label-code":["JetBrains Mono"]},fontSize:{"label-caps":["11px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"badge-mono":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"metric-stat":["24px",{"lineHeight":"28px","letterSpacing":"-0.03em","fontWeight":"500"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-code":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"500"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest/80"><div class="flex items-center gap-space-sm"><img alt="VigilNode Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrB2_CYDPXm2cZxvkan18peI87502TFFT34OltrQQtfEPZsxTMt3kE1az2fGpDWIM6DQYDYtVxbpaF2FaOyTyiMUAqLCBxx39zMC2rKWYOPUW_5ET438woIMqjMi8EiuRV47hSppZqCbgyCOkisXVTx0gwTqQTG2lmQyCXSkPsBI3ck3KE9oR_rL_v2maL7sfhb4Ds1Ccgo7kUZNg_A6vTY7LkK-QquDU58uNW_5eko"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">VigilNode</span><span class="font-badge-mono text-[10px] text-primary leading-tight mt-space-2xs">MCA Capstone Project</span></div></div><div class="flex items-center gap-space-2xs bg-surface-container px-space-xs py-space-2xs rounded-lg"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse shadow-[0_0_8px_rgba(78,222,163,0.6)]"></span><span class="font-label-caps text-label-caps text-secondary uppercase">Active</span></div></div><div class="px-space-md py-space-sm bg-surface-container-low"><div class="flex items-center justify-between px-space-sm py-space-xs bg-surface-container rounded-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[16px]">schedule</span><span class="font-label-code text-label-code text-on-surface-variant">APScheduler Engine</span></div><span class="font-badge-mono text-badge-mono text-secondary bg-surface-container-high px-space-xs rounded">ACTIVE</span></div></div><div class="px-space-md pt-space-sm pb-space-xs"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">MONITOR OVERVIEW</span></div><nav class="flex flex-col gap-space-2xs px-space-sm" data-active-classes="bg-surface-container-high text-primary font-semibold shadow-inner"><a aria-current="page" class="flex items-center justify-between px-space-sm py-space-xs rounded-lg transition-colors bg-surface-container-high text-primary font-semibold shadow-inner" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">grid_view</span><span class="font-body-md text-body-md">Dashboard</span></div><span class="material-symbols-outlined text-[14px] text-outline opacity-60">chevron_right</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="monitors" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dns</span><span class="font-body-md text-body-md">Monitors</span></div><span class="font-badge-mono text-badge-mono bg-surface-container-high text-secondary px-space-xs rounded py-space-2xs">148 Up</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="add-monitor" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">add_circle</span><span class="font-body-md text-body-md">Add Monitor</span></div><span class="material-symbols-outlined text-[14px] text-outline opacity-60">shortcut</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="monitor-details" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">insights</span><span class="font-body-md text-body-md">Monitor Details</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="incidents" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px] text-error">warning</span><span class="font-body-md text-body-md">Incidents</span></div><span class="font-badge-mono text-badge-mono bg-error-container text-error px-space-xs rounded py-space-2xs shadow-[0_0_8px_rgba(239,68,68,0.3)]">1 Active</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="maintenance" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">event_repeat</span><span class="font-body-md text-body-md">Maintenance</span></div></a><div class="my-space-xs px-space-sm"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Operations</span></div><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="alerts-integrations" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications_active</span><span class="font-body-md text-body-md">Alerts &amp; Integrations</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="public-status-page" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">public</span><span class="font-body-md text-body-md">Public Status Page</span></div><span class="material-symbols-outlined text-[14px] text-outline">open_in_new</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">query_stats</span><span class="font-body-md text-body-md">Analytics</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="user-management" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">manage_accounts</span><span class="font-body-md text-body-md">User Management</span></div></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-md text-body-md">Settings</span></div></a></nav></div><div class="p-space-sm bg-surface-container-lowest/90"><div class="flex flex-col gap-space-xs p-space-xs rounded-lg bg-surface-container-low"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded bg-primary-container/20 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-[18px]">terminal</span></div><div class="flex flex-col min-w-0 flex-1"><div class="flex items-center gap-1"><span class="font-label-code text-label-code text-on-surface truncate">Shubham Bind</span><span class="font-label-caps text-[9px] px-1 py-0.5 rounded bg-surface-container-high text-secondary leading-none uppercase">Lead</span></div><span class="font-badge-mono text-[10px] text-outline truncate">Project Owner • MCA Capstone</span></div></div><div class="pt-space-2xs border-t border-surface-container-highest/40 flex items-center justify-between text-[10px] font-badge-mono text-outline"><span>APScheduler Core</span><span class="text-secondary">v4.18 Engine</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="flex items-center gap-space-lg flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-9 pl-9 pr-14 bg-surface-container text-on-surface font-body-sm text-body-sm rounded-lg placeholder-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="Quick search monitors, endpoints, incidents... (Cmd+K)" type="text"><div class="absolute right-space-sm top-1/2 -translate-y-1/2 flex items-center gap-space-2xs pointer-events-none"><kbd class="font-badge-mono text-badge-mono bg-surface-container-high text-on-surface-variant px-space-xs py-space-2xs rounded">⌘K</kbd></div></div><div class="hidden lg:flex items-center gap-space-sm"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-lg text-on-surface-variant"><span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span><span class="font-label-code text-label-code text-on-surface">APScheduler Core: <span class="text-secondary font-semibold">ACTIVE</span></span></div><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-lg text-on-surface-variant"><span class="material-symbols-outlined text-[15px] text-secondary">verified</span><span class="font-label-code text-label-code text-on-surface-variant">Health: <span class="text-secondary">99.99% Operational</span></span></div></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded-lg"><span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span><span class="font-badge-mono text-badge-mono text-on-surface-variant uppercase">Live 10s</span></div><button class="relative p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD1zeIezgFxLfcbaqHaSLPipQ0jaDay2BwWAqu1KuBiNTvEMw5qIPLPqBGoK1F9HTmfw8EPbVSwFSw4Lk_-PbzhNvHzVu0auOPoDMPfjntmbZI8dPoKw9SAZkJ6H1gWDsVHIfYydLigvsaHVMdRG3H6FkyTff5mM_m_FRajfVTYtLlPiCKQaQDmg33m1K1rtsvpsc7-FAJtmeA2bW4v0Jzwzjz8O6BIqPvx3lRa-c"><div class="hidden xl:flex items-center gap-space-xs"><div class="flex flex-col text-left"><span class="font-label-code text-label-code text-on-surface leading-tight">Shubham Bind</span><span class="font-label-caps text-label-caps text-outline leading-tight">Project Admin</span></div><span class="material-symbols-outlined text-[16px] text-outline opacity-60 ml-0.5">expand_more</span></div></div></div></header><main class="relative pt-16 min-h-screen bg-background w-full px-margin"><div class="flex flex-col w-full gap-space-lg pb-space-2xl">
+<!-- Top System Health Banner -->
+<div class="w-full bg-surface-container rounded-xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md relative z-10">
+<div class="flex items-center gap-space-md">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-surface-container-high shadow-inner">
+<span class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_12px_rgba(78,222,163,0.9)] animate-pulse"></span>
+<span class="absolute inset-0 rounded-xl bg-secondary/10 animate-ping"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">All Primary Systems Operational</span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-highest text-secondary">PROD-CORE-V4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Autonomous synthetic monitoring engine powered by Python APScheduler • Probing HTTP, TCP, SSL &amp; DNS protocols</p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">30D SLA Score</span>
+<span class="font-metric-stat text-metric-stat text-secondary">99.982%</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Active Monitors</span>
+<div class="flex items-baseline gap-space-2xs">
+<span class="font-metric-stat text-metric-stat text-on-surface">142</span>
+<span class="font-label-code text-label-code text-outline">/ 144</span>
+</div>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Degraded / Fail</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-badge-mono text-badge-mono px-space-xs rounded bg-tertiary-container/30 text-tertiary">2 WARN</span>
+<span class="font-badge-mono text-badge-mono px-space-xs rounded bg-surface-container-highest text-outline">0 CRIT</span>
+</div>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Avg Latency</span>
+<span class="font-metric-stat text-metric-stat text-primary">42<span class="font-body-sm text-body-sm text-on-surface-variant font-normal">ms</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4 Stat Metric Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Stat 1 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between relative group hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Overall Availability</span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +0.04%
+        </span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-stat text-metric-stat text-on-surface">99.982%</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Past rolling 30-day baseline</span>
+</div>
+<!-- 30-day mini bars -->
+<div class="flex items-center gap-0.5 pt-space-xs">
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-tertiary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] opacity-90"></div>
+<div class="h-3 flex-1 bg-secondary rounded-[1px] shadow-[0_0_6px_rgba(78,222,163,0.8)]"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between relative group hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Avg Response Time</span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">speed</span> -4.2ms
+        </span>
+</div>
+<div class="my-space-sm flex items-end justify-between">
+<div>
+<div class="font-metric-stat text-metric-stat text-primary">38.4 <span class="text-body-sm font-normal text-on-surface-variant">Synthetic probe P95 response time</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Synthetic probe P95 response time</span>
+</div>
+<!-- Inline SVG Sparkline -->
+<svg class="w-24 h-8 text-primary overflow-visible" fill="none" viewBox="0 0 100 30">
+<path d="M0 24 L15 22 L30 18 L45 23 L60 14 L75 16 L90 8 L100 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M0 24 L15 22 L30 18 L45 23 L60 14 L75 16 L90 8 L100 5 L100 30 L0 30 Z" fill="currentColor" fill-opacity="0.12"></path>
+<circle class="animate-pulse" cx="100" cy="5" fill="currentColor" r="2.5"></circle>
+</svg>
+</div>
+<div class="flex items-center justify-between text-outline font-label-code text-label-code pt-space-xs"><span>Min: 14ms (Local Loop)</span><span>Max: 122ms (HTTP Get)</span></div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between relative group hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Active Incidents</span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-tertiary-container/40 text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">sync_problem</span> Active
+        </span>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-stat text-metric-stat text-tertiary flex items-center gap-space-xs">
+<span>01</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">Investigating</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate mt-0.5">Staging Redis DNS cache warm-up TTL</p>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-xs py-1 rounded font-badge-mono text-badge-mono text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="truncate">INC-8921 opened 24m ago by DevOps</span>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between relative group hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between">
+<span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">SSL Certificates</span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-tertiary-fixed-dim">
+          2 Warning
+        </span>
+</div>
+<div class="my-space-sm flex items-baseline justify-between">
+<div>
+<div class="font-metric-stat text-metric-stat text-on-surface">98 <span class="text-body-sm font-normal text-secondary font-label-code">VALID</span></div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Automated ACME Let's Encrypt</span>
+</div>
+<span class="material-symbols-outlined text-[28px] text-secondary">verified_user</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1 rounded">
+<span class="font-label-code text-label-code text-outline">Renew &lt; 14d:</span>
+<span class="font-badge-mono text-badge-mono text-tertiary px-space-xs rounded bg-tertiary-container/30">api.payments.io</span>
+</div>
+</div>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left / Main Telemetry Section (8 cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Global Edge Telemetry Grid -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">public</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Local &amp; Multi-Protocol Synthetic Probes</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline uppercase">Probe cadence:</span>
+<span class="font-badge-mono text-badge-mono bg-surface-container-high text-on-surface px-space-xs py-0.5 rounded">Cadence: 30s HTTP/TCP • 60s TLS/DNS</span>
+</div>
+</div>
+<!-- Regional Nodes Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-sm"><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">https://api.vigilnode.io</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-secondary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 24ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>REST API Core Service</span><span class="font-label-code text-label-code text-secondary">99.999%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[99.99%]"></div></div></div><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">tcp://db-cluster:5432</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-secondary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 12ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>PostgreSQL TCP Probe</span><span class="font-label-code text-label-code text-secondary">99.995%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[99.95%]"></div></div></div><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">dns://1.1.1.1:53</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-primary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 18ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>Cloudflare DNS Query</span><span class="font-label-code text-label-code text-secondary">99.980%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[99.8%]"></div></div></div><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">tcp://redis-broker:6379</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-tertiary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 140ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>Redis Staging Cache</span><span class="font-label-code text-label-code text-tertiary">99.890%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[98.9%]"></div></div></div><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">ssl://vigilnode.io:443</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-secondary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 32ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>TLS 1.3 Expiry Watchdog</span><span class="font-label-code text-label-code text-secondary">99.991%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[99.91%]"></div></div></div><div class="bg-surface-container-low p-space-sm rounded-lg hover:bg-surface-container-high transition-colors flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-headline-sm text-headline-sm text-on-surface">https://auth.vigilnode.io</span><span class="flex items-center gap-1 font-badge-mono text-badge-mono text-secondary bg-surface-container px-space-xs py-0.5 rounded"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 16ms</span></div><div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm"><span>Auth Service Endpoint</span><span class="font-label-code text-label-code text-secondary">99.991%</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-secondary h-full w-[99.91%]"></div></div></div></div>
+<!-- Latency Heat Spectrum Bar -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-caps text-label-caps text-outline uppercase">
+<span>Latency Distribution Variance (Last 60 Minutes)</span>
+<span class="font-badge-mono text-badge-mono text-secondary">Median jitter: ±1.4ms</span>
+</div>
+<div class="h-2 w-full rounded-full bg-surface-container-highest flex overflow-hidden">
+<div class="h-full bg-secondary" style="width: 72%" title="Fast (&lt;50ms): 72%"></div>
+<div class="h-full bg-primary" style="width: 18%" title="Moderate (50-120ms): 18%"></div>
+<div class="h-full bg-tertiary" style="width: 8%" title="Slow (120-200ms): 8%"></div>
+<div class="h-full bg-error" style="width: 2%" title="Lag (&gt;200ms): 2%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] font-label-code text-outline">
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> 0 - 50ms (72%)</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> 50 - 120ms (18%)</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> 120 - 200ms (8%)</div>
+<div class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span> &gt; 200ms (2%)</div>
+</div>
+</div>
+</div>
+<!-- Protocol Health Overview -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Protocol Level Availability</span>
+</div>
+<span class="font-label-caps text-label-caps text-outline uppercase">Average Synthetic Availability: 99.98%</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm xl:grid-cols-4">
+<!-- Protocol 1 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col items-center justify-center text-center gap-1">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-primary">HTTPS / REST</span>
+<span class="font-metric-stat text-metric-stat text-secondary mt-1">99.99%</span>
+<span class="font-label-caps text-label-caps text-outline uppercase text-[10px]">104 Services</span>
+</div>
+<!-- Protocol 2 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col items-center justify-center text-center gap-1">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-primary">TCP SOCKET</span>
+<span class="font-metric-stat text-metric-stat text-secondary mt-1">100.0%</span>
+<span class="font-label-caps text-label-caps text-outline uppercase text-[10px]">18 Endpoints</span>
+</div>
+<!-- Protocol 3 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col items-center justify-center text-center gap-1">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-tertiary">DNS RESOLVE</span>
+<span class="font-metric-stat text-metric-stat text-tertiary mt-1">99.94%</span>
+<span class="font-label-caps text-label-caps text-outline uppercase text-[10px]">8 Root Servers</span>
+</div>
+<!-- Protocol 4 -->
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col items-center justify-center text-center gap-1">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-primary">TLS 1.3 SEC</span>
+<span class="font-metric-stat text-metric-stat text-secondary mt-1">100.0%</span>
+<span class="font-label-caps text-label-caps text-outline uppercase text-[10px]">100 Certificates</span>
+</div>
+<!-- Protocol 5 -->
+
+</div>
+</div>
+<!-- Live Telemetry Stream / Real-time Event Feed -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">stream</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Live Check Execution Stream</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-code text-label-code text-secondary">Streaming Pings</span>
+</div>
+</div>
+<!-- Table Stream -->
+<div class="w-full overflow-x-auto">
+<div class="min-w-[640px] flex flex-col divide-y-0">
+<!-- Table Header -->
+<div class="grid grid-cols-12 bg-surface-container-lowest px-space-sm py-2 rounded font-label-caps text-label-caps text-outline uppercase tracking-wider">
+<span class="col-span-2">Timestamp</span>
+<span class="col-span-3">Target Endpoint</span>
+<span class="col-span-2">Protocol / Target</span>
+<span class="col-span-2">Status Code</span>
+<span class="col-span-2 text-right">Latency</span>
+<span class="col-span-1 text-center">TLS</span>
+</div>
+<!-- Ping 1 -->
+<div class="grid grid-cols-12 items-center px-space-sm py-2.5 hover:bg-surface-container-high transition-colors text-on-surface font-body-sm text-body-sm">
+<span class="col-span-2 font-badge-mono text-badge-mono text-outline">14:02:18.420</span>
+<span class="col-span-3 font-label-code text-label-code text-on-surface truncate">api.vigilnode.io/v1/auth</span>
+<span class="col-span-2 font-label-code text-label-code text-on-surface-variant">us-east-1</span>
+<span class="col-span-2">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-secondary">200 OK</span>
+</span>
+<span class="col-span-2 text-right font-metric-stat text-[13px] text-secondary">24.2 ms</span>
+<span class="col-span-1 text-center material-symbols-outlined text-[16px] text-secondary">lock</span>
+</div>
+<!-- Ping 2 -->
+<div class="grid grid-cols-12 items-center px-space-sm py-2.5 hover:bg-surface-container-high transition-colors text-on-surface font-body-sm text-body-sm bg-surface-container-low/50">
+<span class="col-span-2 font-badge-mono text-badge-mono text-outline">14:02:17.912</span>
+<span class="col-span-3 font-label-code text-label-code text-on-surface truncate">edge-cdn.customer-assets.net</span>
+<span class="col-span-2 font-label-code text-label-code text-on-surface-variant">eu-central-1</span>
+<span class="col-span-2">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-secondary">204 NO_CONT</span>
+</span>
+<span class="col-span-2 text-right font-metric-stat text-[13px] text-secondary">31.8 ms</span>
+<span class="col-span-1 text-center material-symbols-outlined text-[16px] text-secondary">lock</span>
+</div>
+<!-- Ping 3 -->
+<div class="grid grid-cols-12 items-center px-space-sm py-2.5 hover:bg-surface-container-high transition-colors text-on-surface font-body-sm text-body-sm">
+<span class="col-span-2 font-badge-mono text-badge-mono text-outline">14:02:16.104</span>
+<span class="col-span-3 font-label-code text-label-code text-on-surface truncate">staging-redis-cluster.internal</span>
+<span class="col-span-2 font-label-code text-label-code text-on-surface-variant">eu-central-1</span>
+<span class="col-span-2">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-tertiary-container/30 text-tertiary">DNS TIMEOUT</span>
+</span>
+<span class="col-span-2 text-right font-metric-stat text-[13px] text-tertiary">1420.0 ms</span>
+<span class="col-span-1 text-center material-symbols-outlined text-[16px] text-outline">lock_open</span>
+</div>
+<!-- Ping 4 -->
+<div class="grid grid-cols-12 items-center px-space-sm py-2.5 hover:bg-surface-container-high transition-colors text-on-surface font-body-sm text-body-sm bg-surface-container-low/50">
+<span class="col-span-2 font-badge-mono text-badge-mono text-outline">14:02:15.551</span>
+<span class="col-span-3 font-label-code text-label-code text-on-surface truncate">db-primary-replica.sa-east</span>
+<span class="col-span-2 font-label-code text-label-code text-on-surface-variant">sa-east-1</span>
+<span class="col-span-2">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-primary">TCP SYN-ACK</span>
+</span>
+<span class="col-span-2 text-right font-metric-stat text-[13px] text-primary">138.5 ms</span>
+<span class="col-span-1 text-center material-symbols-outlined text-[16px] text-outline">shield</span>
+</div>
+<!-- Ping 5 -->
+<div class="grid grid-cols-12 items-center px-space-sm py-2.5 hover:bg-surface-container-high transition-colors text-on-surface font-body-sm text-body-sm">
+<span class="col-span-2 font-badge-mono text-badge-mono text-outline">14:02:14.288</span>
+<span class="col-span-3 font-label-code text-label-code text-on-surface truncate">ap-southeast.core.gateway</span>
+<span class="col-span-2 font-label-code text-label-code text-on-surface-variant">ap-southeast-1</span>
+<span class="col-span-2">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-secondary">200 OK</span>
+</span>
+<span class="col-span-2 text-right font-metric-stat text-[13px] text-secondary">87.4 ms</span>
+<span class="col-span-1 text-center material-symbols-outlined text-[16px] text-secondary">lock</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Section (4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Active Alert Broadcast Notice -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="material-symbols-outlined text-[20px]">notification_important</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Active Alert Broadcast</span>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-tertiary">Primary DNS Resolve Latency Spike</span>
+<span class="font-badge-mono text-badge-mono text-outline">14m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Spike detected during Cloudflare DNS resolve query (latency exceeded 420ms). Local cache warm-up initiated. Target response stabilized.</p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container text-tertiary-fixed">INC-9102 • AUTO-RESOLVING</span>
+<button class="font-label-caps text-label-caps text-primary hover:underline flex items-center gap-1">
+              View Log <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Action Panel / Drawer Controls -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Operational Actions</span>
+<span class="font-label-caps text-label-caps text-outline uppercase">Average Synthetic Availability: 99.98%</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Button 1: Create Incident -->
+<button class="w-full h-10 px-space-md bg-tertiary-container text-on-tertiary rounded-lg font-headline-sm text-headline-sm flex items-center justify-between hover:bg-tertiary-container/90 transition-colors shadow-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">add_alert</span>
+<span>Declare Incident</span>
+</div>
+<kbd class="font-badge-mono text-badge-mono bg-on-tertiary/20 px-space-xs rounded">⌥ I</kbd>
+</button>
+<!-- Button 2: Run Diagnostic Traceroute -->
+
+<!-- Button 3: Schedule Maintenance Window -->
+<button class="w-full h-10 px-space-md bg-surface-container-high text-on-surface rounded-lg font-body-md text-body-md flex items-center justify-between hover:bg-surface-bright transition-colors shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">more_time</span>
+<span>Schedule Maint. Window</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">chevron_right</span>
+</button>
+<!-- Button 4: Pause Edge Checkers -->
+<button class="w-full h-10 px-space-md bg-surface-container-high text-on-surface rounded-lg font-body-md text-body-md flex items-center justify-between hover:bg-surface-bright transition-colors shadow-sm"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">notifications_active</span><span>Manage Alert Channels</span></div><div class="flex items-center gap-space-xs"><span class="font-badge-mono text-badge-mono text-outline bg-surface-container px-space-xs py-0.5 rounded">SMTP • Bot • Webhook</span><span class="material-symbols-outlined text-outline text-[16px]">chevron_right</span></div></button>
+</div>
+</div>
+<!-- Upcoming Scheduled Maintenance -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Scheduled Maintenance</span>
+</div>
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface">1 Upcoming</span>
+</div>
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">PostgreSQL 16 Engine Minor Upgrade</span>
+<span class="font-label-code text-label-code text-outline">Cluster: prod-db-replica-mesh</span>
+</div>
+<span class="font-badge-mono text-badge-mono px-space-xs py-0.5 rounded bg-surface-container-high text-primary">In 4h 12m</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Spike detected during Cloudflare DNS resolve query (latency exceeded 420ms). Local cache warm-up initiated. Target response stabilized.</p>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="flex items-center gap-1 font-badge-mono text-badge-mono text-outline">
+<span class="material-symbols-outlined text-[14px]">timer</span> 30 min duration
+            </div>
+<div class="flex items-center gap-1 font-badge-mono text-badge-mono text-secondary">
+<span class="material-symbols-outlined text-[14px]">format_image_left</span> Auto-rollback enabled
+            </div>
+</div>
+</div>
+</div>
+<!-- Live Edge Infrastructure Visualizer Card -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-xl flex flex-col gap-space-sm"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Synthetic Engine Diagnostics</span><span class="font-badge-mono text-badge-mono text-secondary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> APScheduler Active</span></div><div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col gap-space-sm"><div class="grid grid-cols-2 gap-space-xs"><div class="flex flex-col bg-surface-container p-space-xs rounded"><span class="font-label-caps text-[10px] text-outline uppercase">Worker Threads</span><span class="font-metric-stat text-[18px] text-primary">16 / 16</span><span class="font-badge-mono text-[10px] text-secondary">0 Throttled</span></div><div class="flex flex-col bg-surface-container p-space-xs rounded"><span class="font-label-caps text-[10px] text-outline uppercase">Queue Latency</span><span class="font-metric-stat text-[18px] text-secondary">0.42 ms</span><span class="font-badge-mono text-[10px] text-outline">0 Backlog</span></div></div><div class="flex flex-col gap-1"><div class="flex items-center justify-between text-body-sm font-label-code text-[11px]"><span class="text-on-surface-variant">Dispatch Cadence</span><span class="text-on-surface">30s HTTP • 45s TCP • 60s DNS/TLS</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex"><div class="h-full bg-secondary w-[65%]"></div><div class="h-full bg-primary w-[25%]"></div><div class="h-full bg-outline-variant w-[10%]"></div></div></div></div><div class="flex items-center justify-between text-outline font-label-code text-label-code"><span>Task Engine: AsyncIO + APScheduler</span><span class="text-primary hover:underline cursor-pointer">Worker Logs</span></div></div>
+</div>
+</div>
+<footer class="w-full pt-space-md pb-space-sm border-t border-surface-container-highest/40 flex items-center justify-between text-outline font-label-code text-[11px]"><span>VigilNode — MCA Capstone Project • Developed by Shubham Bind</span><span class="font-badge-mono text-[10px] text-on-surface-variant">v4.18-prod</span></footer></div></main></div>
+
+
+
+
+
+
+
+
+
+  <script src="vigilnode-client.js"></script>
+</body></html>

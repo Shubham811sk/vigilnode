@@ -1,0 +1,512 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-surface": "#d3e4fe", "error": "#ffb4ab", "tertiary-container": "#ff5451", "surface-bright": "#2a3a4f", "on-primary-container": "#00285d", "on-tertiary": "#68000a", "surface-container-highest": "#26364a", "outline": "#8c909f", "on-surface": "#d3e4fe", "on-error": "#690005", "on-secondary-fixed-variant": "#005236", "on-secondary": "#003824", "surface-container-lowest": "#000f21", "on-tertiary-container": "#5c0008", "surface-tint": "#adc6ff", "on-primary-fixed-variant": "#004395", "on-surface-variant": "#c2c6d6", "inverse-on-surface": "#213145", "primary-container": "#4d8eff", "on-secondary-fixed": "#002113", "secondary-container": "#00a572", "secondary-fixed": "#6ffbbe", "surface-variant": "#26364a", "on-background": "#d3e4fe", "secondary-fixed-dim": "#4edea3", "secondary": "#4edea3", "background": "#031427", "primary": "#adc6ff", "tertiary-fixed-dim": "#ffb3ad", "inverse-primary": "#005ac2", "on-primary-fixed": "#001a42", "surface-dim": "#031427", "primary-fixed-dim": "#adc6ff", "surface-container-high": "#1b2b3f", "tertiary": "#ffb3ad", "tertiary-fixed": "#ffdad7", "surface-container-low": "#0b1c30", "on-tertiary-fixed-variant": "#930013", "on-tertiary-fixed": "#410004", "primary-fixed": "#d8e2ff", "outline-variant": "#424754", "surface-container": "#102034", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-primary": "#002e6a", "on-secondary-container": "#00311f", "surface": "#031427" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1rem", "margin-mobile": "1rem", "space-xs": "0.25rem", "space-2xs": "0.125rem", "space-sm": "0.5rem", "gutter": "1rem", "margin": "1.5rem", "gutter-mobile": "0.5rem", "space-xl": "1.5rem", "space-2xl": "2rem", "gutter-tablet": "0.75rem", "space-md": "0.75rem" }, "fontFamily": { "body-md": ["Inter"], "label-caps": ["Inter"], "headline-lg": ["Inter"], "label-code": ["JetBrains Mono"], "badge-mono": ["JetBrains Mono"], "headline-md": ["Inter"], "body-lg": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-sm": ["Inter"], "display-lg": ["Inter"], "metric-stat": ["JetBrains Mono"], "body-sm": ["Inter"] }, "fontSize": { "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-code": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "500" }], "badge-mono": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "metric-stat": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.03em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)] pt-safe"><div class="h-16 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold">VigilNode</span><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span></div></div><div class="flex items-center gap-space-sm"><button class="relative w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-tertiary-container ring-2 ring-surface"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-code text-label-code font-bold tracking-tight"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin-mobile py-space-lg gap-space-xl pb-32">
+<!-- Top Navigation & Breadcrumb -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<a class="inline-flex items-center gap-space-2xs text-on-surface-variant hover:text-on-surface transition-colors py-1" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="font-label-code text-label-code text-primary">Monitors / Add New</span>
+</a>
+<span class="inline-flex items-center gap-space-2xs px-2 py-0.5 rounded bg-surface-container-highest text-secondary font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        Draft v1 • APScheduler Ready
+      </span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-on-surface tracking-tight mt-1">
+      Add New Monitor
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+      Configure a new multi-protocol service availability check for backend fleet monitoring.
+    </p>
+</div>
+<!-- SECTION 1: Basic Information -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-badge-mono text-badge-mono uppercase font-bold tracking-wider">01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Basic Information</h2>
+</div>
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<!-- Monitor Name Input -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="monitor-name">MONITOR NAME *</label>
+<span class="font-body-sm text-body-sm text-outline">Required</span>
+</div>
+<input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:ring-0 focus:bg-surface-bright transition-all" id="monitor-name" placeholder="e.g. Production Payment Ingestion Service" type="text" value="Production Payment Ingestion Service">
+<span class="font-body-sm text-body-sm text-outline">
+          Unique human-readable identifier for notifications &amp; dashboards.
+        </span>
+</div>
+<!-- Protocol Selection 2x2 Grid -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">SYNTHETIC PROTOCOL *</label>
+<div class="grid grid-cols-2 gap-space-sm" id="protocol-selector"><!-- Protocol 1: HTTP/HTTPS (Active) -->
+<button id="proto-btn-http" onclick="switchProtocol('http')" class="protocol-card flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high transition-all relative overflow-hidden group shadow-sm bg-primary/10 ring-1 ring-primary" type="button">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="material-symbols-outlined text-[20px] text-primary">http</span>
+<span class="protocol-indicator material-symbols-outlined text-[18px] text-primary">check_circle</span>
+</div>
+<span class="font-label-code text-label-code font-bold text-on-surface">HTTP / REST</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate w-full">Web APIs &amp; TLS endpoints</span>
+</button>
+<!-- Protocol 2: TCP Socket -->
+<button id="proto-btn-tcp" onclick="switchProtocol('tcp')" class="protocol-card flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all group shadow-sm" type="button">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors">lan</span>
+<span class="protocol-indicator w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+<span class="font-label-code text-label-code font-bold text-on-surface">TCP Port</span>
+<span class="font-body-sm text-body-sm text-outline truncate w-full">Raw socket connection</span>
+</button>
+<!-- Protocol 3: DNS Query -->
+<button id="proto-btn-dns" onclick="switchProtocol('dns')" class="protocol-card flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all group shadow-sm" type="button">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors">dns</span>
+<span class="protocol-indicator w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+<span class="font-label-code text-label-code font-bold text-on-surface">DNS Query</span>
+<span class="font-body-sm text-body-sm text-outline truncate w-full">A, AAAA, CNAME verify</span>
+</button>
+<!-- Protocol 4: SSL Watchdog -->
+<button id="proto-btn-ssl" onclick="switchProtocol('ssl')" class="protocol-card flex flex-col text-left p-space-sm rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-all group shadow-sm" type="button">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors">verified_user</span>
+<span class="protocol-indicator w-2 h-2 rounded-full bg-outline-variant"></span>
+</div>
+<span class="font-label-code text-label-code font-bold text-on-surface">SSL / TLS</span>
+<span class="font-body-sm text-body-sm text-outline truncate w-full">Cert expiry watchdog</span>
+</button></div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Protocol Specifications -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-badge-mono text-badge-mono uppercase font-bold tracking-wider">02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Target Endpoint &amp; Method</h2>
+</div>
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md"><!-- Protocol Panel: HTTP / REST -->
+<div id="proto-panel-http" class="flex flex-col gap-space-md">
+  <!-- HTTP Method Selector Chips -->
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant">HTTP REQUEST METHOD</label>
+    <div class="grid grid-cols-4 gap-space-xs">
+      <button class="h-10 rounded bg-primary text-on-primary font-label-code text-label-code font-bold shadow-sm flex items-center justify-center" type="button">GET</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">POST</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">HEAD</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">PUT</button>
+    </div>
+  </div>
+  <!-- Target URL Endpoint -->
+  <div class="flex flex-col gap-space-xs">
+    <div class="flex items-center justify-between">
+      <label class="font-label-caps text-label-caps text-on-surface-variant" for="target-url">TARGET ENDPOINT URL *</label>
+      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-badge-mono text-badge-mono">APScheduler Core</span>
+    </div>
+    <div class="flex items-center w-full h-11 rounded bg-surface-container-highest px-space-md">
+      <span class="text-secondary font-label-code text-label-code mr-1">https://</span>
+      <input class="flex-1 bg-transparent text-on-surface font-label-code text-label-code focus:outline-none min-w-0" id="target-url" placeholder="api.example.com/v1/health" type="text" value="api.vigilnode.dev/v1/health">
+    </div>
+  </div>
+  <!-- Expected HTTP Status Codes -->
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant" for="status-codes">EXPECTED STATUS CODES</label>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="status-codes" type="text" value="200, 201, 204">
+    <span class="font-body-sm text-body-sm text-outline">Comma-separated acceptable HTTP response codes.</span>
+  </div>
+  <!-- Response Body Assertion -->
+  <div class="flex flex-col gap-space-xs">
+    <div class="flex items-center justify-between">
+      <label class="font-label-caps text-label-caps text-on-surface-variant" for="body-assert">RESPONSE BODY ASSERTION</label>
+      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-badge-mono text-badge-mono">JSON / Substring</span>
+    </div>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-secondary font-label-code text-label-code focus:outline-none" id="body-assert" type="text" value="{&quot;status&quot;: &quot;ok&quot;}">
+  </div>
+  <!-- Custom Request Headers Collapsible Card -->
+  <div class="flex flex-col rounded-lg bg-surface-container p-space-md gap-space-sm">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-space-xs">
+        <span class="material-symbols-outlined text-[18px] text-primary">data_object</span>
+        <span class="font-label-code text-label-code font-semibold text-on-surface">Headers (2 active)</span>
+      </div>
+      <button class="px-2 py-1 rounded bg-surface-container-highest hover:bg-surface-bright text-primary font-badge-mono text-badge-mono flex items-center gap-1 transition-colors" type="button">
+        <span class="material-symbols-outlined text-[14px]">add</span> Add
+      </button>
+    </div>
+    <!-- Header Rows -->
+    <div class="flex flex-col gap-space-xs">
+      <div class="flex items-center gap-space-xs bg-surface-container-highest/60 p-space-xs rounded">
+        <span class="font-label-code text-label-code text-primary-container shrink-0 w-24 truncate">Authorization</span>
+        <span class="text-outline font-label-code text-label-code">:</span>
+        <span class="font-label-code text-label-code text-on-surface-variant truncate flex-1">Bearer tok_9a87d...</span>
+        <button class="w-8 h-8 flex items-center justify-center text-outline hover:text-error transition-colors" type="button">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+      <div class="flex items-center gap-space-xs bg-surface-container-highest/60 p-space-xs rounded">
+        <span class="font-label-code text-label-code text-primary-container shrink-0 w-24 truncate">User-Agent</span>
+        <span class="text-outline font-label-code text-label-code">:</span>
+        <span class="font-label-code text-label-code text-on-surface-variant truncate flex-1">VigilNode-Probe/1.0</span>
+        <button class="w-8 h-8 flex items-center justify-center text-outline hover:text-error transition-colors" type="button">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Protocol Panel: TCP Port -->
+<div id="proto-panel-tcp" class="hidden flex flex-col gap-space-md">
+  <div class="flex flex-col gap-space-xs">
+    <div class="flex items-center justify-between">
+      <label class="font-label-caps text-label-caps text-on-surface-variant" for="tcp-host">HOSTNAME / IP ADDRESS *</label>
+      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-badge-mono text-badge-mono">TCP Socket</span>
+    </div>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="tcp-host" placeholder="e.g. db.internal.vigilnode.dev or 10.0.4.12" type="text" value="db.internal.vigilnode.dev">
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant" for="tcp-port">TARGET PORT *</label>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="tcp-port" placeholder="e.g. 5432, 6379, 443, 80" type="number" value="5432">
+    <span class="font-body-sm text-body-sm text-outline">Common ports: 80 (HTTP), 443 (HTTPS), 5432 (PostgreSQL), 6379 (Redis).</span>
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant">SOCKET CONNECTION TIMEOUT</label>
+    <div class="flex items-center justify-between h-11 px-space-md rounded bg-surface-container-highest">
+      <span class="font-label-code text-label-code text-on-surface">3,000 ms (3s Default)</span>
+      <span class="material-symbols-outlined text-[18px] text-outline">timer</span>
+    </div>
+  </div>
+  <div class="flex items-center gap-space-sm p-space-md rounded-lg bg-surface-container">
+    <span class="material-symbols-outlined text-secondary text-[20px] shrink-0">lan</span>
+    <div class="flex flex-col gap-space-2xs">
+      <span class="font-label-caps text-label-caps text-secondary uppercase">TCP SYN Handshake Validation</span>
+      <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Initiates raw non-blocking TCP socket connect probe. Marks service UP when socket handshake succeeds without RST/Timeout.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Protocol Panel: DNS Lookup -->
+<div id="proto-panel-dns" class="hidden flex flex-col gap-space-md">
+  <div class="flex flex-col gap-space-xs">
+    <div class="flex items-center justify-between">
+      <label class="font-label-caps text-label-caps text-on-surface-variant" for="dns-domain">DOMAIN NAME *</label>
+      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-badge-mono text-badge-mono">DNS Resolver</span>
+    </div>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="dns-domain" placeholder="e.g. ns1.vigilnode.dev" type="text" value="api.vigilnode.dev">
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant">DNS RECORD TYPE</label>
+    <div class="grid grid-cols-4 gap-space-xs">
+      <button class="h-10 rounded bg-primary text-on-primary font-label-code text-label-code font-bold shadow-sm flex items-center justify-center" type="button">A</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">AAAA</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">CNAME</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">MX</button>
+    </div>
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant" for="dns-expected">EXPECTED DNS RESPONSE VALUE / IP</label>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-secondary font-label-code text-label-code focus:outline-none" id="dns-expected" placeholder="e.g. 76.76.21.21 or cname.vigilnode.dev" type="text" value="76.76.21.21">
+    <span class="font-body-sm text-body-sm text-outline">Optional: verify exact resolved IPv4, IPv6, or target CNAME host.</span>
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant">DNS RESOLUTION TIMEOUT</label>
+    <div class="flex items-center justify-between h-11 px-space-md rounded bg-surface-container-highest">
+      <span class="font-label-code text-label-code text-on-surface">2,000 ms (2s Default)</span>
+      <span class="material-symbols-outlined text-[18px] text-outline">timer</span>
+    </div>
+  </div>
+</div>
+
+<!-- Protocol Panel: SSL / TLS Watchdog -->
+<div id="proto-panel-ssl" class="hidden flex flex-col gap-space-md">
+  <div class="flex flex-col gap-space-xs">
+    <div class="flex items-center justify-between">
+      <label class="font-label-caps text-label-caps text-on-surface-variant" for="ssl-host">DOMAIN / HOSTNAME *</label>
+      <span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-badge-mono text-badge-mono">Cert Watchdog</span>
+    </div>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="ssl-host" placeholder="e.g. vigilnode.dev" type="text" value="vigilnode.dev">
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant" for="ssl-port">SSL PORT</label>
+    <input class="w-full h-11 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code focus:outline-none" id="ssl-port" type="number" value="443">
+    <span class="font-body-sm text-body-sm text-outline">Standard TLS endpoint port (Default 443).</span>
+  </div>
+  <div class="flex flex-col gap-space-xs">
+    <label class="font-label-caps text-label-caps text-on-surface-variant">CERTIFICATE EXPIRY WARNING THRESHOLD</label>
+    <div class="grid grid-cols-3 gap-space-xs">
+      <button class="h-10 rounded bg-primary text-on-primary font-label-code text-label-code font-bold shadow-sm flex items-center justify-center" type="button">30 days</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">15 days</button>
+      <button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-bold transition-colors flex items-center justify-center" type="button">7 days</button>
+    </div>
+  </div>
+  <div class="flex items-center gap-space-sm p-space-md rounded-lg bg-surface-container">
+    <span class="material-symbols-outlined text-secondary text-[20px] shrink-0">verified_user</span>
+    <div class="flex flex-col gap-space-2xs">
+      <span class="font-label-caps text-label-caps text-secondary uppercase">Certificate Validity Check</span>
+      <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Validates trust chain, root authority, CN/SAN matches, and alerts before certificate expiration reaches the threshold.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Protocol Support Reference Tray -->
+<div class="rounded-lg bg-surface-container-highest/30 p-space-sm flex flex-col gap-space-xs">
+  <div class="flex items-center justify-between cursor-pointer" onclick="document.getElementById('other-proto-info').classList.toggle('hidden')">
+    <span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+      <span class="material-symbols-outlined text-[16px] text-primary">info</span>
+      Other supported protocol payloads
+    </span>
+    <span class="material-symbols-outlined text-[18px] text-outline">expand_more</span>
+  </div>
+  <div class="hidden flex flex-col gap-space-xs pt-space-xs text-outline font-body-sm text-body-sm" id="other-proto-info">
+    <div><strong class="text-on-surface font-label-code text-label-code">TCP:</strong> Hostname (e.g., db.internal) + Port (e.g., 5432)</div>
+    <div><strong class="text-on-surface font-label-code text-label-code">DNS:</strong> Domain resolver + Query Record (A, AAAA, MX, CNAME)</div>
+    <div><strong class="text-on-surface font-label-code text-label-code">SSL:</strong> Hostname + Port 443 + Expiry threshold alert (14 days)</div>
+  </div>
+</div></div>
+</section>
+<!-- SECTION 3: Polling Cadence & Failure Thresholds -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-badge-mono text-badge-mono uppercase font-bold tracking-wider">03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Polling Cadence &amp; Engine</h2>
+</div>
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<!-- Polling Frequency Preset Chips -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-caps text-label-caps text-on-surface-variant">CHECK CADENCE (INTERVAL)</label>
+<span class="font-label-code text-label-code text-secondary font-bold">1 min selected</span>
+</div>
+<div class="grid grid-cols-4 gap-space-xs">
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors" type="button">15s</button>
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors" type="button">30s</button>
+<button class="h-10 rounded bg-primary text-on-primary font-label-code text-label-code font-bold shadow-sm" type="button">1 min</button>
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors" type="button">5 min</button>
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors" type="button">15 min</button>
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors" type="button">30 min</button>
+<button class="h-10 rounded bg-surface-container-highest text-on-surface-variant hover:text-on-surface font-label-code text-label-code font-medium transition-colors col-span-2" type="button">1 hour</button>
+</div>
+<div class="mt-1"><input class="w-full h-10 px-space-md rounded bg-surface-container-highest text-on-surface font-label-code text-label-code placeholder-outline focus:outline-none text-body-sm" placeholder="Custom: e.g. 45s, 2h (Supported range: 15s - 24h)" type="text">
+<span class="font-body-sm text-body-sm text-outline mt-1 inline-block">Supported range: 15s to 24h (Min: 15 seconds, Max: 24 hours)</span></div>
+</div>
+<!-- Timeout & Failure Thresholds (2-Col Mobile Reflow) -->
+<div class="grid grid-cols-1 gap-space-md">
+<!-- Request Timeout -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">SOCKET TIMEOUT</label>
+<div class="flex items-center justify-between h-11 px-space-md rounded bg-surface-container-highest">
+<span class="font-label-code text-label-code text-on-surface">5,000 ms (5s Default)</span>
+<span class="material-symbols-outlined text-[18px] text-outline">timer</span>
+</div>
+</div>
+<!-- Failure Retry Threshold -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">CONSECUTIVE FAILURE RETRIES</label>
+<div class="flex items-center justify-between h-11 px-space-md rounded bg-surface-container-highest">
+<span class="font-label-code text-label-code text-on-surface">3 Consecutive Failures</span>
+<span class="material-symbols-outlined text-[18px] text-outline">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Alert Trigger Policy Callout -->
+<div class="flex items-start gap-space-sm p-space-md rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 shrink-0">verified</span>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Flap Damping Protocol</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            Marks monitor <span class="text-error font-medium">DOWN</span> and dispatches alerts only after 3 consecutive failed probes to eliminate transient edge noise and false positive pages.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Incident Notification Channels -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-badge-mono text-badge-mono uppercase font-bold tracking-wider">04</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Alert Notification Relays</h2>
+</div>
+<div class="flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Select notification channels triggered when this synthetic probe drops into a degraded or outage state.
+      </p>
+<!-- Relay Cards -->
+<div class="flex flex-col gap-space-xs">
+<!-- Channel 1: Email SMTP (ON) -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Email SMTP</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-badge-mono text-badge-mono">Active</span>
+</div>
+<span class="font-label-code text-label-code text-outline truncate">admin@vigilnode.dev</span>
+</div>
+</div>
+<!-- Toggle Active -->
+<div class="w-10 h-6 rounded-full bg-primary flex items-center px-1 cursor-pointer shrink-0">
+<div class="w-4 h-4 rounded-full bg-on-primary ml-auto shadow-sm"></div>
+</div>
+</div>
+<!-- Channel 2: Telegram Bot (ON) -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Telegram Bot</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-badge-mono text-badge-mono">Ready</span>
+</div>
+<span class="font-label-code text-label-code text-outline truncate">@VigilNodeOpsBot • #4092</span>
+</div>
+</div>
+<!-- Toggle Active -->
+<div class="w-10 h-6 rounded-full bg-primary flex items-center px-1 cursor-pointer shrink-0">
+<div class="w-4 h-4 rounded-full bg-on-primary ml-auto shadow-sm"></div>
+</div>
+</div>
+<!-- Channel 3: Discord Webhook (ON) -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">tag</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Discord Webhook</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-badge-mono text-badge-mono">Hooked</span>
+</div>
+<span class="font-label-code text-label-code text-outline truncate">#infra-alerts (Active)</span>
+</div>
+</div>
+<!-- Toggle Active -->
+<div class="w-10 h-6 rounded-full bg-primary flex items-center px-1 cursor-pointer shrink-0">
+<div class="w-4 h-4 rounded-full bg-on-primary ml-auto shadow-sm"></div>
+</div>
+</div>
+<!-- Channel 4: Slack Webhook (OFF) -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container opacity-60">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-9 h-9 rounded bg-surface-container-highest flex items-center justify-center text-outline shrink-0">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface">Slack Incoming</span>
+<span class="font-label-code text-label-code text-outline truncate">Not configured - tap to set URL</span>
+</div>
+</div>
+<!-- Toggle Inactive -->
+<div class="w-10 h-6 rounded-full bg-surface-container-highest flex items-center px-1 cursor-pointer shrink-0">
+<div class="w-4 h-4 rounded-full bg-outline shadow-sm"></div>
+</div>
+</div>
+</div>
+<!-- Scope Footnote -->
+<div class="px-space-xs">
+<p class="font-body-sm text-body-sm text-outline">
+          * Strictly capstone-scoped relays. No enterprise SMS gateways, PagerDuty, or OpsGenie dependencies required.
+        </p>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Scheduler Dry-Run Test Console -->
+<section class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-badge-mono text-badge-mono uppercase font-bold tracking-wider">05</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Dry-Run Test Console</h2>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-badge-mono text-badge-mono flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">refresh</span> Run Test
+      </button>
+</div>
+<!-- Terminal Box -->
+<div class="flex flex-col rounded-xl bg-surface-container-lowest overflow-hidden shadow-lg">
+<div class="flex items-center justify-between px-space-md py-space-xs bg-surface-container-low">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-code text-label-code text-on-surface-variant ml-2">APScheduler // async-task-worker-01</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-badge-mono text-badge-mono">READY</span>
+</div>
+<div class="p-space-md font-label-code text-label-code flex flex-col gap-space-xs overflow-x-auto leading-relaxed">
+<div class="text-outline flex items-center gap-2">
+<span class="text-secondary font-bold">[INIT]</span>
+<span>TCP socket connection ...</span>
+<span class="text-on-surface ml-auto">4ms</span>
+</div>
+<div class="text-outline flex items-center gap-2">
+<span class="text-primary font-bold">[EXEC]</span>
+<span class="truncate">HTTP GET https://api.vigilnode.dev/v1/health ...</span>
+<span class="text-on-surface ml-auto">28ms</span>
+</div>
+<div class="text-outline flex items-center gap-2">
+<span class="text-secondary font-bold">[RESP]</span>
+<span>Status 200 OK</span>
+<span class="text-secondary font-bold ml-auto">MATCH</span>
+</div>
+<div class="text-outline flex items-center gap-2">
+<span class="text-secondary font-bold">[EVAL]</span>
+<span>Keyword {"status": "ok"}</span>
+<span class="text-secondary font-bold ml-auto">MATCH</span>
+</div>
+<div class="pt-2 text-secondary flex items-center justify-between font-bold">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+            Verified READY
+          </span>
+<span class="font-badge-mono text-badge-mono text-secondary">Total roundtrip: 32ms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: Form Actions -->
+<section class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Save & Deploy Button -->
+<button class="w-full h-12 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs shadow-md transition-all active:scale-[0.99]" type="button"><span class="material-symbols-outlined text-[20px]">check_circle</span>
+Save Monitor</button>
+<!-- Dry-run Test Trigger Button -->
+<button class="w-full h-11 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm font-medium flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">play_arrow</span>
+      Run Synthetic Dry-Test
+    </button>
+<!-- Discard / Cancel Link -->
+<button class="h-10 text-outline hover:text-on-surface-variant font-label-code text-label-code text-center transition-colors" type="button">
+      Cancel / Discard Draft
+    </button>
+</section>
+</div>
+<script>
+  // Simple interactive protocol picker simulation
+  const cards = document.querySelectorAll('.protocol-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => {
+        c.classList.remove('bg-primary/10');
+        const icon = c.querySelector('.material-symbols-outlined:last-child');
+        if (icon && icon.textContent === 'check_circle') {
+          icon.outerHTML = '<span class="w-2 h-2 rounded-full bg-outline-variant"></span>';
+        }
+      });
+      card.classList.add('bg-primary/10');
+      const dot = card.querySelector('.bg-outline-variant');
+      if (dot) {
+        dot.outerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">check_circle</span>';
+      }
+    });
+  });
+</script><footer class="mt-auto px-space-lg py-space-md text-center bg-surface-container-lowest/60 backdrop-blur-sm"><p class="font-label-code text-label-code text-on-surface-variant opacity-80 leading-relaxed">VigilNode Server / APScheduler Core • <span class="text-secondary font-medium">Active</span><br><span class="font-body-sm text-body-sm text-outline">Project Owner: Shubham Bind • VigilNode MCA Capstone Project</span></p></footer></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-low/90 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.5)]" data-active-classes="text-secondary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center gap-space-2xs min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-caps text-label-caps tracking-wider">Dashboard</span></a><a aria-current="page" class="flex flex-col items-center justify-center gap-space-2xs min-w-[56px] min-h-[44px] transition-colors text-secondary font-semibold" data-path="monitors" href="#"><span class="material-symbols-outlined text-[20px]">dns</span><span class="font-label-caps text-label-caps tracking-wider">Monitors</span></a><a class="flex flex-col items-center justify-center gap-space-2xs min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="incidents" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="font-label-caps text-label-caps tracking-wider">Incidents</span></a><a class="flex flex-col items-center justify-center gap-space-2xs min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-caps text-label-caps tracking-wider">Analytics</span></a><a class="flex flex-col items-center justify-center gap-space-2xs min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-caps text-label-caps tracking-wider">Settings</span></a></div></nav>
+
+  <script src="vigilnode-client.js"></script>
+</body></html>

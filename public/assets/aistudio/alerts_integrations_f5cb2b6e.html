@@ -1,0 +1,1154 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_dashboard" name="shell-type">
+<title>Alerts &amp; Integrations — VigilNode</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0b1c30; }
+    ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "background": "#031427",
+            "surface": "#031427",
+            "surface-container-lowest": "#020d1a",
+            "surface-container-low": "#0b1c30",
+            "surface-container": "#112744",
+            "surface-container-high": "#183256",
+            "surface-container-highest": "#21426e",
+            "border-line": "#1e3a5f",
+            "primary": "#3b82f6",
+            "primary-container": "#1d4ed8",
+            "secondary": "#10b981",
+            "secondary-container": "#059669",
+            "tertiary": "#f59e0b",
+            "error": "#ef4444",
+            "error-container": "#7f1d1d",
+            "on-surface": "#e2e8f0",
+            "on-surface-variant": "#94a3b8",
+            "outline": "#64748b"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background font-sans text-on-surface antialiased selection:bg-primary selection:text-white">
+<!-- SIDEBAR NAVIGATION -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low border-r border-border-line z-50 flex flex-col justify-between shadow-2xl">
+<div class="flex flex-col flex-1 overflow-y-auto">
+<!-- Top Brand identity -->
+<div class="h-16 px-4 flex items-center justify-between border-b border-border-line bg-surface-container-lowest/70 backdrop-blur-md">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center text-primary shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-base text-white tracking-tight leading-none">VigilNode</span>
+<span class="font-mono text-[11px] text-primary leading-tight mt-1">v2.4 Core</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse shadow-[0_0_6px_#10b981]"></span>
+<span class="font-mono text-[10px] font-semibold text-secondary uppercase tracking-wider">• ACTIVE</span>
+</div>
+</div>
+<!-- MAIN NAVIGATION -->
+<div class="px-4 pt-5 pb-2">
+<span class="font-mono text-[11px] font-semibold text-outline uppercase tracking-wider">Main</span>
+</div>
+<nav class="flex flex-col gap-1 px-3">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">dashboard</span>
+<span>Dashboard</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-60">chevron_right</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">dns</span>
+<span>Monitors</span>
+</div>
+<span class="font-mono text-[11px] bg-secondary/20 text-secondary border border-secondary/30 px-2 py-0.5 rounded-md font-medium">148 Up</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">add_circle</span>
+<span>Add Monitor</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">query_stats</span>
+<span>Monitor Details</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px] text-error">warning</span>
+<span>Incidents</span>
+</div>
+<span class="font-mono text-[11px] bg-error/20 text-error border border-error/30 px-2 py-0.5 rounded-md font-medium">1 Active</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">event_repeat</span>
+<span>Scheduled Maintenance</span>
+</div>
+</a>
+</nav>
+<!-- OPERATIONS NAVIGATION -->
+<div class="px-4 pt-5 pb-2">
+<span class="font-mono text-[11px] font-semibold text-outline uppercase tracking-wider">Operations</span>
+</div>
+<nav class="flex flex-col gap-1 px-3">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-primary/20 text-white font-medium border border-primary/40 shadow-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px] text-primary">notifications_active</span>
+<span>Alerts &amp; Integrations</span>
+</div>
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_#3b82f6]"></span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">public</span>
+<span>Public Status Page</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline">open_in_new</span>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">analytics</span>
+<span>Analytics</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">settings</span>
+<span>Settings</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-white transition-colors text-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[19px]">manage_accounts</span>
+<span>User Management</span>
+</div>
+</a>
+</nav>
+</div>
+<!-- BOTTOM ATTRIBUTION CARD -->
+<div class="p-3 border-t border-border-line bg-surface-container-lowest/80">
+<div class="p-3 rounded-lg bg-surface-container border border-border-line flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-bold text-xs text-white">VigilNode</span>
+<span class="font-mono text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 uppercase">Capstone</span>
+</div>
+<p class="font-mono text-[10px] text-on-surface-variant leading-tight">MCA Capstone Project</p>
+<div class="pt-1.5 border-t border-border-line/60 flex flex-col">
+<span class="font-mono text-[10px] text-outline leading-tight">Project Owner &amp; Developed By:</span>
+<span class="font-semibold text-[11px] text-secondary leading-tight mt-0.5">Shubham Bind • Project Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN WRAPPER -->
+<div class="pl-64">
+<!-- TOPBAR -->
+<header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-low/90 backdrop-blur-xl border-b border-border-line z-40 flex items-center justify-between px-6 shadow-md">
+<!-- Search Bar -->
+<div class="flex items-center gap-3 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-14 bg-surface-container border border-border-line text-on-surface font-sans text-xs rounded-lg placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-inner" placeholder="Quick search monitors, rules, channels... (Ctrl + K)" type="text">
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 flex items-center pointer-events-none">
+<kbd class="font-mono text-[10px] bg-surface-container-high text-on-surface-variant border border-border-line px-1.5 py-0.5 rounded font-medium">Ctrl + K</kbd>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-2 bg-surface-container px-2.5 py-1.5 rounded-lg text-on-surface-variant border border-border-line/60"><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span class="font-mono text-[11px] text-on-surface">APScheduler Core: <span class="text-secondary font-semibold">ACTIVE</span></span></div><div class="h-3.5 w-px bg-border-line mx-1"></div><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px] text-secondary">verified_user</span><span class="font-mono text-[11px] text-on-surface-variant">Health: <span class="text-secondary font-semibold">99.99%</span></span></div></div></div>
+<!-- Right Topbar Controls -->
+<div class="flex items-center gap-4">
+<!-- Cadence Indicator -->
+<div class="flex items-center gap-1.5 bg-surface-container border border-border-line px-2.5 py-1 rounded-lg">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-mono text-[11px] font-semibold text-secondary tracking-wide uppercase">● LIVE 15S</span>
+</div>
+<!-- Notification Bell with unread 0 -->
+<button class="relative p-2 rounded-lg bg-surface-container border border-border-line text-on-surface-variant hover:text-white hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[19px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-low"></span></button>
+<div class="h-5 w-px bg-border-line"></div>
+<!-- User Profile: Shubham Bind -->
+<div class="flex items-center gap-2.5 pl-1"><img alt="Shubham Bind" class="w-8 h-8 rounded-full border border-border-line/60 object-cover ring-1 ring-primary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD1zeIezgFxLfcbaqHaSLPipQ0jaDay2BwWAqu1KuBiNTvEMw5qIPLPqBGoK1F9HTmfw8EPbVSwFSw4Lk_-PbzhNvHzVu0auOPoDMPfjntmbZI8dPoKw9SAZkJ6H1gWDsVHIfYydLigvsaHVMdRG3H6FkyTff5mM_m_FRajfVTYtLlPiCKQaQDmg33m1K1rtsvpsc7-FAJtmeA2bW4v0Jzwzjz8O6BIqPvx3lRa-c"><div class="hidden sm:flex flex-col text-left leading-tight"><span class="font-sans text-xs font-semibold text-white tracking-tight">Shubham Bind</span><span class="font-mono text-[10px] text-primary tracking-tight">Project Admin</span></div></div>
+</div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="relative pt-16 min-h-screen bg-background w-full px-6 py-6 flex flex-col gap-6">
+<!-- PAGE HEADER -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-2 border-b border-border-line/60">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] font-semibold text-primary uppercase tracking-wider">SERVICE NOTIFICATIONS</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-mono text-[11px] font-semibold text-secondary uppercase tracking-wider">DISPATCH PIPELINE</span>
+</div>
+<h1 class="text-2xl font-bold text-white tracking-tight">Alerts &amp; Integrations</h1>
+<p class="text-sm text-on-surface-variant max-w-3xl">
+            Configure multi-channel dispatch, consecutive failure thresholds, flapping protection, and test delivery.
+          </p>
+</div>
+<div class="flex items-center gap-3 flex-wrap">
+<button class="h-9 px-4 rounded-lg border border-border-line bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center gap-2 transition-all shadow-sm" id="open-sim-modal-btn">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span>Simulate Test Dispatch</span>
+</button>
+<button class="h-9 px-4 rounded-lg bg-gradient-to-r from-secondary-container to-primary hover:opacity-95 text-white text-xs font-semibold flex items-center gap-2 transition-all shadow-md">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>+ Add Alert Rule</span>
+</button>
+</div>
+</div>
+<!-- OVERVIEW STAT METRIC CARDS (4-column grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Metric 1 -->
+<div class="bg-surface-container-low border border-border-line p-4 rounded-xl flex flex-col justify-between shadow-sm hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-mono text-[11px] font-medium uppercase tracking-wider">Connected Channels</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">hub</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-mono text-2xl font-bold text-white">4 / 4 Active</span>
+</div>
+<div class="mt-2 pt-2 border-t border-border-line/60">
+<span class="text-[11px] text-on-surface-variant font-mono">Email SMTP, Telegram, Discord, Slack</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-low border border-border-line p-4 rounded-xl flex flex-col justify-between shadow-sm hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-mono text-[11px] font-medium uppercase tracking-wider">Active Alert Rules</span>
+<span class="material-symbols-outlined text-[18px] text-primary">rule</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-mono text-2xl font-bold text-white">8 Rules Active</span>
+</div>
+<div class="mt-2 pt-2 border-t border-border-line/60">
+<span class="text-[11px] text-on-surface-variant font-mono">2 Critical • 3 High • 2 Medium • 1 Low</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-low border border-border-line p-4 rounded-xl flex flex-col justify-between shadow-sm hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-mono text-[11px] font-medium uppercase tracking-wider">Flapping Protection</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">shield</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-mono text-2xl font-bold text-white">Active (10m / 3 Cycles)</span>
+</div>
+<div class="mt-2 pt-2 border-t border-border-line/60">
+<span class="text-[11px] text-on-surface-variant font-mono">Suppresses oscillation alerts</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-low border border-border-line p-4 rounded-xl flex flex-col justify-between shadow-sm hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-mono text-[11px] font-medium uppercase tracking-wider">24h Delivery Success</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-mono text-2xl font-bold text-secondary">99.8% Rate</span>
+</div>
+<div class="mt-2 pt-2 border-t border-border-line/60">
+<span class="text-[11px] text-on-surface-variant font-mono">1,428 Sent • 3 Retried • 0 Dropped</span>
+</div>
+</div>
+</div>
+<!-- NOTIFICATION CHANNELS SECTION (EXACTLY 4 CHANNELS) -->
+<section class="flex flex-col gap-3">
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">mark_email_read</span>
+              Notification Integration Channels
+            </h2>
+<span class="font-mono text-xs text-secondary bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded">4 Configured Transports</span>
+</div>
+<p class="text-xs text-on-surface-variant">Self-hosted webhook and messaging transports for instant outage dispatch</p>
+</div>
+<!-- 4 Channel Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Email SMTP -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 flex flex-col justify-between shadow-sm hover:border-border-line/90 transition-all">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div>
+<h3 class="font-semibold text-sm text-white leading-tight">Email SMTP</h3>
+<span class="font-mono text-[10px] text-outline">Transport: Direct SMTP</span>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center gap-1.5 bg-secondary/15 px-2 py-0.5 rounded-full border border-secondary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-mono text-[10px] font-semibold text-secondary">Active</span>
+</div>
+</div>
+<!-- Parameters -->
+<div class="bg-surface-container rounded-lg p-2.5 border border-border-line/70 flex flex-col gap-1.5 font-mono text-[11px]">
+<div class="flex justify-between">
+<span class="text-outline">SMTP Host:</span>
+<span class="text-on-surface truncate ml-2">smtp.mailgun.org (Port 587)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Encryption:</span>
+<span class="text-secondary">TLS Enabled</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Sender:</span>
+<span class="text-on-surface truncate ml-2">alerts@vigilnode.net</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Auth:</span>
+<span class="text-outline">vigilnode-dispatcher / ••••••••••••</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-4 pt-3 border-t border-border-line/60 flex items-center justify-between">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-xs font-mono text-on-surface border border-border-line transition-colors">
+                Configure
+              </button>
+<button class="px-2.5 py-1 rounded bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 font-mono text-[11px] flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Verified</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Telegram Bot -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 flex flex-col justify-between shadow-sm hover:border-border-line/90 transition-all">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</div>
+<div>
+<h3 class="font-semibold text-sm text-white leading-tight">Telegram Bot</h3>
+<span class="font-mono text-[10px] text-outline">Transport: Telegram Bot API</span>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center gap-1.5 bg-secondary/15 px-2 py-0.5 rounded-full border border-secondary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-mono text-[10px] font-semibold text-secondary">Active</span>
+</div>
+</div>
+<!-- Parameters -->
+<div class="bg-surface-container rounded-lg p-2.5 border border-border-line/70 flex flex-col gap-1.5 font-mono text-[11px]">
+<div class="flex justify-between">
+<span class="text-outline">Bot Token:</span>
+<span class="text-on-surface truncate ml-2">bot719482910:AAF...k9Q</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Chat / Group ID:</span>
+<span class="text-primary truncate ml-2">-1002948192041</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Parse Mode:</span>
+<span class="text-on-surface truncate ml-2">MarkdownV2 / HTML</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Endpoint:</span>
+<span class="text-outline">api.telegram.org</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-4 pt-3 border-t border-border-line/60 flex items-center justify-between">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-xs font-mono text-on-surface border border-border-line transition-colors">
+                Configure
+              </button>
+<button class="px-2.5 py-1 rounded bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 font-mono text-[11px] flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Verified</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Discord Webhook -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 flex flex-col justify-between shadow-sm hover:border-border-line/90 transition-all">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">sports_esports</span>
+</div>
+<div>
+<h3 class="font-semibold text-sm text-white leading-tight">Discord Webhook</h3>
+<span class="font-mono text-[10px] text-outline">Transport: Discord Webhook</span>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center gap-1.5 bg-secondary/15 px-2 py-0.5 rounded-full border border-secondary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-mono text-[10px] font-semibold text-secondary">Active</span>
+</div>
+</div>
+<!-- Parameters -->
+<div class="bg-surface-container rounded-lg p-2.5 border border-border-line/70 flex flex-col gap-1.5 font-mono text-[11px]">
+<div class="flex justify-between">
+<span class="text-outline">Webhook URL:</span>
+<span class="text-on-surface truncate ml-2">.../api/webhooks/1284.../xyz</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Channel:</span>
+<span class="text-primary truncate ml-2">#vigilnode-alerts</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Rich Embeds:</span>
+<span class="text-secondary font-semibold">Enabled (#3B82F6)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Mention:</span>
+<span class="text-outline">@here on Critical</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-4 pt-3 border-t border-border-line/60 flex items-center justify-between">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-xs font-mono text-on-surface border border-border-line transition-colors">
+                Configure
+              </button>
+<button class="px-2.5 py-1 rounded bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 font-mono text-[11px] flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Verified</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Slack Webhook -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 flex flex-col justify-between shadow-sm hover:border-border-line/90 transition-all">
+<div class="flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">tag</span>
+</div>
+<div>
+<h3 class="font-semibold text-sm text-white leading-tight">Slack Webhook</h3>
+<span class="font-mono text-[10px] text-outline">Transport: Incoming Webhook</span>
+</div>
+</div>
+<!-- Toggle Switch -->
+<div class="flex items-center gap-1.5 bg-secondary/15 px-2 py-0.5 rounded-full border border-secondary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-mono text-[10px] font-semibold text-secondary">Active</span>
+</div>
+</div>
+<!-- Parameters -->
+<div class="bg-surface-container rounded-lg p-2.5 border border-border-line/70 flex flex-col gap-1.5 font-mono text-[11px]">
+<div class="flex justify-between">
+<span class="text-outline">Webhook URL:</span>
+<span class="text-on-surface truncate ml-2">.../services/T00/B00/XXXX...</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Channel:</span>
+<span class="text-primary truncate ml-2">#prod-alerts</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Bot Display Name:</span>
+<span class="text-on-surface truncate ml-2">VigilNode Bot</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Icon:</span>
+<span class="text-outline">:rotating_light:</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-4 pt-3 border-t border-border-line/60 flex items-center justify-between">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-xs font-mono text-on-surface border border-border-line transition-colors">
+                Configure
+              </button>
+<button class="px-2.5 py-1 rounded bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/30 font-mono text-[11px] flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Verified</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ALERT ENGINE SIMULATOR / INTERACTIVE TEST DISPATCHER -->
+<section class="bg-surface-container-low border border-border-line rounded-xl p-5 shadow-md flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border-line/60 pb-3">
+<div class="flex flex-col">
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">science</span>
+              Alert Testing &amp; Synthetic Dispatch Simulator
+            </h2>
+<p class="text-xs text-on-surface-variant">Validate notification routing, template rendering, and delivery feedback across configured channels.</p>
+</div>
+<span class="font-mono text-xs bg-surface-container px-2.5 py-1 rounded border border-border-line text-outline">Sandbox Evaluation</span>
+</div>
+<!-- Controls layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Dropdown 1: Select Channel -->
+<div class="flex flex-col gap-1.5">
+<label class="font-mono text-[11px] uppercase tracking-wider text-outline font-semibold">Select Channel</label>
+<select class="h-9 px-3 bg-surface-container border border-border-line rounded-lg text-xs font-mono text-on-surface focus:outline-none focus:border-primary" id="sim-channel-select">
+<option value="All Channels">All Channels (Broadcast)</option>
+<option value="Email SMTP">Email SMTP</option>
+<option value="Telegram Bot">Telegram Bot</option>
+<option value="Discord Webhook">Discord Webhook</option>
+<option selected="" value="Slack Webhook">Slack Webhook</option>
+</select>
+</div>
+<!-- Dropdown 2: Synthetic Failure Trigger -->
+<div class="flex flex-col gap-1.5">
+<label class="font-mono text-[11px] uppercase tracking-wider text-outline font-semibold">Synthetic Failure Trigger</label>
+<select class="h-9 px-3 bg-surface-container border border-border-line rounded-lg text-xs font-mono text-on-surface focus:outline-none focus:border-primary" id="sim-trigger-select">
+<option selected="" value="HTTP 504 Gateway Timeout">HTTP 504 Gateway Timeout</option>
+<option value="TCP Socket Connection Refused:5432">TCP Socket Connection Refused:5432</option>
+<option value="DNS Lookup SERVFAIL">DNS Lookup SERVFAIL</option>
+<option value="SSL Certificate Expiry (&lt; 7 Days)">SSL Certificate Expiry (&lt; 7 Days)</option>
+<option value="3x Consecutive Failed Probes">3x Consecutive Failed Probes</option>
+</select>
+</div>
+<!-- Dropdown 3: Severity Level -->
+<div class="flex flex-col gap-1.5">
+<label class="font-mono text-[11px] uppercase tracking-wider text-outline font-semibold">Severity Level</label>
+<select class="h-9 px-3 bg-surface-container border border-border-line rounded-lg text-xs font-mono text-on-surface focus:outline-none focus:border-primary" id="sim-severity-select">
+<option selected="" value="Critical">Critical</option>
+<option value="High">High</option>
+<option value="Medium">Medium</option>
+<option value="Low">Low</option>
+</select>
+</div>
+</div>
+<!-- Payload preview box (monospace terminal style) -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-mono text-[11px] text-outline uppercase font-semibold">Generated Payload Preview</span>
+<span class="font-mono text-[10px] text-outline">application/json</span>
+</div>
+<div class="bg-surface-container-lowest border border-border-line rounded-lg p-3 font-mono text-xs text-on-surface-variant overflow-x-auto leading-relaxed" id="sim-payload-box">
+            [SIMULATED ALERT] [CRITICAL] Monitor 'Primary API Gateway' (HTTP/HTTPS) failed. Reason: HTTP 504 Gateway Timeout. Consecutive checks: 3. Timestamp: 2025-02-23 15:20:00 UTC.
+          </div>
+</div>
+<!-- Dispatch Action -->
+<div class="flex items-center justify-between flex-wrap gap-3">
+<button class="h-9 px-5 bg-secondary-container hover:bg-secondary text-white font-semibold text-xs rounded-lg flex items-center gap-2 transition-all shadow-md active:scale-[0.98]" id="dispatch-test-btn">
+<span class="material-symbols-outlined text-[17px]">send</span>
+<span>Dispatch Synthetic Test Notification</span>
+</button>
+<span class="font-mono text-[11px] text-outline">Dry-run payload dispatched with telemetry audit signature.</span>
+</div>
+<!-- Feedback Alert Box -->
+<div class="border border-secondary/40 bg-secondary/10 rounded-lg p-3 flex items-start gap-2.5 text-xs text-white" id="sim-feedback-banner">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-semibold text-secondary">✓ Test notification successfully received by Slack Webhook <code class="font-mono text-white bg-surface-container px-1 py-0.5 rounded">#prod-alerts</code> (Response: HTTP 200 OK — Latency: 142ms).</span>
+<span class="font-mono text-[11px] text-on-surface-variant">Signature: sha256=9b71d224b10f83fc49 | Channel Ack ID: #SLACK-ACK-88194 | Flapping State: Clean</span>
+</div>
+</div>
+</section>
+<!-- ALERT RULE CONFIGURATION MATRIX (WITH RETRY & FLAPPING PROTECTION) -->
+<section class="flex flex-col gap-3">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div class="flex flex-col">
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_tree</span>
+              Alert Rules &amp; Escalation Policies
+            </h2>
+<p class="text-xs text-on-surface-variant">Deterministic rule triggers evaluated on each monitoring poll cycle.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-mono text-xs bg-surface-container border border-border-line px-2.5 py-1 rounded text-on-surface-variant">5 Configured Policies</span>
+</div>
+</div>
+<!-- Rule List / Matrix Cards -->
+<div class="flex flex-col gap-3">
+<!-- Rule 1: Critical API Outage Consensus -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 shadow-sm hover:border-primary/40 transition-colors flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border-line/50 pb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-error/20 border border-error/30 text-error flex items-center justify-center font-bold text-xs">
+                  01
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-bold text-sm text-white">Critical API Outage Consensus</h3>
+<span class="font-mono text-[10px] bg-error/20 text-error border border-error/30 px-2 py-0.5 rounded font-bold uppercase">Critical</span>
+<span class="font-mono text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-border-line">Primary API Gateway</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5 font-mono">
+                    Trigger: <span class="text-white">HTTP/HTTPS status != 200 or timeout &gt; 5000ms</span>
+</p>
+</div>
+</div>
+<!-- Status Switch -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs text-secondary font-semibold">Active</span>
+</div>
+<div class="w-9 h-5 bg-secondary-container rounded-full relative cursor-pointer flex items-center p-0.5 shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white ml-auto shadow"></div>
+</div>
+</div>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-xs">
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Consecutive Failure Threshold</span>
+<span class="text-white font-medium">2 consecutive checks (30s delay)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Flapping Protection</span>
+<span class="text-secondary font-medium">Active (Suppresses alerts if state toggles &gt; 3 times in 10m)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Recovery Notification</span>
+<span class="text-primary font-medium">Enabled (Sent on 2 healthy cycles)</span>
+</div>
+</div>
+<!-- Dispatch Channels Row -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] text-outline">Dispatch Channels:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">mail</span> Email SMTP
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">send</span> Telegram
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">tag</span> Slack
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono text-[11px]">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded border border-border-line">Edit Rule</button>
+</div>
+</div>
+</div>
+<!-- Rule 2: Database Port Telemetry Unreachable -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 shadow-sm hover:border-primary/40 transition-colors flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border-line/50 pb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center font-bold text-xs">
+                  02
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-bold text-sm text-white">Database Port Telemetry Unreachable</h3>
+<span class="font-mono text-[10px] bg-tertiary/20 text-tertiary border border-tertiary/30 px-2 py-0.5 rounded font-bold uppercase">High</span>
+<span class="font-mono text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-border-line">PostgreSQL DB Telemetry</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5 font-mono">
+                    Trigger: <span class="text-white">TCP connection handshake timeout / refused on port 5432</span>
+</p>
+</div>
+</div>
+<!-- Status Switch -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs text-secondary font-semibold">Active</span>
+</div>
+<div class="w-9 h-5 bg-secondary-container rounded-full relative cursor-pointer flex items-center p-0.5 shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white ml-auto shadow"></div>
+</div>
+</div>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-xs">
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Consecutive Failure Threshold</span>
+<span class="text-white font-medium">3 consecutive checks (45s delay)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Flapping Protection</span>
+<span class="text-secondary font-medium">Active (Suppresses alert toggling)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Recovery Notification</span>
+<span class="text-primary font-medium">Enabled</span>
+</div>
+</div>
+<!-- Dispatch Channels Row -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] text-outline">Dispatch Channels:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">send</span> Telegram
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">sports_esports</span> Discord
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono text-[11px]">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded border border-border-line">Edit Rule</button>
+</div>
+</div>
+</div>
+<!-- Rule 3: DNS Resolution SERVFAIL Failure -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 shadow-sm hover:border-primary/40 transition-colors flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border-line/50 pb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-error/20 border border-error/30 text-error flex items-center justify-center font-bold text-xs">
+                  03
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-bold text-sm text-white">DNS Resolution SERVFAIL Failure</h3>
+<span class="font-mono text-[10px] bg-error/20 text-error border border-error/30 px-2 py-0.5 rounded font-bold uppercase">Critical</span>
+<span class="font-mono text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-border-line">Core Nameserver ns1.vigilnode.net</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5 font-mono">
+                    Trigger: <span class="text-white">DNS query fails to resolve A/AAAA record</span>
+</p>
+</div>
+</div>
+<!-- Status Switch -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs text-secondary font-semibold">Active</span>
+</div>
+<div class="w-9 h-5 bg-secondary-container rounded-full relative cursor-pointer flex items-center p-0.5 shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white ml-auto shadow"></div>
+</div>
+</div>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-xs">
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Consecutive Failure Threshold</span>
+<span class="text-white font-medium">2 consecutive checks</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Flapping Protection</span>
+<span class="text-secondary font-medium">Active (Suppresses alert toggling)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Recovery Notification</span>
+<span class="text-primary font-medium">Enabled</span>
+</div>
+</div>
+<!-- Dispatch Channels Row -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] text-outline">Dispatch Channels:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">mail</span> Email SMTP
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">send</span> Telegram
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">sports_esports</span> Discord
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">tag</span> Slack
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono text-[11px]">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded border border-border-line">Edit Rule</button>
+</div>
+</div>
+</div>
+<!-- Rule 4: SSL Certificate Expiry Warning -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 shadow-sm hover:border-primary/40 transition-colors flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border-line/50 pb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 flex items-center justify-center font-bold text-xs">
+                  04
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-bold text-sm text-white">SSL Certificate Expiry Warning</h3>
+<span class="font-mono text-[10px] bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-bold uppercase">Medium</span>
+<span class="font-mono text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-border-line">Wildcard SSL *.vigilnode.net</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5 font-mono">
+                    Trigger: <span class="text-white">Certificate validity &lt; 14 days</span>
+</p>
+</div>
+</div>
+<!-- Status Switch -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs text-secondary font-semibold">Active</span>
+</div>
+<div class="w-9 h-5 bg-secondary-container rounded-full relative cursor-pointer flex items-center p-0.5 shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white ml-auto shadow"></div>
+</div>
+</div>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-xs">
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Consecutive Failure Threshold</span>
+<span class="text-white font-medium">1 check (Daily cycle)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Flapping Protection</span>
+<span class="text-outline font-medium">Disabled (Static validity check)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Recovery Notification</span>
+<span class="text-outline font-medium">Disabled</span>
+</div>
+</div>
+<!-- Dispatch Channels Row -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] text-outline">Dispatch Channels:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">mail</span> Email SMTP
+                  </span>
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">tag</span> Slack
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono text-[11px]">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded border border-border-line">Edit Rule</button>
+</div>
+</div>
+</div>
+<!-- Rule 5: Authentication Latency Spike -->
+<div class="bg-surface-container-low border border-border-line rounded-xl p-4 shadow-sm hover:border-primary/40 transition-colors flex flex-col gap-3">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 border-b border-border-line/50 pb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 text-primary flex items-center justify-center font-bold text-xs">
+                  05
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-bold text-sm text-white">Authentication Latency Spike</h3>
+<span class="font-mono text-[10px] bg-primary/20 text-primary border border-primary/30 px-2 py-0.5 rounded font-bold uppercase">Low</span>
+<span class="font-mono text-[11px] text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-border-line">OAuth Auth Gateway</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5 font-mono">
+                    Trigger: <span class="text-white">HTTP response time &gt; 800ms</span>
+</p>
+</div>
+</div>
+<!-- Status Switch -->
+<div class="flex items-center gap-3 self-end lg:self-center">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-mono text-xs text-secondary font-semibold">Active</span>
+</div>
+<div class="w-9 h-5 bg-secondary-container rounded-full relative cursor-pointer flex items-center p-0.5 shadow-inner">
+<div class="w-4 h-4 rounded-full bg-white ml-auto shadow"></div>
+</div>
+</div>
+</div>
+<!-- Parameters Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 font-mono text-xs">
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Consecutive Failure Threshold</span>
+<span class="text-white font-medium">4 consecutive checks</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Flapping Protection</span>
+<span class="text-secondary font-medium">Active (Suppresses alert toggling)</span>
+</div>
+<div class="bg-surface-container p-2.5 rounded-lg border border-border-line/60 flex flex-col gap-0.5">
+<span class="text-outline text-[10px] uppercase font-semibold">Recovery Notification</span>
+<span class="text-primary font-medium">Enabled</span>
+</div>
+</div>
+<!-- Dispatch Channels Row -->
+<div class="flex items-center justify-between flex-wrap gap-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="font-mono text-[11px] text-outline">Dispatch Channels:</span>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-mono text-[11px] bg-surface-container-high text-white px-2 py-0.5 rounded border border-border-line flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary">sports_esports</span> Discord
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-mono text-[11px]">
+<button class="px-2 py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded border border-border-line">Edit Rule</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RECENT ALERT DELIVERY LOG & DISPATCH HISTORY -->
+<section class="bg-surface-container-low border border-border-line rounded-xl p-5 shadow-md flex flex-col gap-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex flex-col">
+<h2 class="text-base font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_toggle_off</span>
+              Recent Alert Dispatch History &amp; Audit
+            </h2>
+<p class="text-xs text-on-surface-variant">Immutable delivery records across all active dispatch targets.</p>
+</div>
+<!-- Filters -->
+<div class="flex items-center gap-2 flex-wrap">
+<select class="h-8 px-2.5 bg-surface-container border border-border-line rounded-lg font-mono text-xs text-on-surface focus:outline-none">
+<option>All Channels</option>
+<option>Email SMTP</option>
+<option>Telegram Bot</option>
+<option>Discord</option>
+<option>Slack</option>
+</select>
+<select class="h-8 px-2.5 bg-surface-container border border-border-line rounded-lg font-mono text-xs text-on-surface focus:outline-none">
+<option>All Severities</option>
+<option>Critical</option>
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+</select>
+<div class="relative">
+<input class="h-8 pl-7 pr-3 bg-surface-container border border-border-line rounded-lg text-xs font-mono text-on-surface focus:outline-none" placeholder="Filter history..." type="text">
+<span class="material-symbols-outlined absolute left-2 top-1/2 -translate-y-1/2 text-outline text-[14px]">filter_list</span>
+</div>
+</div>
+</div>
+<!-- History Table -->
+<div class="overflow-x-auto border border-border-line/70 rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-border-line bg-surface-container/60 font-mono text-[11px] text-outline uppercase tracking-wider">
+<th class="py-2.5 px-3">Timestamp</th>
+<th class="py-2.5 px-3">Monitor</th>
+<th class="py-2.5 px-3">Severity</th>
+<th class="py-2.5 px-3">Trigger Condition</th>
+<th class="py-2.5 px-3">Channel</th>
+<th class="py-2.5 px-3 text-right">Delivery Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-line/40 font-mono text-xs">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-3 text-on-surface whitespace-nowrap">Today 15:12:04 UTC</td>
+<td class="py-2.5 px-3 font-semibold text-white whitespace-nowrap">Primary API Gateway</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<span class="bg-error/20 text-error border border-error/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Critical</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface-variant">HTTP 504 Timeout</td>
+<td class="py-2.5 px-3 text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">tag</span> Slack Webhook
+                </td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<span class="text-secondary bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded font-medium">Success - 200 OK</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-3 text-on-surface whitespace-nowrap">Today 14:45:18 UTC</td>
+<td class="py-2.5 px-3 font-semibold text-white whitespace-nowrap">Core Nameserver</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<span class="bg-error/20 text-error border border-error/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Critical</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface-variant">DNS SERVFAIL</td>
+<td class="py-2.5 px-3 text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">send</span> Telegram Bot
+                </td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<span class="text-secondary bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded font-medium">Retried &amp; Delivered</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-3 text-on-surface whitespace-nowrap">Today 11:20:00 UTC</td>
+<td class="py-2.5 px-3 font-semibold text-white whitespace-nowrap">Wildcard SSL</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<span class="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Medium</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface-variant">SSL &lt; 14d Expiry</td>
+<td class="py-2.5 px-3 text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">mail</span> Email SMTP
+                </td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<span class="text-secondary bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded font-medium">Success - Sent</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container/40 transition-colors">
+<td class="py-2.5 px-3 text-on-surface whitespace-nowrap">Yesterday 22:04:12 UTC</td>
+<td class="py-2.5 px-3 font-semibold text-white whitespace-nowrap">PostgreSQL DB</td>
+<td class="py-2.5 px-3 whitespace-nowrap">
+<span class="bg-tertiary/20 text-tertiary border border-tertiary/30 px-2 py-0.5 rounded text-[10px] font-bold uppercase">High</span>
+</td>
+<td class="py-2.5 px-3 text-on-surface-variant">Recovery: HTTP 200 OK</td>
+<td class="py-2.5 px-3 text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">sports_esports</span> Discord
+                </td>
+<td class="py-2.5 px-3 text-right whitespace-nowrap">
+<span class="text-secondary bg-secondary/10 border border-secondary/30 px-2 py-0.5 rounded font-medium">Success - 200 OK</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<!-- REAL-TIME SIMULATION MODAL -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden transition-all p-4" id="sim-modal">
+<div class="w-full max-w-xl bg-surface-container border border-border-line rounded-xl shadow-2xl relative flex flex-col gap-4 p-5">
+<!-- Modal Header -->
+<div class="flex items-center justify-between border-b border-border-line pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+<h3 class="font-bold text-sm text-white">Synthetic Test Notification Broadcast</h3>
+</div>
+<button class="text-outline hover:text-white p-1 rounded transition-colors" id="close-sim-modal-btn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="flex flex-col gap-3">
+<div class="p-3 bg-surface-container-lowest border border-border-line rounded-lg font-mono text-xs text-on-surface-variant flex flex-col gap-1.5">
+<div class="flex justify-between">
+<span class="text-outline">TARGET PAYLOAD:</span>
+<span class="text-secondary font-semibold">SYNTHETIC_TRIGGER_P1</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">TRIGGER:</span>
+<span class="text-white">HTTP 504 Gateway Timeout</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">CHANNELS INVOLVED:</span>
+<span class="text-primary">Email, Telegram, Discord, Slack</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-mono text-[10px] text-outline uppercase font-semibold">Channel Delivery Confirmations</span>
+<div class="flex flex-col gap-1.5 font-mono text-xs">
+<div class="flex items-center justify-between bg-surface-container-low border border-border-line px-3 py-2 rounded">
+<span class="text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">mail</span> Email SMTP (smtp.mailgun.org)
+              </span>
+<span class="text-secondary flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[14px]">done_all</span> 250 Accepted (198ms)</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low border border-border-line px-3 py-2 rounded">
+<span class="text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">send</span> Telegram Bot (@vigilnode_bot)
+              </span>
+<span class="text-secondary flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[14px]">done_all</span> 200 OK (112ms)</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low border border-border-line px-3 py-2 rounded">
+<span class="text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">sports_esports</span> Discord (#vigilnode-alerts)
+              </span>
+<span class="text-secondary flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[14px]">done_all</span> 204 No Content (165ms)</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low border border-border-line px-3 py-2 rounded">
+<span class="text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary">tag</span> Slack Webhook (#prod-alerts)
+              </span>
+<span class="text-secondary flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[14px]">done_all</span> 200 OK (142ms)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="flex items-center justify-between pt-2 border-t border-border-line">
+<span class="font-mono text-[11px] text-outline">Simulated execution completed (0 dropped).</span>
+<button class="px-4 py-1.5 bg-primary hover:bg-primary-container text-white font-mono text-xs rounded-lg transition-colors font-medium" id="modal-ack-btn">
+          Acknowledge &amp; Close
+        </button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      const channelSelect = document.getElementById('sim-channel-select');
+      const triggerSelect = document.getElementById('sim-trigger-select');
+      const severitySelect = document.getElementById('sim-severity-select');
+      const payloadBox = document.getElementById('sim-payload-box');
+      const dispatchBtn = document.getElementById('dispatch-test-btn');
+      const feedbackBanner = document.getElementById('sim-feedback-banner');
+      
+      const modal = document.getElementById('sim-modal');
+      const openModalBtn = document.getElementById('open-sim-modal-btn');
+      const closeModalBtn = document.getElementById('close-sim-modal-btn');
+      const ackBtn = document.getElementById('modal-ack-btn');
+
+      function updatePayload() {
+        const sev = severitySelect ? severitySelect.value.toUpperCase() : 'CRITICAL';
+        const trig = triggerSelect ? triggerSelect.value : 'HTTP 504 Gateway Timeout';
+        const now = new Date().toISOString().replace('T', ' ').substring(0, 19) + ' UTC';
+        
+        if (payloadBox) {
+          payloadBox.textContent = `[SIMULATED ALERT] [${sev}] Monitor 'Primary API Gateway' (HTTP/HTTPS) failed. Reason: ${trig}. Consecutive checks: 3. Timestamp: ${now}.`;
+        }
+      }
+
+      if (channelSelect) channelSelect.addEventListener('change', updatePayload);
+      if (triggerSelect) triggerSelect.addEventListener('change', updatePayload);
+      if (severitySelect) severitySelect.addEventListener('change', updatePayload);
+
+      if (dispatchBtn) {
+        dispatchBtn.addEventListener('click', function() {
+          const ch = channelSelect ? channelSelect.value : 'Slack Webhook';
+          dispatchBtn.disabled = true;
+          dispatchBtn.innerHTML = '<span class="material-symbols-outlined text-[17px] animate-spin">refresh</span><span>Broadcasting Synthetic Probe...</span>';
+          
+          setTimeout(function() {
+            dispatchBtn.disabled = false;
+            dispatchBtn.innerHTML = '<span class="material-symbols-outlined text-[17px]">send</span><span>Dispatch Synthetic Test Notification</span>';
+            if (feedbackBanner) {
+              feedbackBanner.classList.remove('hidden');
+              feedbackBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }, 600);
+        });
+      }
+
+      function toggleModal(show) {
+        if (!modal) return;
+        if (show) modal.classList.remove('hidden');
+        else modal.classList.add('hidden');
+      }
+
+      if (openModalBtn) openModalBtn.addEventListener('click', () => toggleModal(true));
+      if (closeModalBtn) closeModalBtn.addEventListener('click', () => toggleModal(false));
+      if (ackBtn) ackBtn.addEventListener('click', () => toggleModal(false));
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) toggleModal(false);
+        });
+      }
+    })();
+  </script>
+
+
+  <script src="vigilnode-client.js"></script>
+</body></html>

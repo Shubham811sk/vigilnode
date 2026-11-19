@@ -1,0 +1,650 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary-container": "#00311f", "surface-container-low": "#0b1c30", "on-tertiary-fixed-variant": "#930013", "surface-container-lowest": "#000f21", "primary": "#adc6ff", "secondary-container": "#00a572", "surface": "#031427", "surface-bright": "#2a3a4f", "surface-container-high": "#1b2b3f", "secondary-fixed-dim": "#4edea3", "on-tertiary": "#68000a", "on-primary-fixed-variant": "#004395", "secondary": "#4edea3", "inverse-primary": "#005ac2", "outline-variant": "#424754", "error-container": "#93000a", "surface-variant": "#26364a", "on-error-container": "#ffdad6", "on-primary-fixed": "#001a42", "primary-fixed-dim": "#adc6ff", "secondary-fixed": "#6ffbbe", "inverse-on-surface": "#213145", "on-secondary-fixed": "#002113", "on-secondary-fixed-variant": "#005236", "outline": "#8c909f", "error": "#ffb4ab", "inverse-surface": "#d3e4fe", "on-primary": "#002e6a", "on-primary-container": "#00285d", "on-surface": "#d3e4fe", "on-secondary": "#003824", "primary-fixed": "d8e2ff", "on-tertiary-container": "#5c0008", "primary-container": "#4d8eff", "on-surface-variant": "#c2c6d6", "surface-container": "#102034", "surface-dim": "#031427", "tertiary-fixed-dim": "#ffb3ad", "background": "#031427", "surface-container-highest": "#26364a", "on-tertiary-fixed": "#410004", "on-error": "#690005", "tertiary-fixed": "#ffdad7", "on-background": "#d3e4fe", "surface-tint": "#adc6ff", "tertiary-container": "#ff5451", "tertiary": "#ffb3ad" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-sm": "0.5rem", "space-lg": "1rem", "margin": "1.5rem", "space-2xl": "2rem", "margin-mobile": "1rem", "space-md": "0.75rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-tablet": "0.75rem", "space-2xs": "0.125rem", "space-xl": "1.5rem", "gutter-mobile": "0.5rem" }, fontFamily: { "display-lg": ["Inter"], "body-lg": ["Inter"], "metric-stat": ["JetBrains Mono"], "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-code": ["JetBrains Mono"], "headline-md": ["Inter"], "badge-mono": ["JetBrains Mono"], "headline-sm": ["Inter"], "label-caps": ["Inter"] }, fontSize: { "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }], "body-lg": ["15px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }], "metric-stat": ["24px", { lineHeight: "28px", letterSpacing: "-0.03em", fontWeight: "500" }], "body-md": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg-mobile": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-code": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "500" }], "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "badge-mono": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }], "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }], "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#031427;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col items-center justify-start"><div class="w-full max-w-[390px] min-h-screen relative flex flex-col bg-surface shadow-2xl"><header class="fixed top-0 w-full max-w-[390px] z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)] pt-safe"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="flex items-center gap-space-xs pl-space-2xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">VigilNode</span><span class="inline-block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_0_rgba(16,185,129,0.5)] animate-pulse"></span></div></div><div class="flex items-center gap-space-xs"><button class="relative w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface"></span></button><div class="flex items-center pl-space-2xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_6px_rgba(173,198,255,0.2)]"><span class="font-badge-mono text-badge-mono text-on-primary font-semibold">SB</span></div></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full pb-28 px-margin-mobile gap-space-lg">
+<!-- SECTION 1: SUB-HEADER & QUICK ACTION BAR -->
+<section class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(78,222,163,0.5)]"></span>
+<span class="font-label-code text-[10px] tracking-widest text-secondary font-semibold uppercase truncate">
+        IDENTITY // ACCESS &amp; RBAC • DIR v2.4 • POSTGRES AUTH
+      </span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-semibold tracking-tight">
+        User Management
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-2xs">
+        Manage user accounts, RBAC access permissions, session revocations, and administrative security audit stream.
+      </p>
+</div>
+<div class="grid grid-cols-2 gap-space-sm mt-space-xs">
+<button class="h-11 px-3 bg-primary-container text-on-primary font-headline-sm text-body-md font-medium rounded-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-colors active:scale-[0.98]" id="btn-open-provision">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ Add New User</span>
+</button>
+<button class="h-11 px-3 bg-surface-container-high text-on-surface font-badge-mono text-badge-mono rounded-lg flex items-center justify-center gap-1.5 shadow-sm hover:bg-surface-bright transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span>
+<span>↓ Export Audit</span>
+</button>
+</div>
+</section>
+<!-- SECTION 2: USER OVERVIEW METRICS (2x2 Grid) -->
+<section class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Total Accounts</span>
+<span class="material-symbols-outlined text-[16px] text-primary">group</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-on-surface font-bold">4</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">All provisioned identities</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Active Users</span>
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(78,222,163,0.4)]"></span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-secondary font-bold">3</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary truncate">75% active roster</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Administrators</span>
+<span class="material-symbols-outlined text-[16px] text-primary">admin_panel_settings</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-primary font-bold">2</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary truncate">Full control tier</span>
+</div>
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Maintainers</span>
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-on-surface-variant font-bold">2</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">Observer access tier</span>
+</div>
+</section>
+<!-- SECTION 3: SEARCH & FILTERS -->
+<section class="flex flex-col gap-space-sm">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-on-surface-variant pointer-events-none">search</span>
+<input class="w-full h-11 pl-9 pr-8 bg-surface-container text-on-surface placeholder:text-outline text-body-md rounded-xl focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" id="search-input" placeholder="Search by name or email (e.g. shubham, alex)..." type="text">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface hidden" id="clear-search">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 no-scrollbar">
+<button class="role-pill active px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-badge-mono text-badge-mono whitespace-nowrap shadow-sm">All Roles (4)</button>
+<button class="role-pill px-3 py-1.5 rounded-lg bg-surface-container text-outline hover:text-on-surface font-badge-mono text-badge-mono whitespace-nowrap shadow-sm">Admin (2)</button>
+<button class="role-pill px-3 py-1.5 rounded-lg bg-surface-container text-outline hover:text-on-surface font-badge-mono text-badge-mono whitespace-nowrap shadow-sm">Read-Only Maintainer (2)</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<button class="status-pill active px-2.5 py-1 rounded bg-surface-container-high text-secondary font-label-code text-[11px] whitespace-nowrap">All Status</button>
+<button class="status-pill px-2.5 py-1 rounded bg-surface-container text-outline font-label-code text-[11px] whitespace-nowrap">Active (3)</button>
+<button class="status-pill px-2.5 py-1 rounded bg-surface-container text-outline font-label-code text-[11px] whitespace-nowrap">Inactive (1)</button>
+</div>
+<button class="font-label-code text-[11px] text-primary hover:underline whitespace-nowrap" id="btn-reset-filters">Clear Filters</button>
+</div>
+</div>
+</section>
+<!-- SECTION 4: USER ACCOUNT LIST (Vertically Stacked Cards) -->
+<section class="flex flex-col gap-space-md" id="user-cards-roster">
+<!-- Card 1: Shubham Bind (Owner) -->
+<div class="user-item bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-md" data-email="shubham.bind@vigilnode.internal" data-name="Shubham Bind" data-role="Admin" data-status="Active">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary font-badge-mono text-headline-sm flex items-center justify-center font-bold shadow-sm shrink-0">
+            SB
+          </div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-sm text-body-lg font-semibold text-on-surface truncate">Shubham Bind</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary font-badge-mono text-[9px] font-semibold tracking-wider uppercase">PROJECT OWNER • YOU</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate font-label-code">shubham.bind@vigilnode.internal</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-primary/15 text-primary font-badge-mono text-badge-mono">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+<span>Admin</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/15 text-secondary font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Active</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 py-1 text-on-surface-variant font-label-code text-[11px]">
+<div class="flex items-center justify-between">
+<span class="text-outline">Last Login:</span>
+<span class="text-on-surface font-medium">Today, 19:42:10 UTC (Loopback)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Active Sessions:</span>
+<span class="text-secondary font-medium">1 Active Session (Current Mobile)</span>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low text-on-surface-variant text-[11px] font-body-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0">verified_user</span>
+<span>Root System Administrator — Account deletion &amp; deactivation disabled.</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<button class="h-9 px-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Edit User
+        </button>
+<button class="h-9 px-2 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">Reset Password</button>
+<button class="h-9 px-2 bg-surface-container-high hover:bg-surface-bright text-primary rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          View Profile
+        </button>
+</div>
+</div>
+<!-- Card 2: Alex Rivera -->
+<div class="user-item bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-md" data-email="a.rivera@vigilnode.internal" data-name="Alex Rivera" data-role="Admin" data-status="Active">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-primary font-badge-mono text-headline-sm flex items-center justify-center font-bold shadow-sm shrink-0">
+            AR
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-lg font-semibold text-on-surface truncate">Alex Rivera</span>
+<span class="font-body-sm text-body-sm text-outline truncate font-label-code">a.rivera@vigilnode.internal</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-primary/15 text-primary font-badge-mono text-badge-mono">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+<span>Admin</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/15 text-secondary font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Active</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 py-1 text-on-surface-variant font-label-code text-[11px]">
+<div class="flex items-center justify-between">
+<span class="text-outline">Last Login:</span>
+<span class="text-on-surface font-medium">Yesterday, 22:15:04 UTC (macOS)</span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline shrink-0">Scope:</span>
+<span class="text-on-surface-variant text-right">Full config mutations, incident triage.</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-space-2xs pt-space-xs">
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Edit
+        </button>
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Reset Key
+        </button>
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-outline hover:text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Deactivate
+        </button>
+<button class="h-9 px-1 bg-error-container text-on-error-container rounded font-body-sm text-body-sm font-medium flex items-center justify-center hover:opacity-90 transition-opacity">
+          Delete
+        </button>
+</div>
+</div>
+<!-- Card 3: Elena Rostova -->
+<div class="user-item bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-md" data-email="e.rostova@vigilnode.internal" data-name="Elena Rostova" data-role="Read-Only Maintainer" data-status="Active">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container font-badge-mono text-headline-sm flex items-center justify-center font-bold shadow-sm shrink-0">
+            ER
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-lg font-semibold text-on-surface truncate">Elena Rostova</span>
+<span class="font-body-sm text-body-sm text-outline truncate font-label-code">e.rostova@vigilnode.internal</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-badge-mono text-badge-mono">
+<span class="material-symbols-outlined text-[13px]">visibility</span>
+<span>Read-Only Maintainer</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/15 text-secondary font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Active</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 py-1 text-on-surface-variant font-label-code text-[11px]">
+<div class="flex items-center justify-between">
+<span class="text-outline">Last Login:</span>
+<span class="text-on-surface font-medium">3 days ago, 11:08:45 UTC (Linux)</span>
+</div>
+<div class="flex items-start justify-between gap-2">
+<span class="text-outline shrink-0">Scope:</span>
+<span class="text-on-surface-variant text-right">Telemetry inspector, SLA audits observer.</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-space-2xs pt-space-xs">
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Edit
+        </button>
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Reset Key
+        </button>
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-outline hover:text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Deactivate
+        </button>
+<button class="h-9 px-1 bg-error-container text-on-error-container rounded font-body-sm text-body-sm font-medium flex items-center justify-center hover:opacity-90 transition-opacity">
+          Delete
+        </button>
+</div>
+</div>
+<!-- Card 4: Marcus Chen -->
+<div class="user-item bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-md" data-email="m.chen@vigilnode.internal" data-name="Marcus Chen" data-role="Read-Only Maintainer" data-status="Inactive">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-outline font-badge-mono text-headline-sm flex items-center justify-center font-bold shadow-sm shrink-0">
+            MC
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-lg font-semibold text-on-surface truncate">Marcus Chen</span>
+<span class="font-body-sm text-body-sm text-outline truncate font-label-code">m.chen@vigilnode.internal</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-badge-mono text-badge-mono">
+<span class="material-symbols-outlined text-[13px]">visibility</span>
+<span>Read-Only Maintainer</span>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-bright text-outline font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Inactive (30d+)</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 py-1 text-on-surface-variant font-label-code text-[11px]">
+<div class="flex items-center justify-between">
+<span class="text-outline">Last Login:</span>
+<span class="text-on-surface font-medium">Oct 12, 2024, 08:30:12 UTC</span>
+</div>
+<div class="text-outline italic">Credentials pending rotation or re-activation.</div>
+</div>
+<div class="grid grid-cols-4 gap-space-2xs pt-space-xs">
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Edit
+        </button>
+<button class="h-9 px-1 bg-secondary text-on-secondary rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Activate
+        </button>
+<button class="h-9 px-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded font-body-sm text-body-sm font-medium flex items-center justify-center transition-colors">
+          Reset Key
+        </button>
+<button class="h-9 px-1 bg-error-container text-on-error-container rounded font-body-sm text-body-sm font-medium flex items-center justify-center hover:opacity-90 transition-opacity">
+          Delete
+        </button>
+</div>
+</div>
+</section>
+<!-- SECTION 5: ADD NEW USER FORM (Expandable Modal / Card) -->
+<section class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-lg border-t-2 border-primary" id="provision-user-section">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">person_add</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Provision User Account</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary font-badge-mono text-[10px] font-bold">ADMIN ONLY</span>
+</div>
+<form class="flex flex-col gap-space-sm" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Full Name</label>
+<input class="h-11 px-3 bg-surface-container-low text-on-surface rounded-lg text-body-md focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g., Sarah Jenkins" type="text">
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Email Address</label>
+<input class="h-11 px-3 bg-surface-container-low text-on-surface rounded-lg text-body-md focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g., s.jenkins@vigilnode.internal" type="email">
+<span class="font-label-code text-[11px] text-outline">Must be a valid @vigilnode.internal internal alias</span>
+</div>
+<div class="flex flex-col gap-2 pt-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Assigned Role</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<input checked="" class="mt-1 text-primary focus:ring-0" name="assigned_role" type="radio">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-medium">Admin</span>
+<span class="font-body-sm text-body-sm text-outline">Full control over monitors, settings, alert triage, and engine.</span>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="mt-1 text-primary focus:ring-0" name="assigned_role" type="radio">
+<div class="flex flex-col">
+<span class="font-headline-sm text-body-md text-on-surface font-medium">Read-Only Maintainer</span>
+<span class="font-body-sm text-body-sm text-outline">Inspect telemetry dashboards, live latency percentiles &amp; SLA logs.</span>
+</div>
+</label>
+</div>
+</div>
+<div class="flex items-center justify-between py-2 border-y border-surface-variant">
+<span class="font-body-md text-body-md text-on-surface">Initial Status: Active</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-10 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Password Provisioning Mode</label>
+<div class="flex flex-col gap-1.5 font-body-sm text-body-sm text-on-surface">
+<label class="flex items-center gap-2">
+<input checked="" class="text-primary" name="pwd_mode" type="radio">
+<span>Send Secure Email Invitation (Recommended)</span>
+</label>
+<label class="flex items-center gap-2 text-outline">
+<input class="text-primary" name="pwd_mode" type="radio">
+<span>Generate Temporary Root Password</span>
+</label>
+</div>
+</div>
+<div class="flex flex-col gap-2 pt-2">
+<button class="h-11 w-full bg-primary-container text-on-primary font-headline-sm text-body-md font-medium rounded-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>✓ Create User Account</span>
+</button>
+<button class="h-9 w-full text-outline hover:text-on-surface font-body-sm text-body-sm flex items-center justify-center" type="button">
+          Cancel
+        </button>
+</div>
+</form>
+</section>
+<!-- SECTION 6: ROLE & PERMISSION MATRIX (COMPACT RBAC COMPARISON) -->
+<section class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">policy</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">RBAC Permission Matrix</h2>
+</div>
+<span class="font-badge-mono text-badge-mono text-outline">STRICT ENFORCEMENT</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Admin column -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+<span class="font-headline-sm text-body-md text-primary font-semibold">Admin (Full Control)</span>
+<span class="font-label-code text-[11px] text-primary">TIER 0</span>
+</div>
+<ul class="flex flex-col gap-1 text-[11px] font-label-code text-on-surface-variant">
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Create, edit &amp; delete monitors (HTTP, TCP, DNS, SSL)</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Manage incident triage &amp; trigger alerts</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Configure notification channels (SMTP, TG, Discord, Slack)</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Configure engine intervals (APScheduler 15s-24h)</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Provision &amp; manage user accounts and RBAC</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Export full database backups &amp; SQL snapshots</span>
+</li>
+</ul>
+</div>
+<!-- Maintainer column -->
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Read-Only Maintainer (Observer)</span>
+<span class="font-label-code text-[11px] text-outline">TIER 1</span>
+</div>
+<ul class="flex flex-col gap-1 text-[11px] font-label-code text-on-surface-variant">
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>View telemetry dashboard &amp; live probe statuses</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>Inspect monitor latency percentiles &amp; uptime charts</span>
+</li>
+<li class="flex items-center gap-1.5 text-secondary">
+<span>✓</span><span>View public status page &amp; scheduled maintenance</span>
+</li>
+<li class="flex items-center gap-1.5 text-error">
+<span>✗</span><span>Cannot modify monitors, assertions or intervals</span>
+</li>
+<li class="flex items-center gap-1.5 text-error">
+<span>✗</span><span>Cannot alter incident lifecycles or broadcast alerts</span>
+</li>
+<li class="flex items-center gap-1.5 text-error">
+<span>✗</span><span>Cannot access user management or create credentials</span>
+</li>
+<li class="flex items-center gap-1.5 text-error">
+<span>✗</span><span>Cannot modify security keys or engine configuration</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- SECTION 7: ADMINISTRATIVE AUDIT LOG -->
+<section class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Administrative Audit Stream</h2>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/15 text-secondary font-badge-mono text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>LIVE SYNC</span>
+</div>
+</div>
+<div class="flex flex-col gap-2.5 mt-1">
+<!-- Entry 1 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1 text-[11px] font-label-code">
+<div class="flex items-center justify-between">
+<span class="text-primary font-semibold">User Role Modified</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-bold">SUCCESS</span>
+</div>
+<div class="text-on-surface">Target: <span class="text-primary">a.rivera@vigilnode.internal</span></div>
+<div class="text-outline">Elevated from Read-Only to Admin</div>
+<div class="flex items-center justify-between text-outline text-[10px] pt-1">
+<span>By: Shubham Bind (Admin)</span>
+<span>Today, 17:10 UTC</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1 text-[11px] font-label-code">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-semibold">Password Reset Initiated</span>
+<span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary font-bold">TOKEN SENT</span>
+</div>
+<div class="text-on-surface">Target: <span class="text-primary">m.chen@vigilnode.internal</span></div>
+<div class="text-outline">Dispatch token sent via SMTP</div>
+<div class="flex items-center justify-between text-outline text-[10px] pt-1">
+<span>By: Shubham Bind (Admin)</span>
+<span>Yesterday, 14:22 UTC</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1 text-[11px] font-label-code">
+<div class="flex items-center justify-between">
+<span class="text-outline font-semibold">Session Terminated</span>
+<span class="px-1.5 py-0.2 rounded bg-error/20 text-error font-bold">REVOKED</span>
+</div>
+<div class="text-on-surface">Target: <span class="text-primary">e.rostova@vigilnode.internal</span></div>
+<div class="text-outline">Idle session expired after 7d</div>
+<div class="flex items-center justify-between text-outline text-[10px] pt-1">
+<span>By: System Security Daemon</span>
+<span>Oct 20, 09:14 UTC</span>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1 text-[11px] font-label-code">
+<div class="flex items-center justify-between">
+<span class="text-secondary font-semibold">User Account Provisioned</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary/20 text-secondary font-bold">SUCCESS</span>
+</div>
+<div class="text-on-surface">Target: <span class="text-primary">e.rostova@vigilnode.internal</span></div>
+<div class="text-outline">Role: Read-Only Maintainer</div>
+<div class="flex items-center justify-between text-outline text-[10px] pt-1">
+<span>By: Shubham Bind (Admin)</span>
+<span>Oct 15, 12:00 UTC</span>
+</div>
+</div>
+</div>
+<button class="h-10 w-full mt-1 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-lg font-badge-mono text-badge-mono flex items-center justify-center gap-1 transition-colors">
+<span>Load More Audit Events</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</section>
+<!-- SECTION 8: SECURITY POLICIES & ENFORCEMENT SUMMARY -->
+<section class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">lock_clock</span>
+<h3 class="font-headline-sm text-body-lg font-semibold text-on-surface">Root Account Protection Active</h3>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+      Shubham Bind is the verified primary system owner. Platform invariants enforce that at least one active Admin must exist at all times. Passwords are never stored in plaintext (PBKDF2/SHA-256 hashed). Account deletion actions enforce cryptographic double confirmation.
+    </p>
+</section>
+<!-- SECTION 9: FOOTER & ATTRIBUTION -->
+<footer class="flex flex-col items-center justify-center text-center gap-1 pt-space-sm pb-space-lg text-outline font-label-code text-[11px]">
+<div>VigilNode Identity &amp; Access Subsystem • APScheduler Core v4.18</div>
+<div class="text-on-surface-variant font-medium">MCA Capstone Project • Project Owner &amp; Developer: Shubham Bind</div>
+<div class="flex items-center gap-1.5 text-secondary mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Obsidian Telemetry • PostgreSQL RBAC Engine • ACTIVE</span>
+</div>
+</footer>
+</div>
+<script>
+  (function initUserManagement() {
+    const searchInput = document.getElementById('search-input');
+    const clearBtn = document.getElementById('clear-search');
+    const userCards = document.querySelectorAll('.user-item');
+    const rolePills = document.querySelectorAll('.role-pill');
+    const statusPills = document.querySelectorAll('.status-pill');
+    const resetFiltersBtn = document.getElementById('btn-reset-filters');
+    const provisionBtn = document.getElementById('btn-open-provision');
+    const provisionSection = document.getElementById('provision-user-section');
+
+    let currentRole = 'All';
+    let currentStatus = 'All';
+
+    function filterCards() {
+      const query = (searchInput.value || '').toLowerCase().trim();
+      userCards.forEach(card => {
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        const email = (card.getAttribute('data-email') || '').toLowerCase();
+        const role = card.getAttribute('data-role') || '';
+        const status = card.getAttribute('data-status') || '';
+
+        const matchesQuery = !query || name.includes(query) || email.includes(query);
+        const matchesRole = currentRole === 'All' || role.includes(currentRole);
+        const matchesStatus = currentStatus === 'All' || status === currentStatus;
+
+        if (matchesQuery && matchesRole && matchesStatus) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        if (e.target.value.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+        filterCards();
+      });
+    }
+
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        filterCards();
+      });
+    }
+
+    rolePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        rolePills.forEach(p => {
+          p.classList.remove('bg-surface-container-high', 'text-primary');
+          p.classList.add('bg-surface-container', 'text-outline');
+        });
+        pill.classList.remove('bg-surface-container', 'text-outline');
+        pill.classList.add('bg-surface-container-high', 'text-primary');
+
+        const text = pill.textContent;
+        if (text.includes('Admin')) currentRole = 'Admin';
+        else if (text.includes('Maintainer')) currentRole = 'Maintainer';
+        else currentRole = 'All';
+
+        filterCards();
+      });
+    });
+
+    statusPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        statusPills.forEach(p => {
+          p.classList.remove('bg-surface-container-high', 'text-secondary');
+          p.classList.add('bg-surface-container', 'text-outline');
+        });
+        pill.classList.remove('bg-surface-container', 'text-outline');
+        pill.classList.add('bg-surface-container-high', 'text-secondary');
+
+        const text = pill.textContent;
+        if (text.includes('Active')) currentStatus = 'Active';
+        else if (text.includes('Inactive')) currentStatus = 'Inactive';
+        else currentStatus = 'All';
+
+        filterCards();
+      });
+    });
+
+    if (resetFiltersBtn) {
+      resetFiltersBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        currentRole = 'All';
+        currentStatus = 'All';
+
+        rolePills.forEach((p, idx) => {
+          if (idx === 0) {
+            p.classList.remove('bg-surface-container', 'text-outline');
+            p.classList.add('bg-surface-container-high', 'text-primary');
+          } else {
+            p.classList.remove('bg-surface-container-high', 'text-primary');
+            p.classList.add('bg-surface-container', 'text-outline');
+          }
+        });
+
+        statusPills.forEach((p, idx) => {
+          if (idx === 0) {
+            p.classList.remove('bg-surface-container', 'text-outline');
+            p.classList.add('bg-surface-container-high', 'text-secondary');
+          } else {
+            p.classList.remove('bg-surface-container-high', 'text-secondary');
+            p.classList.add('bg-surface-container', 'text-outline');
+          }
+        });
+
+        filterCards();
+      });
+    }
+
+    if (provisionBtn && provisionSection) {
+      provisionBtn.addEventListener('click', () => {
+        provisionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full max-w-[390px] z-50 pb-safe bg-surface-container-low/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-secondary"><div class="flex justify-between items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors gap-space-2xs" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-caps text-label-caps tracking-wider">Status</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors gap-space-2xs" data-path="monitors" href="#"><span class="material-symbols-outlined text-[22px]">dns</span><span class="font-label-caps text-label-caps tracking-wider">Monitors</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors gap-space-2xs" data-path="incidents" href="#"><span class="material-symbols-outlined text-[22px]">warning</span><span class="font-label-caps text-label-caps tracking-wider">Incidents</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors gap-space-2xs" data-path="analytics" href="#"><span class="material-symbols-outlined text-[22px]">query_stats</span><span class="font-label-caps text-label-caps tracking-wider">Metrics</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 transition-colors gap-space-2xs text-secondary" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-caps text-label-caps tracking-wider">Settings</span></a></div></nav></div>
+
+  <script src="vigilnode-client.js"></script>
+</body></html>

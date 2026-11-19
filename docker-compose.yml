@@ -1,0 +1,29 @@
+services:
+  vigilnode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vigilnode-portal
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      JWT_SECRET: ${JWT_SECRET:-change-this-strong-secret-in-production}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-12h}
+      DB_PATH: /app/data/vigilnode.db
+      DISABLE_SCHEDULER: ${DISABLE_SCHEDULER:-false}
+      ALLOW_PRIVATE_TARGETS: ${ALLOW_PRIVATE_TARGETS:-false}
+      PROBE_CONCURRENCY_LIMIT: ${PROBE_CONCURRENCY_LIMIT:-10}
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+    volumes:
+      - vigilnode_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  vigilnode_data:
+    driver: local

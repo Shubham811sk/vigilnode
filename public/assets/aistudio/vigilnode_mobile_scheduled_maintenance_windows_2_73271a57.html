@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#031427;color:#d3e4fe;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-background": "#d3e4fe", "surface-container-high": "#1b2b3f", "on-tertiary-fixed": "#410004", "inverse-primary": "#005ac2", "secondary": "#4edea3", "tertiary-fixed-dim": "#ffb3ad", "on-tertiary-container": "#5c0008", "primary": "#adc6ff", "surface-dim": "#031427", "on-secondary": "#003824", "inverse-on-surface": "#213145", "primary-fixed-dim": "#adc6ff", "on-error-container": "#ffdad6", "on-error": "#690005", "surface-container": "#102034", "on-primary-fixed": "#001a42", "on-primary": "#002e6a", "secondary-fixed": "#6ffbbe", "on-secondary-fixed-variant": "#005236", "on-tertiary": "#68000a", "primary-container": "#4d8eff", "secondary-fixed-dim": "#4edea3", "secondary-container": "#00a572", "on-secondary-container": "#00311f", "surface": "#031427", "tertiary": "#ffb3ad", "surface-tint": "#adc6ff", "on-secondary-fixed": "#002113", "on-surface-variant": "#c2c6d6", "background": "#031427", "surface-variant": "#26364a", "error-container": "#93000a", "on-primary-fixed-variant": "#004395", "on-primary-container": "#00285d", "tertiary-fixed": "#ffdad7", "primary-fixed": "#d8e2ff", "outline": "#8c909f", "tertiary-container": "#ff5451", "surface-container-highest": "#26364a", "on-surface": "#d3e4fe", "on-tertiary-fixed-variant": "#930013", "surface-container-lowest": "#000f21", "error": "#ffb4ab", "surface-bright": "#2a3a4f", "surface-container-low": "#0b1c30", "inverse-surface": "#d3e4fe", "outline-variant": "#424754" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "gutter": "1rem", "margin-mobile": "1rem", "space-lg": "1rem", "space-sm": "0.5rem", "space-md": "0.75rem", "gutter-mobile": "0.5rem", "space-2xl": "2rem", "space-xs": "0.25rem", "space-2xs": "0.125rem", "space-xl": "1.5rem", "gutter-tablet": "0.75rem", "margin": "1.5rem" }, fontFamily: { "body-md": ["Inter"], "headline-lg": ["Inter"], "body-lg": ["Inter"], "metric-stat": ["JetBrains Mono"], "headline-lg-mobile": ["Inter"], "headline-md": ["Inter"], "label-code": ["JetBrains Mono"], "badge-mono": ["JetBrains Mono"], "display-lg": ["Inter"], "headline-sm": ["Inter"], "label-caps": ["Inter"], "body-sm": ["Inter"] }, fontSize: { "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "metric-stat": ["24px", { "lineHeight": "28px", "letterSpacing": "-0.03em", "fontWeight": "500" }], "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-code": ["12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "500" }], "badge-mono": ["11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md flex flex-col min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-40 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-14 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><button aria-label="Open operational navigation menu" class="w-11 h-11 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2 items-center justify-center"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary shadow-[0_0_8px_0_rgba(16,185,129,0.5)]"></span></span><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface font-bold">VigilNode</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Telemetry alerts and notifications" class="relative w-11 h-11 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-badge-mono text-badge-mono text-on-primary font-bold shadow-[0_0_8px_rgba(173,198,255,0.25)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Operational Context Banner -->
+<div class="w-full bg-surface-container-low px-margin-mobile py-space-sm flex flex-col gap-space-2xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps tracking-wider">
+<span class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+        SERVICE AVAILABILITY &amp; LIFECYCLE • MAINTENANCE
+      </span>
+<span class="font-badge-mono text-badge-mono bg-surface-container px-space-xs py-space-2xs rounded text-secondary flex items-center gap-space-2xs">
+<span class="relative flex h-1.5 w-1.5 items-center justify-center">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-secondary"></span>
+</span>
+        ARMED
+      </span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-code text-label-code text-on-surface-variant">
+        Suppression Engine: <span class="text-on-surface font-semibold">APScheduler Core</span>
+</span>
+<span class="font-badge-mono text-badge-mono text-secondary-fixed">PID 9104</span>
+</div>
+</div>
+<!-- Page Header & Action Controls -->
+<div class="px-margin-mobile py-space-md flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-semibold text-on-surface">Scheduled Maintenance</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Automated alert suppression, customer dispatch pipelines, and SLA credit tracking.
+        </p>
+</div>
+</div>
+<!-- Admin Role Access Callout Pill -->
+<div class="bg-surface-container-high rounded-xl p-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">verified_user</span>
+<span class="font-label-code text-label-code text-on-surface truncate">
+          Role: <strong class="text-primary-container font-semibold">Admin</strong> (Full Scheduling &amp; Suppression Control)
+        </span>
+</div>
+<button aria-label="Role information" class="text-on-surface-variant hover:text-on-surface shrink-0 p-space-2xs" id="role-info-btn">
+<span class="material-symbols-outlined text-[16px]">info</span>
+</button>
+</div>
+<!-- Collapsible Role Explainer Tooltip -->
+<div class="hidden bg-surface-container-highest p-space-sm rounded-xl text-on-surface font-body-sm text-body-sm shadow-xl" id="role-info-popover">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-space-2xs">shield</span>
+<div>
+<span class="font-semibold text-secondary">Privilege Level: Tier 1 Operational Controller</span>
+<p class="text-on-surface-variant font-label-code text-label-code mt-space-2xs">
+            Read-Only Maintainers hold observation and audit-download rights. Full window suspension, instant overrides, and APScheduler hooks require your signed Admin session.
+          </p>
+</div>
+</div>
+</div>
+<!-- Toggle Strip & Primary CTA -->
+<div class="flex items-center justify-between gap-space-sm pt-space-xs">
+<!-- Segmented View Switcher -->
+<div class="bg-surface-container-low p-space-2xs rounded-xl flex items-center">
+<button class="px-space-md py-space-xs rounded-xl font-label-caps text-label-caps text-on-primary bg-primary-container font-semibold shadow-sm transition-all flex items-center gap-space-2xs" id="view-list-btn">
+<span class="material-symbols-outlined text-[14px]">view_list</span>
+          List View
+        </button>
+<button class="px-space-md py-space-xs rounded-xl font-label-caps text-label-caps text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-space-2xs" id="view-cal-btn">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span>
+          Calendar
+        </button>
+</div>
+<!-- Main CTA Button -->
+<button class="h-11 px-space-md bg-primary-container hover:bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm font-semibold flex items-center gap-space-xs shadow-md active:scale-[0.98] transition-all shrink-0" id="open-scheduler-btn">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Window</span>
+</button>
+</div>
+</div>
+<!-- SECTION 1: Metrics Overview Grid -->
+<div class="px-margin-mobile pb-space-md">
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Card 1: Upcoming -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">UPCOMING</span>
+<span class="material-symbols-outlined text-primary text-[18px]">pending_actions</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-stat text-metric-stat text-on-surface" id="stat-upcoming">2 planned</div>
+<p class="font-badge-mono text-badge-mono text-tertiary-fixed-dim truncate mt-space-2xs">
+            Nearest: T-4h 15m
+          </p>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant truncate">Primary DB Stack</span>
+</div>
+<!-- Card 2: In Progress -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">IN PROGRESS</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">sync</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-stat text-metric-stat text-on-surface">0 active</div>
+<p class="font-badge-mono text-badge-mono text-secondary truncate mt-space-2xs">
+            Nominal • Engine idle
+          </p>
+</div>
+<div class="flex items-center gap-space-2xs text-secondary font-label-code text-label-code">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Zero suppression</span>
+</div>
+</div>
+<!-- Card 3: Completed This Month -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">EXECUTED (OCT)</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">task_alt</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-stat text-metric-stat text-on-surface">6 ops</div>
+<p class="font-badge-mono text-badge-mono text-secondary truncate mt-space-2xs">
+            100% rollback-free
+          </p>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant">Avg runtime: 38m</span>
+</div>
+<!-- Card 4: SLA Credit -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">SLA CREDIT</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div class="my-space-xs">
+<div class="font-metric-stat text-metric-stat text-secondary">0.012%</div>
+<p class="font-badge-mono text-badge-mono text-on-surface-variant truncate mt-space-2xs">
+            SLA Credited
+          </p>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant truncate">Excluded from 99.95% SLO</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2 & 5: LIST VIEW CONTAINER (Active Windows + Historical Maintenance Log) -->
+<div class="flex flex-col gap-space-md" id="list-view-section">
+<!-- Active Pipeline & Queued Windows -->
+<div class="px-margin-mobile flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">queue_play_next</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Active &amp; Queued Windows</h2>
+</div>
+<span class="font-badge-mono text-badge-mono text-on-surface-variant" id="queued-count-badge">2 queued</span>
+</div>
+<div class="flex flex-col gap-space-md" id="queued-windows-container">
+<!-- CARD A: Imminent Window -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-md">
+<!-- Header Row -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-bold">
+            #MNT-4092
+          </span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant">
+            HTTP/HTTPS &amp; TCP
+          </span>
+</div>
+<div class="flex items-center gap-space-2xs bg-tertiary-container/30 text-tertiary px-space-xs py-space-2xs rounded font-badge-mono text-badge-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          SCHEDULED
+        </div>
+</div>
+<!-- Title & Target -->
+<div class="flex flex-col gap-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">
+          Primary PostgreSQL Engine Minor Version Upgrade &amp; Connection Pool Tuning
+        </h3>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+<span class="material-symbols-outlined text-[14px] text-primary">dns</span>
+<span class="truncate">Payment Ingestion API &amp; User Ledger Cluster</span>
+</div>
+</div>
+<!-- Time & Count -->
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col gap-space-2xs font-badge-mono text-badge-mono">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+<span>Tonight, 02:00 – 03:30 UTC</span>
+</div>
+<span class="text-on-surface-variant">(1h 30m)</span>
+</div>
+<div class="flex items-center justify-between text-tertiary-fixed-dim pt-space-2xs">
+<span>Countdown: Starts in T-4h 15m</span>
+<span class="text-secondary font-semibold">APScheduler Synced</span>
+</div>
+</div>
+<!-- Expected Impact & Scope -->
+<div class="flex flex-col gap-space-2xs">
+<div class="p-space-sm bg-surface-container-high/60 rounded text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Impact:</span> Partial degradation on write endpoints; read replicas remain online. HTTP 503 expected for max ~45s.
+        </div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code px-space-xs">
+<span class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px] text-primary">radar</span>
+            Affects 3 synthetic monitors
+          </span>
+<span class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px] text-secondary">campaign</span>
+            142 subscribers notified
+          </span>
+</div>
+</div>
+<!-- Alert Suppression Status Tag -->
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded text-secondary font-label-code text-label-code">
+<span class="material-symbols-outlined text-[16px]">notifications_off</span>
+<span>Alert suppression armed • PagerDuty &amp; Slack muted during window</span>
+</div>
+<!-- Touch Action Buttons (Admin Actions) -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-2xs">
+<button class="h-11 bg-surface-container-high hover:bg-surface-bright text-primary rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-2xs active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+          Start Now
+        </button>
+<button class="h-11 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-2xs active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]">send</span>
+          Notify Dispatch
+        </button>
+<button class="h-11 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-xl font-label-code text-label-code flex items-center justify-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">edit_calendar</span>
+          Reschedule
+        </button>
+<button class="h-11 bg-error-container/40 hover:bg-error-container text-error rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+          Cancel Window
+        </button>
+</div>
+</div>
+<!-- CARD B: Upcoming Window Next Week -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-md">
+<!-- Header Row -->
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-bold">
+            #MNT-4098
+          </span>
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant">
+            SSL/TLS &amp; DNS
+          </span>
+</div>
+<div class="flex items-center gap-space-2xs bg-surface-variant text-on-surface-variant px-space-xs py-space-2xs rounded font-badge-mono text-badge-mono font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          PLANNED
+        </div>
+</div>
+<!-- Title & Target -->
+<div class="flex flex-col gap-space-2xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">
+          Edge Wildcard TLS Certificate Rollover &amp; Authority Renewal
+        </h3>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+<span class="material-symbols-outlined text-[14px] text-primary">lock_reset</span>
+<span class="truncate">Auth Gateway &amp; Public API Endpoints</span>
+</div>
+</div>
+<!-- Time & Count -->
+<div class="bg-surface-container-low p-space-sm rounded flex flex-col gap-space-2xs font-badge-mono text-badge-mono">
+<div class="flex items-center justify-between text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">schedule</span>
+<span>Nov 02, 04:00 – 04:45 UTC</span>
+</div>
+<span class="text-on-surface-variant">(45m)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant pt-space-2xs">
+<span>In 2 days 21 hours</span>
+<span class="text-primary font-semibold">Staged in Vault</span>
+</div>
+</div>
+<!-- Expected Impact & Scope -->
+<div class="flex flex-col gap-space-2xs">
+<div class="p-space-sm bg-surface-container-high/60 rounded text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-semibold text-on-surface">Impact:</span> Zero expected downtime; synthetic SSL handshake verification triggered automatically post-rollover.
+        </div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code px-space-xs">
+<span class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px] text-primary">radar</span>
+            Affects 2 synthetic probes
+          </span>
+<span class="text-secondary">Zero customer impact</span>
+</div>
+</div>
+<!-- Card B Touch Actions -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-2xs">
+<button class="h-11 bg-surface-container-high hover:bg-surface-bright text-on-surface rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+          Edit
+        </button>
+<button class="h-11 bg-surface-container-low hover:bg-surface-container text-on-surface-variant rounded-xl font-label-code text-label-code flex items-center justify-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">date_range</span>
+          Resched
+        </button>
+<button class="h-11 bg-surface-container-low hover:bg-error-container/30 text-error rounded-xl font-label-code text-label-code flex items-center justify-center gap-space-2xs">
+<span class="material-symbols-outlined text-[15px]">close</span>
+          Cancel
+        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Historical Maintenance Audit Log -->
+<div class="px-margin-mobile pt-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Historical Maintenance Log</h2>
+</div>
+<span class="font-badge-mono text-badge-mono text-secondary">6 executed</span>
+</div>
+<!-- Audit Filter Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-2xs">
+<button class="bg-surface-container px-space-sm py-space-xs rounded-xl font-label-code text-label-code text-on-surface flex items-center gap-space-2xs shrink-0">
+<span>Status: All (6)</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="bg-surface-container px-space-sm py-space-xs rounded-xl font-label-code text-label-code text-on-surface flex items-center gap-space-2xs shrink-0">
+<span>Last 90 Days</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button class="bg-surface-container px-space-sm py-space-xs rounded-xl font-label-code text-label-code text-on-surface flex items-center gap-space-2xs shrink-0">
+<span>All Services</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<!-- Record 1 -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface font-bold">
+            #MNT-4015
+          </span>
+<span class="font-label-code text-label-code text-secondary font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            SUCCESS
+          </span>
+</div>
+<span class="font-badge-mono text-badge-mono text-on-surface-variant">Oct 22, 2024</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+          Auth Keycloak Cluster Node Upgrade
+        </h3>
+<span class="font-label-code text-label-code text-on-surface-variant">Target: Auth Service &amp; Token Ingestion</span>
+</div>
+<!-- Execution Stats Grid -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded font-badge-mono text-badge-mono">
+<div>
+<span class="text-on-surface-variant block">Runtime</span>
+<span class="text-on-surface font-semibold">42m 18s <span class="text-secondary">(Sched: 1h)</span></span>
+</div>
+<div>
+<span class="text-on-surface-variant block">SLA Impact</span>
+<span class="text-secondary font-semibold">0.000% (Excluded)</span>
+</div>
+</div>
+<!-- Audit Metadata Footer -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code pt-space-2xs">
+<span class="truncate">Operator: <strong class="text-on-surface">Shubham Bind (Admin)</strong></span>
+<button class="text-primary hover:text-on-surface flex items-center gap-space-2xs font-badge-mono text-badge-mono shrink-0">
+<span>ref_hash_89b2c</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Record 2 -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface font-bold">
+            #MNT-3980
+          </span>
+<span class="font-label-code text-label-code text-secondary font-semibold flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+            SUCCESS
+          </span>
+</div>
+<span class="font-badge-mono text-badge-mono text-on-surface-variant">Oct 14, 2024</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+          BGP Anycast Routing Mesh Switchover
+        </h3>
+<span class="font-label-code text-label-code text-on-surface-variant">Target: Edge DNS Resolver Node</span>
+</div>
+<!-- Execution Stats Grid -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded font-badge-mono text-badge-mono">
+<div>
+<span class="text-on-surface-variant block">Runtime</span>
+<span class="text-on-surface font-semibold">44m 10s <span class="text-on-surface-variant">(Sched: 45m)</span></span>
+</div>
+<div>
+<span class="text-on-surface-variant block">SLA Impact</span>
+<span class="text-secondary font-semibold">0.004% (Compensated)</span>
+</div>
+</div>
+<!-- Audit Metadata Footer -->
+<div class="flex items-center justify-between text-on-surface-variant font-label-code text-label-code pt-space-2xs">
+<span class="truncate">Operator: <strong class="text-on-surface">Shubham Bind (Admin)</strong></span>
+<button class="text-primary hover:text-on-surface flex items-center gap-space-2xs font-badge-mono text-badge-mono shrink-0">
+<span>ref_hash_77a41</span>
+<span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Audit Footer Controls -->
+<div class="flex flex-col gap-space-xs pt-space-2xs">
+<button class="h-11 bg-surface-container hover:bg-surface-container-high text-on-surface rounded-xl font-label-code text-label-code flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">expand_circle_down</span>
+        Load More Logs (Showing 2 of 6)
+      </button>
+<button class="h-11 bg-surface-container-low hover:bg-surface-container text-primary rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+        Export SLA Audit Log (CSV / JSON)
+      </button>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Interactive Mobile Calendar View Section (Tab Target) -->
+<div class="hidden px-margin-mobile flex-col gap-space-md" id="calendar-view-section">
+<div class="bg-surface-container rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Month Navigation -->
+<div class="flex items-center justify-between">
+<button class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" id="cal-prev-btn">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold" id="cal-month-title">October 2024</span>
+<span class="font-label-code text-label-code text-primary" id="cal-month-subtext">3 Events Executed / 1 Queued</span>
+</div>
+<button class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors" id="cal-next-btn">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+<!-- Calendar 7-col Header: S M T W T F S -->
+<div class="grid grid-cols-7 text-center font-label-caps text-label-caps text-on-surface-variant font-semibold">
+<div>S</div>
+<div>M</div>
+<div>T</div>
+<div>W</div>
+<div>T</div>
+<div>F</div>
+<div>S</div>
+</div>
+<!-- Dynamic Calendar Day Grid -->
+<div class="grid grid-cols-7 gap-y-2 text-center font-badge-mono text-badge-mono" id="calendar-grid-days">
+<!-- Rendered via JS -->
+</div>
+<!-- Calendar Selection Preview Callout Card / Details -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-2xs border border-surface-container-high" id="calendar-detail-card">
+<!-- Populated dynamically based on date clicked -->
+</div>
+</div>
+</div>
+<!-- SECTION 6: Role Based Authority & Project Attribution -->
+<div class="px-margin-mobile pt-space-xl pb-space-lg flex flex-col gap-space-sm">
+<!-- Role Indicator Card -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-space-2xs">admin_panel_settings</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Role Permission: ADMIN</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs">
+          Full authority to schedule, reschedule, cancel windows, and trigger live alert suppression. Maintainers hold audit read-only rights.
+        </p>
+</div>
+</div>
+<!-- Attribution Card -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex flex-col gap-space-2xs text-center items-center">
+<div class="flex items-center gap-space-xs text-secondary font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>VigilNode Server / APScheduler Core • ACTIVE</span>
+</div>
+<span class="font-label-code text-label-code text-on-surface-variant">MCA Capstone Project</span>
+<span class="font-label-caps text-label-caps text-primary tracking-wider font-semibold">PROJECT OWNER: SHUBHAM BIND</span>
+</div>
+</div>
+</div>
+<!-- Interactive Modal Sheet: Schedule New Maintenance Window -->
+<div class="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-[#000f21]/80 backdrop-blur-md hidden transition-opacity" id="scheduler-modal-backdrop">
+<div class="w-full max-w-lg max-h-[92vh] flex flex-col bg-surface-container-high rounded-t-2xl sm:rounded-2xl border border-surface-variant shadow-2xl overflow-hidden animate-in slide-in-from-bottom duration-200" id="scheduler-modal-sheet">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-margin-mobile py-space-md bg-surface-container-high border-b border-surface-variant shrink-0">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">more_time</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Schedule New Maintenance</h2>
+<span class="font-label-code text-label-code text-secondary flex items-center gap-space-2xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            APScheduler Suppression Ready
+          </span>
+</div>
+</div>
+<button aria-label="Close modal" class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface active:bg-surface transition-colors" id="modal-close-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Form Scrollable Body -->
+<form class="flex flex-col gap-space-md p-margin-mobile overflow-y-auto max-h-[75vh]" id="create-window-form">
+<!-- Maintenance Name -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold" for="modal-input-name">MAINTENANCE WINDOW TITLE *</label>
+<input class="w-full bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-outline border border-transparent focus:border-primary transition-all" id="modal-input-name" placeholder="e.g. Primary PostgreSQL Minor Version Upgrade" required="" type="text"/>
+</div>
+<!-- Target Monitors / Services -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold">SELECT TARGET MONITORS / SERVICES *</label>
+<div class="grid grid-cols-2 gap-space-xs">
+<label class="flex items-center gap-space-xs p-space-sm bg-surface-container hover:bg-surface-bright rounded-xl cursor-pointer border border-transparent has-[:checked]:border-secondary/60 has-[:checked]:bg-secondary-container/10 transition-all">
+<input checked="" class="rounded bg-surface-container-high border-outline-variant text-secondary focus:ring-0 focus:ring-offset-0" name="target_services" type="checkbox" value="Payment Ingestion API"/>
+<span class="font-label-code text-label-code text-on-surface">Payment Ingestion API</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm bg-surface-container hover:bg-surface-bright rounded-xl cursor-pointer border border-transparent has-[:checked]:border-secondary/60 has-[:checked]:bg-secondary-container/10 transition-all">
+<input class="rounded bg-surface-container-high border-outline-variant text-secondary focus:ring-0 focus:ring-offset-0" name="target_services" type="checkbox" value="Edge TLS Cert"/>
+<span class="font-label-code text-label-code text-on-surface">Edge TLS Cert</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm bg-surface-container hover:bg-surface-bright rounded-xl cursor-pointer border border-transparent has-[:checked]:border-secondary/60 has-[:checked]:bg-secondary-container/10 transition-all">
+<input checked="" class="rounded bg-surface-container-high border-outline-variant text-secondary focus:ring-0 focus:ring-offset-0" name="target_services" type="checkbox" value="Auth Keycloak Cluster"/>
+<span class="font-label-code text-label-code text-on-surface">Auth Keycloak Cluster</span>
+</label>
+<label class="flex items-center gap-space-xs p-space-sm bg-surface-container hover:bg-surface-bright rounded-xl cursor-pointer border border-transparent has-[:checked]:border-secondary/60 has-[:checked]:bg-secondary-container/10 transition-all">
+<input class="rounded bg-surface-container-high border-outline-variant text-secondary focus:ring-0 focus:ring-offset-0" name="target_services" type="checkbox" value="DNS Resolver Node"/>
+<span class="font-label-code text-label-code text-on-surface">DNS Resolver Node</span>
+</label>
+</div>
+</div>
+<!-- Start & End Date Time -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold" for="modal-input-start">START DATE &amp; TIME *</label>
+<input class="w-full bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface font-label-code text-label-code focus:outline-none focus:ring-1 focus:ring-primary border border-transparent focus:border-primary" id="modal-input-start" required="" type="datetime-local" value="2024-10-31T02:00"/>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold" for="modal-input-end">END DATE &amp; TIME *</label>
+<input class="w-full bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface font-label-code text-label-code focus:outline-none focus:ring-1 focus:ring-primary border border-transparent focus:border-primary" id="modal-input-end" required="" type="datetime-local" value="2024-10-31T03:30"/>
+</div>
+</div>
+<!-- Timezone -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold" for="modal-input-tz">TIMEZONE</label>
+<select class="w-full bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface font-label-code text-label-code focus:outline-none focus:ring-1 focus:ring-primary border border-transparent focus:border-primary" id="modal-input-tz">
+<option selected="" value="UTC">UTC (Coordinated Universal Time) • +00:00</option>
+<option value="EST">EST (Eastern Standard Time) • -05:00</option>
+<option value="PST">PST (Pacific Standard Time) • -08:00</option>
+<option value="IST">IST (Indian Standard Time) • +05:30</option>
+<option value="CET">CET (Central European Time) • +01:00</option>
+</select>
+</div>
+<!-- Maintenance Description -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold" for="modal-input-desc">MAINTENANCE DESCRIPTION</label>
+<textarea class="w-full bg-surface-container px-space-md py-space-sm rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-outline border border-transparent focus:border-primary" id="modal-input-desc" placeholder="Summary of maintenance, expected read replica routing, and smoke tests..." rows="2"></textarea>
+</div>
+<!-- Expected Impact -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold">EXPECTED IMPACT</label>
+<div class="grid grid-cols-3 gap-space-xs">
+<label class="flex flex-col items-center justify-center p-space-xs bg-surface-container rounded-xl cursor-pointer border border-transparent has-[:checked]:border-secondary has-[:checked]:bg-secondary/10 transition-all text-center">
+<input class="sr-only" name="expected_impact" type="radio" value="Zero customer impact"/>
+<span class="font-label-code text-label-code font-semibold text-secondary">Zero Impact</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Hot-standby</span>
+</label>
+<label class="flex flex-col items-center justify-center p-space-xs bg-surface-container rounded-xl cursor-pointer border border-transparent has-[:checked]:border-tertiary-container has-[:checked]:bg-tertiary-container/15 transition-all text-center">
+<input checked="" class="sr-only" name="expected_impact" type="radio" value="Partial degradation (HTTP 503)"/>
+<span class="font-label-code text-label-code font-semibold text-tertiary">Partial (503)</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Degraded write</span>
+</label>
+<label class="flex flex-col items-center justify-center p-space-xs bg-surface-container rounded-xl cursor-pointer border border-transparent has-[:checked]:border-error has-[:checked]:bg-error-container/20 transition-all text-center">
+<input class="sr-only" name="expected_impact" type="radio" value="Full scheduled outage"/>
+<span class="font-label-code text-label-code font-semibold text-error">Full Outage</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Offline mode</span>
+</label>
+</div>
+</div>
+<!-- Notification Channels -->
+<div class="flex flex-col gap-space-2xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant font-semibold">NOTIFICATION CHANNELS</label>
+<div class="flex flex-wrap gap-space-xs">
+<label class="flex items-center gap-space-2xs px-space-sm py-space-xs bg-surface-container rounded-xl cursor-pointer font-label-code text-label-code text-on-surface has-[:checked]:text-primary has-[:checked]:border-primary border border-transparent">
+<input checked="" class="rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[15px]">mail</span>
+<span>Email Dispatch</span>
+</label>
+<label class="flex items-center gap-space-2xs px-space-sm py-space-xs bg-surface-container rounded-xl cursor-pointer font-label-code text-label-code text-on-surface has-[:checked]:text-primary has-[:checked]:border-primary border border-transparent">
+<input checked="" class="rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[15px]">tag</span>
+<span>Slack Webhook</span>
+</label>
+<label class="flex items-center gap-space-2xs px-space-sm py-space-xs bg-surface-container rounded-xl cursor-pointer font-label-code text-label-code text-on-surface has-[:checked]:text-primary has-[:checked]:border-primary border border-transparent">
+<input class="rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[15px]">send</span>
+<span>Telegram Bot</span>
+</label>
+</div>
+</div>
+<!-- Form Toggles -->
+<div class="flex flex-col gap-space-sm pt-space-xs border-t border-surface-variant">
+<!-- Toggle 1: Suppression -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">Automatic Alert Suppression</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Suppress alerts and pause synthetic incident creation during window</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="toggle-suppression" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 2: Status page -->
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-code text-label-code text-on-surface font-semibold">Public Status Page Announcement</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Broadcast maintenance banner on public status portal</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="toggle-statuspage" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-primary after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+<!-- Modal Actions -->
+<div class="flex flex-col gap-space-xs pt-space-sm pb-space-sm">
+<button class="h-12 w-full bg-primary-container hover:bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-all" id="modal-submit-btn" type="submit">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Save Maintenance Window</span>
+</button>
+<button class="h-11 w-full bg-surface-container hover:bg-surface text-on-surface-variant rounded-xl font-label-code text-label-code flex items-center justify-center transition-colors" id="modal-cancel-btn" type="button">
+          Cancel
+        </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Toast notification for action feedback -->
+<div class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-secondary-container text-on-secondary-container px-space-md py-space-sm rounded-xl shadow-2xl font-label-code text-label-code flex items-center gap-space-xs hidden transition-all duration-300 border border-secondary" id="toast-notify">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span id="toast-text">Maintenance window successfully queued!</span>
+</div>
+<script>
+  (function initScheduledMaintenanceApp() {
+    // DOM Elements
+    const roleInfoBtn = document.getElementById('role-info-btn');
+    const rolePopover = document.getElementById('role-info-popover');
+    const openSchedulerBtn = document.getElementById('open-scheduler-btn');
+    const modalBackdrop = document.getElementById('scheduler-modal-backdrop');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalCancelBtn = document.getElementById('modal-cancel-btn');
+    const createWindowForm = document.getElementById('create-window-form');
+    const toastNotify = document.getElementById('toast-notify');
+    const toastText = document.getElementById('toast-text');
+    const queuedContainer = document.getElementById('queued-windows-container');
+    const queuedCountBadge = document.getElementById('queued-count-badge');
+    const statUpcoming = document.getElementById('stat-upcoming');
+
+    // Tab Toggle Elements
+    const viewListBtn = document.getElementById('view-list-btn');
+    const viewCalBtn = document.getElementById('view-cal-btn');
+    const listViewSection = document.getElementById('list-view-section');
+    const calendarViewSection = document.getElementById('calendar-view-section');
+
+    // Calendar Elements
+    const calPrevBtn = document.getElementById('cal-prev-btn');
+    const calNextBtn = document.getElementById('cal-next-btn');
+    const calMonthTitle = document.getElementById('cal-month-title');
+    const calMonthSubtext = document.getElementById('cal-month-subtext');
+    const calGridDays = document.getElementById('calendar-grid-days');
+    const calDetailCard = document.getElementById('calendar-detail-card');
+
+    // Role tooltip
+    if (roleInfoBtn && rolePopover) {
+      roleInfoBtn.addEventListener('click', () => {
+        rolePopover.classList.toggle('hidden');
+      });
+    }
+
+    // Modal Opening & Closing
+    function openModal() {
+      if (!modalBackdrop) return;
+      modalBackdrop.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      if (!modalBackdrop) return;
+      modalBackdrop.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    if (openSchedulerBtn) openSchedulerBtn.addEventListener('click', openModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalCancelBtn) modalCancelBtn.addEventListener('click', closeModal);
+    if (modalBackdrop) {
+      modalBackdrop.addEventListener('click', (e) => {
+        if (e.target === modalBackdrop) closeModal();
+      });
+    }
+
+    function showToast(msg) {
+      if (!toastNotify || !toastText) return;
+      toastText.textContent = msg;
+      toastNotify.classList.remove('hidden');
+      setTimeout(() => {
+        toastNotify.classList.add('hidden');
+      }, 3500);
+    }
+
+    let queuedCount = 2;
+
+    // Form Submission
+    if (createWindowForm) {
+      createWindowForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('modal-submit-btn');
+        if (submitBtn) submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span> APScheduler Syncing...';
+
+        setTimeout(() => {
+          const title = document.getElementById('modal-input-name').value || 'Scheduled Maintenance Operation';
+          const startTime = document.getElementById('modal-input-start').value || '2024-11-01 02:00';
+          const tz = document.getElementById('modal-input-tz').value || 'UTC';
+          const impact = document.querySelector('input[name="expected_impact"]:checked')?.value || 'Partial degradation (HTTP 503)';
+
+          const checkedServices = Array.from(document.querySelectorAll('input[name="target_services"]:checked')).map(cb => cb.value);
+          const serviceLabel = checkedServices.length > 0 ? checkedServices.join(' & ') : 'Primary API Stack';
+
+          const newCardId = '#MNT-' + Math.floor(4100 + Math.random() * 900);
+
+          // Create new queued maintenance card
+          const newCard = document.createElement('div');
+          newCard.className = 'bg-surface-container rounded-xl p-space-md flex flex-col gap-space-md shadow-md border-l-2 border-primary';
+          newCard.innerHTML = `
+            <div class="flex items-start justify-between gap-space-xs">
+              <div class="flex items-center gap-space-xs flex-wrap">
+                <span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-primary font-bold">
+                  ${newCardId}
+                </span>
+                <span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded bg-surface-container-high text-on-surface-variant">
+                  HTTP/HTTPS • TLS
+                </span>
+              </div>
+              <div class="flex items-center gap-space-2xs bg-tertiary-container/30 text-tertiary px-space-xs py-space-2xs rounded font-badge-mono text-badge-mono font-semibold">
+                <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                SCHEDULED
+              </div>
+            </div>
+            <div class="flex flex-col gap-space-2xs">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">
+                ${title}
+              </h3>
+              <div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
+                <span class="material-symbols-outlined text-[14px] text-primary">dns</span>
+                <span class="truncate">${serviceLabel}</span>
+              </div>
+            </div>
+            <div class="bg-surface-container-low p-space-sm rounded flex flex-col gap-space-2xs font-badge-mono text-badge-mono">
+              <div class="flex items-center justify-between text-on-surface">
+                <div class="flex items-center gap-space-xs">
+                  <span class="material-symbols-outlined text-[16px] text-secondary">schedule</span>
+                  <span>${startTime.replace('T', ' ')} ${tz}</span>
+                </div>
+                <span class="text-on-surface-variant">(1h)</span>
+              </div>
+              <div class="flex items-center justify-between text-secondary pt-space-2xs">
+                <span>APScheduler Armed</span>
+                <span class="font-semibold text-secondary">PID 9104 Synced</span>
+              </div>
+            </div>
+            <div class="p-space-sm bg-surface-container-high/60 rounded text-on-surface-variant font-body-sm text-body-sm">
+              <span class="font-semibold text-on-surface">Impact:</span> ${impact}
+            </div>
+            <div class="grid grid-cols-2 gap-space-xs pt-space-2xs">
+              <button class="h-11 bg-surface-container-high hover:bg-surface-bright text-primary rounded-xl font-label-code text-label-code font-semibold flex items-center justify-center gap-space-2xs">
+                <span class="material-symbols-outlined text-[16px]">play_circle</span> Start Now
+              </button>
+              <button class="h-11 bg-surface-container-low hover:bg-error-container/30 text-error rounded-xl font-label-code text-label-code flex items-center justify-center gap-space-2xs">
+                <span class="material-symbols-outlined text-[16px]">cancel</span> Cancel
+              </button>
+            </div>
+          `;
+
+          if (queuedContainer) {
+            queuedContainer.prepend(newCard);
+          }
+
+          queuedCount++;
+          if (queuedCountBadge) queuedCountBadge.textContent = `${queuedCount} queued`;
+          if (statUpcoming) statUpcoming.textContent = `${queuedCount} planned`;
+
+          closeModal();
+          showToast(`Window ${newCardId} armed with APScheduler PID 9104!`);
+
+          if (submitBtn) {
+            submitBtn.innerHTML = '<span class="material-symbols-outlined text-[20px]">verified</span><span>Save Maintenance Window</span>';
+          }
+          createWindowForm.reset();
+        }, 650);
+      });
+    }
+
+    // View Switching Logic: List View vs Calendar View
+    function switchToList() {
+      if (listViewSection && calendarViewSection && viewListBtn && viewCalBtn) {
+        listViewSection.classList.remove('hidden');
+        calendarViewSection.classList.add('hidden');
+        calendarViewSection.classList.remove('flex');
+
+        viewListBtn.classList.add('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        viewListBtn.classList.remove('text-on-surface-variant');
+
+        viewCalBtn.classList.remove('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        viewCalBtn.classList.add('text-on-surface-variant');
+      }
+    }
+
+    function switchToCalendar() {
+      if (listViewSection && calendarViewSection && viewListBtn && viewCalBtn) {
+        listViewSection.classList.add('hidden');
+        calendarViewSection.classList.remove('hidden');
+        calendarViewSection.classList.add('flex');
+
+        viewCalBtn.classList.add('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        viewCalBtn.classList.remove('text-on-surface-variant');
+
+        viewListBtn.classList.remove('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+        viewListBtn.classList.add('text-on-surface-variant');
+
+        renderCalendar();
+      }
+    }
+
+    if (viewListBtn) viewListBtn.addEventListener('click', switchToList);
+    if (viewCalBtn) viewCalBtn.addEventListener('click', switchToCalendar);
+
+    // CALENDAR DATA & RENDERING
+    // Months data: 0 = October 2024, 1 = November 2024
+    let currentMonthIndex = 0; // 0 = Oct 2024, 1 = Nov 2024
+
+    const calendarData = [
+      {
+        monthName: 'October 2024',
+        subtext: '3 Events Executed / 1 Queued',
+        totalDays: 31,
+        startDayOffset: 2, // Tuesday is day 2 (0=Sun, 1=Mon, 2=Tue)
+        today: 30,
+        selectedDay: 31,
+        events: {
+          14: {
+            type: 'COMPLETED',
+            id: '#MNT-3980',
+            title: 'BGP Anycast Routing Mesh Switchover',
+            time: '14:00 – 14:45 UTC',
+            service: 'Edge DNS Resolver Node',
+            protocol: 'DNS & BGP',
+            statusColor: 'text-secondary',
+            badgeBg: 'bg-secondary/20 text-secondary',
+            dotClass: 'bg-secondary',
+            desc: 'Completed within 44m 10s. Zero downtime. SLA Compensated.'
+          },
+          22: {
+            type: 'COMPLETED',
+            id: '#MNT-4015',
+            title: 'Auth Keycloak Cluster Node Upgrade',
+            time: '01:00 – 02:00 UTC',
+            service: 'Auth Service & Token Ingestion',
+            protocol: 'OAuth2 / OIDC',
+            statusColor: 'text-secondary',
+            badgeBg: 'bg-secondary/20 text-secondary',
+            dotClass: 'bg-secondary',
+            desc: 'Keycloak patched to v24.0.5. Token validation uninterrupted.'
+          },
+          24: {
+            type: 'COMPLETED',
+            id: '#MNT-4028',
+            title: 'Global Anycast Edge CDN Cache Warmup',
+            time: '03:15 – 04:00 UTC',
+            service: 'Static Asset Pipeline',
+            protocol: 'HTTPS / HTTP3',
+            statusColor: 'text-secondary',
+            badgeBg: 'bg-secondary/20 text-secondary',
+            dotClass: 'bg-secondary',
+            desc: 'Cache pre-warmed for APAC edge nodes.'
+          },
+          31: {
+            type: 'SCHEDULED',
+            id: '#MNT-4092',
+            title: 'Primary PostgreSQL Engine Minor Version Upgrade & Connection Pool Tuning',
+            time: 'Tonight, 02:00 – 03:30 UTC',
+            service: 'Payment Ingestion API & User Ledger Cluster',
+            protocol: 'PostgreSQL / TCP',
+            statusColor: 'text-tertiary',
+            badgeBg: 'bg-tertiary-container/30 text-tertiary',
+            dotClass: 'bg-tertiary animate-pulse',
+            desc: 'Partial degradation on write endpoints; read replicas remain online. HTTP 503 expected for max ~45s.'
+          }
+        }
+      },
+      {
+        monthName: 'November 2024',
+        subtext: '1 Scheduled / 2 Staged in Vault',
+        totalDays: 30,
+        startDayOffset: 5, // Friday (0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri)
+        today: null,
+        selectedDay: 2,
+        events: {
+          2: {
+            type: 'SCHEDULED',
+            id: '#MNT-4098',
+            title: 'Edge Wildcard TLS Certificate Rollover & Authority Renewal',
+            time: 'Nov 02, 04:00 – 04:45 UTC',
+            service: 'Auth Gateway & Public API Endpoints',
+            protocol: 'SSL/TLS & DNS',
+            statusColor: 'text-primary',
+            badgeBg: 'bg-primary-container/30 text-primary',
+            dotClass: 'bg-primary animate-pulse',
+            desc: 'Zero expected downtime; synthetic SSL handshake verification triggered automatically post-rollover.'
+          },
+          12: {
+            type: 'PLANNED',
+            id: '#MNT-4110',
+            title: 'Elasticsearch Index Shard Rebalance & Segment Merge',
+            time: 'Nov 12, 03:00 – 05:00 UTC',
+            service: 'Audit Log & Analytics Datastore',
+            protocol: 'Elasticsearch REST API',
+            statusColor: 'text-on-surface-variant',
+            badgeBg: 'bg-surface-variant text-on-surface-variant',
+            dotClass: 'bg-outline',
+            desc: 'Background reindexing. Search query latencies may experience 5-10% jitter.'
+          }
+        }
+      }
+    ];
+
+    function updateDetailView(monthIdx, day) {
+      const currentMonth = calendarData[monthIdx];
+      const ev = currentMonth.events[day];
+
+      if (!ev) {
+        calDetailCard.innerHTML = `
+          <div class="flex items-center justify-between text-on-surface-variant">
+            <span class="font-label-caps text-label-caps flex items-center gap-space-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+              SELECTION • ${currentMonth.monthName.toUpperCase().split(' ')[0]} ${day}
+            </span>
+            <span class="font-badge-mono text-badge-mono text-secondary">No Suppressions</span>
+          </div>
+          <div class="font-headline-sm text-headline-sm text-on-surface font-semibold pt-space-2xs">
+            No Maintenance Windows Scheduled
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            All synthetic monitors running normally without planned maintenance or alert muting.
+          </p>
+        `;
+        return;
+      }
+
+      calDetailCard.innerHTML = `
+        <div class="flex items-center justify-between">
+          <span class="font-label-caps text-label-caps ${ev.statusColor} flex items-center gap-space-2xs">
+            <span class="w-1.5 h-1.5 rounded-full ${ev.dotClass}"></span>
+            ACTIVE SELECTION • ${currentMonth.monthName.toUpperCase().split(' ')[0]} ${day}
+          </span>
+          <span class="font-badge-mono text-badge-mono px-space-xs py-space-2xs rounded ${ev.badgeBg} font-bold">
+            ${ev.type}
+          </span>
+        </div>
+        <div class="font-headline-sm text-headline-sm text-on-surface font-semibold pt-space-2xs">
+          ${ev.title}
+        </div>
+        <div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code pt-0.5">
+          <span class="material-symbols-outlined text-[15px] text-primary">dns</span>
+          <span class="truncate">${ev.service} (${ev.id})</span>
+        </div>
+        <div class="bg-surface-container p-space-xs rounded-xl flex items-center justify-between font-badge-mono text-badge-mono mt-space-2xs">
+          <div class="flex items-center gap-space-xs text-on-surface">
+            <span class="material-symbols-outlined text-[15px] text-secondary">schedule</span>
+            <span>${ev.time}</span>
+          </div>
+          <span class="text-primary font-semibold">${ev.protocol}</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant pt-space-2xs">
+          ${ev.desc}
+        </p>
+      `;
+    }
+
+    function renderCalendar() {
+      const month = calendarData[currentMonthIndex];
+      if (calMonthTitle) calMonthTitle.textContent = month.monthName;
+      if (calMonthSubtext) calMonthSubtext.textContent = month.subtext;
+      if (!calGridDays) return;
+
+      calGridDays.innerHTML = '';
+
+      // Pad leading blank days
+      for (let i = 0; i < month.startDayOffset; i++) {
+        const padCell = document.createElement('div');
+        padCell.className = 'p-1 opacity-20 text-outline';
+        padCell.textContent = 28 + i;
+        calGridDays.appendChild(padCell);
+      }
+
+      // Render actual days
+      for (let d = 1; d <= month.totalDays; d++) {
+        const dayCell = document.createElement('button');
+        dayCell.type = 'button';
+        dayCell.className = 'p-1 min-h-[40px] flex flex-col items-center justify-center rounded-xl transition-all relative hover:bg-surface-container-high/50';
+
+        const isToday = month.today === d;
+        const isSelected = month.selectedDay === d;
+        const hasEvent = !!month.events[d];
+
+        if (isSelected) {
+          dayCell.classList.add('bg-primary/20', 'ring-1', 'ring-primary');
+        }
+
+        let numHtml = `<span class="${isToday ? 'w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold' : isSelected ? 'text-primary font-bold' : hasEvent ? 'text-on-surface font-semibold' : 'text-on-surface-variant'}">${d}</span>`;
+
+        let indicatorHtml = '';
+        if (hasEvent) {
+          const ev = month.events[d];
+          indicatorHtml = `<span class="w-1.5 h-1.5 rounded-full ${ev.dotClass} mt-0.5"></span>`;
+        } else {
+          indicatorHtml = `<span class="w-1.5 h-1.5 opacity-0 mt-0.5"></span>`;
+        }
+
+        dayCell.innerHTML = numHtml + indicatorHtml;
+
+        dayCell.addEventListener('click', () => {
+          month.selectedDay = d;
+          renderCalendar();
+          updateDetailView(currentMonthIndex, d);
+        });
+
+        calGridDays.appendChild(dayCell);
+      }
+
+      // Pad trailing cells to fill 7 columns grid
+      const totalCells = month.startDayOffset + month.totalDays;
+      const trailing = (7 - (totalCells % 7)) % 7;
+      for (let j = 1; j <= trailing; j++) {
+        const padCell = document.createElement('div');
+        padCell.className = 'p-1 opacity-20 text-outline';
+        padCell.textContent = j;
+        calGridDays.appendChild(padCell);
+      }
+
+      // Refresh detail card
+      updateDetailView(currentMonthIndex, month.selectedDay || 1);
+    }
+
+    if (calPrevBtn) {
+      calPrevBtn.addEventListener('click', () => {
+        if (currentMonthIndex > 0) {
+          currentMonthIndex--;
+          renderCalendar();
+        }
+      });
+    }
+
+    if (calNextBtn) {
+      calNextBtn.addEventListener('click', () => {
+        if (currentMonthIndex < calendarData.length - 1) {
+          currentMonthIndex++;
+          renderCalendar();
+        }
+      });
+    }
+
+    // Initial render
+    renderCalendar();
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-40 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">dashboard</span><span class="font-label-caps text-label-caps mt-space-2xs">Dashboard</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="monitors" href="#"><span class="material-symbols-outlined text-[22px]">dns</span><span class="font-label-caps text-label-caps mt-space-2xs">Monitors</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-14 h-12 transition-colors text-primary font-bold" data-path="incidents" href="#"><span class="material-symbols-outlined text-[22px]">warning</span><span class="font-label-caps text-label-caps mt-space-2xs">Incidents</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="analytics" href="#"><span class="material-symbols-outlined text-[22px]">monitoring</span><span class="font-label-caps text-label-caps mt-space-2xs">Analytics</span></a><a class="flex flex-col items-center justify-center w-14 h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">settings</span><span class="font-label-caps text-label-caps mt-space-2xs">Settings</span></a></div></nav>  <script src="vigilnode-client.js"></script>
+</body></html>

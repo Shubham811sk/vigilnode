@@ -1,0 +1,816 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><title>VigilNode - Service Availability Analytics</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#031427", "tertiary-container": "#ff5451", "primary-fixed-dim": "#adc6ff", "surface-container-high": "#1b2b3f", "on-surface": "#d3e4fe", "on-tertiary-fixed-variant": "#930013", "on-secondary": "#003824", "on-secondary-container": "#00311f", "primary": "#adc6ff", "outline-variant": "#424754", "on-error-container": "#ffdad6", "secondary-container": "#00a572", "on-secondary-fixed-variant": "#005236", "on-primary": "#002e6a", "surface": "#031427", "secondary": "#4edea3", "secondary-fixed-dim": "#4edea3", "surface-bright": "#2a3a4f", "on-surface-variant": "#c2c6d6", "background": "#031427", "error-container": "#93000a", "on-secondary-fixed": "#002113", "on-primary-fixed": "#001a42", "tertiary-fixed-dim": "#ffb3ad", "on-primary-container": "#00285d", "surface-tint": "#adc6ff", "primary-fixed": "#d8e2ff", "on-background": "#d3e4fe", "on-primary-fixed-variant": "#004395", "on-tertiary-container": "#5c0008", "secondary-fixed": "#6ffbbe", "primary-container": "#4d8eff", "outline": "#8c909f", "error": "#ffb4ab", "on-tertiary-fixed": "#410004", "tertiary": "#ffb3ad", "surface-container-lowest": "#000f21", "on-tertiary": "#68000a", "tertiary-fixed": "#ffdad7", "surface-container": "#102034", "on-error": "#690005", "inverse-primary": "#005ac2", "inverse-on-surface": "#213145", "surface-variant": "#26364a", "inverse-surface": "#d3e4fe", "surface-container-low": "#0b1c30", "surface-container-highest": "#26364a" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "space-lg": "1rem", "gutter-tablet": "0.75rem", "space-xs": "0.25rem", "space-md": "0.75rem", "gutter-mobile": "0.5rem", "space-xl": "1.5rem", "space-2xs": "0.125rem", "margin": "1.5rem", "space-2xl": "2rem", "gutter": "1rem", "margin-mobile": "1rem", "space-sm": "0.5rem" }, fontFamily: { "headline-sm": ["Inter"], "display-lg": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-code": ["JetBrains Mono"], "metric-stat": ["JetBrains Mono"], "badge-mono": ["JetBrains Mono"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], "headline-md": ["Inter"], "label-caps": ["Inter"] }, fontSize: { "headline-sm": ["16px", { lineHeight: "24px", letterSpacing: "-0.005em", fontWeight: "600" }], "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }], "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.02em", fontWeight: "600" }], "body-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "400" }], "label-code": ["12px", { lineHeight: "16px", letterSpacing: "0em", fontWeight: "500" }], "metric-stat": ["24px", { lineHeight: "28px", letterSpacing: "-0.03em", fontWeight: "500" }], "badge-mono": ["11px", { lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500" }], "body-lg": ["15px", { lineHeight: "22px", letterSpacing: "0em", fontWeight: "400" }], "body-md": ["13px", { lineHeight: "18px", letterSpacing: "0em", fontWeight: "400" }], "headline-lg-mobile": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "headline-md": ["20px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }], "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.06em", fontWeight: "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#031427;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]"><div class="h-14 px-margin-mobile flex items-center justify-between max-w-[390px] mx-auto w-full"><div class="flex items-center gap-space-sm"><button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">VigilNode</span><span class="relative flex h-2 w-2 ml-space-2xs"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary shadow-[0_0_8px_0_rgba(78,222,163,0.6)]"></span></span></div></div><div class="flex items-center gap-space-xs"><button class="relative w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-tertiary-container shadow-[0_0_6px_rgba(255,84,81,0.8)]"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-2xs cursor-pointer ring-2 ring-primary/20" title="Shubham Bind • Lead Dev"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full max-w-[390px] mx-auto pt-14 pb-24 bg-surface px-margin-mobile"><div class="flex flex-col w-full text-on-surface">
+<!-- Operational Breadcrumbs & Engine Status -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps tracking-wider uppercase">
+<span class="truncate">APScheduler Engine • Fleet Audit</span>
+<span class="text-secondary flex items-center gap-1 font-badge-mono text-badge-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+        LIVE 15s
+      </span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low px-space-sm py-space-xs rounded-xl shadow-sm">
+<div class="flex items-center gap-space-xs truncate">
+<span class="material-symbols-outlined text-secondary text-[16px]">sensors</span>
+<span class="font-label-code text-label-code text-on-surface truncate">APScheduler Core • ACTIVE (30s)</span>
+</div>
+<span class="bg-secondary-container/20 text-secondary font-badge-mono text-badge-mono px-space-xs py-0.5 rounded-lg flex-shrink-0">SYNCED</span>
+</div>
+<!-- Title & Context -->
+<div class="mt-space-xs">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight font-bold">Service Availability Analytics</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed">
+        Analyze external uptime, downtime, probe latency, protocol failures, and incident SLA across exactly 48 monitored synthetic endpoints.
+      </p>
+</div>
+<!-- Touch-Friendly Time Range Selector (Clean horizontal scroll, perfect 390px fit) -->
+<div class="flex items-center gap-1.5 overflow-x-auto py-1 mt-space-2xs -mx-margin-mobile px-margin-mobile no-scrollbar" style="scrollbar-width: none; -ms-overflow-style: none;">
+<button class="px-3 py-1.5 rounded-xl font-label-code text-[11px] text-on-surface-variant bg-surface-container-low hover:bg-surface-container transition-all flex-shrink-0 active:scale-95 whitespace-nowrap">24 Hours</button>
+<button class="px-3 py-1.5 rounded-xl font-label-code text-[11px] text-on-surface-variant bg-surface-container-low hover:bg-surface-container transition-all flex-shrink-0 active:scale-95 whitespace-nowrap">7 Days</button>
+<button class="px-3 py-1.5 rounded-xl font-label-code text-[11px] text-on-primary bg-primary-container shadow-[0_0_12px_rgba(77,142,255,0.45)] transition-all flex-shrink-0 font-medium active:scale-95 whitespace-nowrap">30 Days</button>
+<button class="px-3 py-1.5 rounded-xl font-label-code text-[11px] text-on-surface-variant bg-surface-container-low hover:bg-surface-container transition-all flex-shrink-0 active:scale-95 whitespace-nowrap">90 Days</button>
+<button class="px-2.5 py-1.5 rounded-xl font-label-code text-[11px] text-on-surface-variant bg-surface-container-low flex items-center gap-0.5 transition-all flex-shrink-0 active:scale-95 whitespace-nowrap">
+        Custom
+        <span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<!-- Export Quick Action Button -->
+<div class="flex justify-between items-center mt-space-2xs">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-code text-label-code">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span class="font-medium text-on-surface">Scope: 48 Services</span>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface px-space-sm py-1 rounded-xl font-label-code text-label-code flex items-center gap-1 shadow-sm active:scale-95 transition-all" onclick="document.getElementById('export-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-[15px] text-primary">download</span>
+<span>Export Report</span>
+<span class="material-symbols-outlined text-[13px] text-on-surface-variant">expand_more</span>
+</button>
+</div>
+</div>
+<!-- SECTION 2: Key Performance Metrics (2x2 Touch Grid) -->
+<div class="grid grid-cols-2 gap-space-xs mb-space-md">
+<!-- Card 1: Overall Uptime -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-secondary/10 to-transparent pointer-events-none rounded-bl-full"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">SLA Uptime</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded-sm">+0.06%</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-on-surface tracking-tight font-bold">99.96%</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex justify-between text-on-surface-variant font-label-code text-[10px]">
+<span>Target: 99.90%</span>
+<span class="text-secondary font-medium">PASS</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 99.96%"></div>
+</div>
+<span class="text-on-surface-variant font-label-code text-[10px] mt-0.5 truncate">Rem: 8h 14m allowed</span>
+</div>
+</div>
+<!-- Card 2: Total Downtime -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Downtime</span>
+<span class="font-badge-mono text-badge-mono text-tertiary-container bg-error-container/30 px-1 rounded-sm">2 Drops</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-on-surface tracking-tight font-bold">18m 42s</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<div class="flex justify-between text-on-surface-variant font-label-code text-[10px]">
+<span>Operational</span>
+<span>99.88%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 98.8%"></div>
+<div class="bg-tertiary-container h-full" style="width: 1.2%"></div>
+</div>
+<span class="text-on-surface-variant font-label-code text-[10px] mt-0.5 truncate">Degraded: 0.08% • Out: 0.04%</span>
+</div>
+</div>
+<!-- Card 3: Response Latency (p50 / p95 only) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Avg Latency</span>
+<span class="material-symbols-outlined text-[16px] text-primary">speed</span>
+</div>
+<div class="my-space-xs">
+<span class="font-metric-stat text-metric-stat text-primary tracking-tight font-bold">24.8ms</span>
+</div>
+<div class="flex flex-col text-on-surface-variant font-label-code text-[10px]"><span>External Endpoints:</span><span class="text-on-surface truncate">tcp://mail.acme.org:587 • tcp://gateway.api.net:443 • tcp://broker.queue.io:9092</span></div>
+</div>
+<!-- Card 4: Incident Response (MTTA / MTTR) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Response</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded-sm">0 Active</span>
+</div>
+<div class="my-space-xs flex items-baseline gap-1">
+<span class="font-metric-stat text-metric-stat text-on-surface tracking-tight font-bold">14.2m</span>
+<span class="font-label-code text-label-code text-on-surface-variant">MTTR</span>
+</div>
+<div class="flex flex-col text-on-surface-variant font-label-code text-[10px]">
+<div class="flex justify-between">
+<span>MTTA: 1.8m</span>
+<span>12 Resolved</span>
+</div>
+<span class="text-secondary text-[10px] mt-0.5">Target SLA &lt;30m</span>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Historical Availability Timeline (30 Days Matrix) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl mb-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Historical Availability</h2>
+<span class="font-label-code text-[11px] text-on-surface-variant">Past 30 Consecutive Audit Days</span>
+</div>
+<span class="font-badge-mono text-badge-mono bg-secondary-container/20 text-secondary px-2 py-0.5 rounded-full font-medium">99.96% Fleet</span>
+</div>
+<!-- Status Legend -->
+<div class="flex items-center justify-between bg-surface-container-lowest px-space-xs py-1 rounded-lg mb-space-sm text-[10px] font-label-code text-on-surface-variant">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Oper. 99.88%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span>Degr. 0.08%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span>Outage 0.04%</span>
+</div>
+</div>
+<!-- 30-Day Block Grid (6 cols x 5 rows) -->
+<div class="grid grid-cols-6 gap-1.5" id="timeline-matrix">
+<!-- Days 1 to 8: Green -->
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('01', '99.99%', '0s', 'All 48 endpoints fully operational')">
+<span>01</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('02', '100.0%', '0s', 'Zero synthetic ping drops recorded')">
+<span>02</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('03', '100.0%', '0s', 'Clean synthetic telemetry logs')">
+<span>03</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('04', '99.98%', '12s', 'Minor TCP ping jitter on port 5432')">
+<span>04</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('05', '100.0%', '0s', 'All 48 fleet endpoints healthy')">
+<span>05</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('06', '100.0%', '0s', 'Zero drops across all probes')">
+<span>06</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('07', '100.0%', '0s', 'Optimal network handshake response')">
+<span>07</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('08', '100.0%', '0s', 'Clean synthetic telemetry logs')">
+<span>08</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<!-- Day 9: Red Outage -->
+<button class="h-9 bg-tertiary-container/40 hover:bg-tertiary-container/60 text-tertiary font-bold rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center shadow-[0_0_8px_rgba(255,84,81,0.4)] transition-transform active:scale-90" onclick="inspectDay('09', '99.20%', '9m 00s', 'Primary App TCP Port 5432: ECONNREFUSED')">
+<span>09</span>
+<span class="text-[9px] leading-none">!</span>
+</button>
+<!-- Days 10 to 14: Green -->
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('10', '99.98%', '8s', 'External TCP port reachability restored')">
+<span>10</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('11', '100.0%', '0s', 'Standard synthetic operational rate')">
+<span>11</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('12', '100.0%', '0s', 'Public DNS propagation clean')">
+<span>12</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('13', '100.0%', '0s', 'TLS sessions cryptographic check ok')">
+<span>13</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('14', '100.0%', '0s', 'All 48 endpoints synchronized')">
+<span>14</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<!-- Day 15: Degraded Amber -->
+<button class="h-9 bg-tertiary-fixed-dim/30 hover:bg-tertiary-fixed-dim/50 text-tertiary-fixed rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('15', '99.78%', '3m 15s', 'DNS resolution spike to 180ms')">
+<span>15</span>
+<span class="text-[9px] leading-none">~</span>
+</button>
+<!-- Days 16 to 20: Green -->
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('16', '100.0%', '0s', 'Clean synthetic telemetry')">
+<span>16</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('17', '100.0%', '0s', 'All synthetic probes passed')">
+<span>17</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('18', '100.0%', '0s', 'TCP handshakes nominal')">
+<span>18</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('19', '100.0%', '0s', 'Synthetic probes nominal')">
+<span>19</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('20', '100.0%', '0s', 'All 48 endpoints green')">
+<span>20</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<!-- Day 21: Red Outage (Active selected state) -->
+<button class="h-9 bg-tertiary-container/50 hover:bg-tertiary-container/70 text-tertiary font-bold rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center shadow-[0_0_10px_rgba(255,84,81,0.6)] ring-2 ring-tertiary-container transition-transform active:scale-90" onclick="inspectDay('21', '99.12%', '9m 42s', 'API Gateway: HTTP 504 Gateway Timeout')">
+<span>21</span>
+<span class="text-[9px] leading-none font-bold">!</span>
+</button>
+<!-- Days 22 to 30: Green -->
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('22', '99.99%', '4s', 'Synthetic traffic recovered')">
+<span>22</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('23', '100.0%', '0s', 'Clean telemetry logs')">
+<span>23</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('24', '100.0%', '0s', 'TCP port reachability stable')">
+<span>24</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('25', '100.0%', '0s', 'Zero dropped frames')">
+<span>25</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('26', '100.0%', '0s', 'All 48 endpoints healthy')">
+<span>26</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('27', '100.0%', '0s', 'Optimal external probe latency')">
+<span>27</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('28', '100.0%', '0s', 'DNS authoritative records valid')">
+<span>28</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('29', '100.0%', '0s', 'SSL certificates 100% active')">
+<span>29</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+<button class="h-9 bg-secondary-container/30 hover:bg-secondary-container/50 text-secondary rounded-lg font-badge-mono text-[11px] flex flex-col items-center justify-center transition-transform active:scale-90" onclick="inspectDay('30', '100.0%', '0s', 'Continuous polling active')">
+<span>30</span>
+<span class="w-1 h-1 rounded-full bg-secondary mt-0.5"></span>
+</button>
+</div>
+<!-- Dynamic Inspection Snippet -->
+<div class="mt-space-sm p-space-xs bg-surface-container rounded-lg flex items-start gap-space-xs transition-all" id="day-inspect-box">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">info</span>
+<div class="flex-1 min-w-0 font-label-code text-label-code">
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface" id="inspect-title">Day 21 Incident Inspection</span>
+<span class="text-tertiary-container font-medium" id="inspect-uptime">99.12% Uptime</span>
+</div>
+<p class="text-on-surface-variant text-[11px] mt-0.5 truncate" id="inspect-desc">HTTP 504 Gateway Timeout on API Gateway (9m 42s downtime)</p>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Multi-Protocol Fleet Analytics (Exactly 48 Services: 24 + 12 + 8 + 4) -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Multi-Protocol Fleet Analytics</h2>
+<span class="font-label-code text-[11px] text-on-surface-variant">External Black-Box Monitoring • Exactly 48 Services</span>
+</div>
+<span class="bg-primary/10 text-primary border border-primary/20 font-badge-mono text-badge-mono px-2 py-0.5 rounded-full flex-shrink-0">48 TOTAL</span>
+</div>
+<!-- Protocol 1: HTTPS / REST & API Gateway (24 Services) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="bg-surface-container-highest font-badge-mono text-badge-mono text-primary px-1.5 py-0.5 rounded-sm">HTTPS</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">REST &amp; API Gateway</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-badge-mono text-badge-mono text-primary bg-primary/10 px-1 rounded">24 Services</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded">99.98% SLA</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs my-space-xs">
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Avg Response</span>
+<span class="font-metric-stat text-[18px] text-on-surface font-semibold">22.4ms</span>
+<span class="font-label-code text-[10px] text-on-surface-variant block">p50: 18ms • p95: 52ms</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Probe Failures</span>
+<span class="font-metric-stat text-[18px] text-tertiary font-semibold">14 <span class="text-[11px] text-on-surface-variant font-normal">/ 12.4k</span></span>
+<span class="font-label-code text-[10px] text-on-surface-variant block">2xx: 99.82%</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant bg-surface-container-lowest px-space-xs py-1 rounded">
+<span>Status Codes:</span>
+<span class="text-secondary">2xx: 99.82%</span>
+<span class="text-tertiary-fixed-dim">4xx: 0.12%</span>
+<span class="text-tertiary">5xx: 0.06%</span>
+</div>
+</div>
+<!-- Protocol 2: TCP Socket & Port Reachability (12 Services) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="bg-surface-container-highest font-badge-mono text-badge-mono text-primary px-1.5 py-0.5 rounded-sm">TCP</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Port Reachability &amp; Pings</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-badge-mono text-badge-mono text-primary bg-primary/10 px-1 rounded">12 Services</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded">99.95% Reach</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs my-space-xs">
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Handshake Latency</span>
+<span class="font-metric-stat text-[18px] text-on-surface font-semibold">16.2ms</span>
+<span class="font-label-code text-[10px] text-on-surface-variant block">SYN/ACK roundtrip</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Refusals</span>
+<span class="font-metric-stat text-[18px] text-tertiary font-semibold">8 <span class="text-[11px] text-on-surface-variant font-normal">drops</span></span>
+<span class="font-label-code text-[10px] text-error font-medium truncate">ECONNREFUSED</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant bg-surface-container-lowest px-space-xs py-1 rounded"><span>External Endpoints:</span><span class="text-on-surface truncate">tcp://mail.acme.org:587 • tcp://gateway.api.net:443 • tcp://broker.queue.io:9092</span></div>
+</div>
+<!-- Protocol 3: DNS Domain Lookup & Resolution (8 Services) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="bg-surface-container-highest font-badge-mono text-badge-mono text-primary px-1.5 py-0.5 rounded-sm">DNS</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Domain Lookup &amp; Resolution</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-badge-mono text-badge-mono text-primary bg-primary/10 px-1 rounded">8 Services</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded">100.0% Success</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs my-space-xs">
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Avg Resolve</span>
+<span class="font-metric-stat text-[18px] text-on-surface font-semibold">8.4ms</span>
+<span class="font-label-code text-[10px] text-on-surface-variant block">A: 8.1ms • AAAA: 9.2ms</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Failures</span>
+<span class="font-metric-stat text-[18px] text-on-surface font-semibold">3 <span class="text-[11px] text-on-surface-variant font-normal">timeouts</span></span>
+<span class="font-label-code text-[10px] text-secondary font-medium">Zero-loss SLA</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant bg-surface-container-lowest px-space-xs py-1 rounded">
+<span>Lookup Records:</span>
+<span class="text-secondary">A / CNAME: 100%</span>
+<span class="text-secondary">NS Authoritative: 100%</span>
+</div>
+</div>
+<!-- Protocol 4: SSL / TLS Cryptographic Verification (4 Services) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-space-2xs">
+<div class="flex items-center gap-space-xs">
+<span class="bg-surface-container-highest font-badge-mono text-badge-mono text-primary px-1.5 py-0.5 rounded-sm">SSL/TLS</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Cryptographic Verification</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-badge-mono text-badge-mono text-primary bg-primary/10 px-1 rounded">4 Services</span>
+<span class="font-badge-mono text-badge-mono text-secondary bg-secondary-container/20 px-1 rounded">4/4 Valid</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs my-space-xs">
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Nearest Expiry</span>
+<span class="font-metric-stat text-[18px] text-tertiary-fixed-dim font-semibold">28 Days</span>
+<span class="font-label-code text-[10px] text-on-surface-variant block truncate">*.vigilnode.internal</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded-lg">
+<span class="font-label-caps text-[10px] text-on-surface-variant block">Chain Security</span>
+<span class="font-metric-stat text-[18px] text-on-surface font-semibold">TLS 1.3</span>
+<span class="font-label-code text-[10px] text-tertiary-fixed-dim block">1 chain warning</span>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant bg-surface-container-lowest px-space-xs py-1 rounded">
+<span>OCSP Stapling: Active</span>
+<span class="text-secondary">0 Expired</span>
+<span class="text-primary font-medium">Auto-renew Engaged</span>
+</div>
+</div>
+</div>
+<!-- SECTION 5: Latency Distribution & Trend Chart (P50 & P95 Only) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl mb-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Response Latency Trend</h2>
+<span class="font-label-code text-[11px] text-on-surface-variant">p50 &amp; p95 Synthetic Percentile Distribution</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-0.5 rounded-lg">
+<span class="text-primary font-metric-stat text-[13px] font-bold">24.8ms</span>
+<span class="text-on-surface-variant text-[10px] font-label-code">AVG</span>
+</div>
+</div>
+<!-- Chart Legend (p50, p95 and Threshold ONLY) -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-xs text-[10px] font-label-code">
+<span class="flex items-center gap-1 text-primary">
+<span class="w-2.5 h-1 rounded-sm bg-primary"></span>
+        p50 (18.2ms)
+      </span>
+<span class="flex items-center gap-1 text-tertiary-fixed-dim">
+<span class="w-2.5 h-1 rounded-sm bg-tertiary-fixed-dim"></span>
+        p95 (48.6ms)
+      </span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="w-2.5 h-0.5 bg-tertiary border-b border-dashed"></span>
+        Threshold (100ms cap)
+      </span>
+</div>
+<!-- Responsive SVG Line/Area Chart for P50 & P95 -->
+<div class="w-full bg-surface-container-lowest rounded-lg p-2 overflow-hidden">
+<svg class="w-full h-36" preserveAspectRatio="none" viewBox="0 0 320 120">
+<defs>
+<linearGradient id="p50Grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#adc6ff" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#adc6ff" stop-opacity="0.0"></stop>
+</linearGradient>
+<linearGradient id="p95Grad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ffb3ad" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#ffb3ad" stop-opacity="0.0"></stop>
+</linearGradient>
+</defs>
+<!-- Threshold Reference Line (100ms Cap) -->
+<line opacity="0.6" stroke="#ff5451" stroke-dasharray="3,3" stroke-width="1" x1="0" x2="320" y1="20" y2="20"></line>
+<text fill="#ff5451" font-family="JetBrains Mono" font-size="8" opacity="0.8" x="260" y="16">100ms cap</text>
+<!-- Grid Lines -->
+<line stroke="#1b2b3f" stroke-width="0.75" x1="0" x2="320" y1="50" y2="50"></line>
+<line stroke="#1b2b3f" stroke-width="0.75" x1="0" x2="320" y1="85" y2="85"></line>
+<!-- Area & Line p95 -->
+<polygon fill="url(#p95Grad)" points="0,72 35,68 70,66 105,70 140,46 175,72 210,64 245,60 280,56 320,62 320,115 0,115"></polygon>
+<path d="M0,72 Q35,68 70,66 T140,46 T210,64 T280,56 L320,62" fill="none" stroke="#ffb3ad" stroke-linecap="round" stroke-width="1.75"></path>
+<!-- Area & Line p50 -->
+<polygon fill="url(#p50Grad)" points="0,96 35,94 70,95 105,92 140,84 175,94 210,91 245,90 280,88 320,89 320,115 0,115"></polygon>
+<path d="M0,96 Q35,94 70,95 T140,84 T210,91 T280,88 L320,89" fill="none" stroke="#adc6ff" stroke-linecap="round" stroke-width="2.25"></path>
+<!-- p95 Peak Marker -->
+<circle cx="140" cy="46" fill="#ffb3ad" r="3" stroke="#ffffff" stroke-width="1"></circle>
+<text fill="#ffb3ad" font-family="JetBrains Mono" font-size="8" font-weight="600" x="145" y="42">p95 peak: 48.6ms</text>
+</svg>
+<!-- Time Axis -->
+<div class="flex justify-between font-label-code text-[10px] text-on-surface-variant mt-1 px-1"><span>External Endpoints:</span><span class="text-on-surface truncate">tcp://mail.acme.org:587 • tcp://gateway.api.net:443 • tcp://broker.queue.io:9092</span></div>
+</div>
+</div>
+<!-- SECTION 6: Protocol Failure Breakdown (Doughnut + Breakdown List) -->
+<div class="bg-surface-container-low p-space-sm rounded-xl mb-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Failure Categorization</h2>
+<span class="font-label-code text-[11px] text-on-surface-variant">3,924 Sampled Drop Events</span>
+</div>
+<span class="font-badge-mono text-badge-mono bg-error-container/40 text-error px-2 py-0.5 rounded-full">0.04% Ratio</span>
+</div>
+<!-- Doughnut Visualization & Snapshot -->
+<div class="flex items-center gap-space-md my-space-xs bg-surface-container-lowest p-space-xs rounded-xl">
+<div class="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<!-- Background ring -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#1b2b3f" stroke-width="4.5"></circle>
+<!-- Segment 1: HTTP 4xx/5xx (42%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#ff5451" stroke-dasharray="36.9 88" stroke-dashoffset="0" stroke-width="4.5"></circle>
+<!-- Segment 2: TCP (23%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#adc6ff" stroke-dasharray="20.2 88" stroke-dashoffset="-36.9" stroke-width="4.5"></circle>
+<!-- Segment 3: DNS (14%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#4edea3" stroke-dasharray="12.3 88" stroke-dashoffset="-57.1" stroke-width="4.5"></circle>
+<!-- Segment 4: Timeouts (13%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#ffb3ad" stroke-dasharray="11.4 88" stroke-dashoffset="-69.4" stroke-width="4.5"></circle>
+<!-- Segment 5: SSL (8%) -->
+<circle cx="18" cy="18" fill="none" r="14" stroke="#8c909f" stroke-dasharray="7.2 88" stroke-dashoffset="-80.8" stroke-width="4.5"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-label-code text-[11px] font-bold text-on-surface">3.9k</span>
+<span class="font-label-caps text-[8px] text-on-surface-variant">Drops</span>
+</div>
+</div>
+<div class="flex-1 min-w-0 font-label-code text-label-code">
+<div class="text-on-surface font-semibold text-[13px]">Primary Fault Vector:</div>
+<p class="text-on-surface-variant text-[11px] mt-0.5 leading-tight">Upstream timeouts (HTTP 504/502) and external TCP connection refusals under peak request load.</p>
+</div>
+</div>
+<!-- Category Progress Bars -->
+<div class="flex flex-col gap-space-xs mt-space-sm font-label-code text-label-code"><div><div class="flex justify-between text-[11px] mb-1"><span class="text-on-surface flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary-container"></span>HTTP/HTTPS Status &amp; Request Failures</span><span class="text-on-surface-variant font-medium">1,638 (42%)</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-tertiary-container h-full rounded-full" style="width: 42%"></div></div></div><div><div class="flex justify-between text-[11px] mb-1"><span class="text-on-surface flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span>TCP Connection Failures</span><span class="text-on-surface-variant font-medium">887 (23%)</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full rounded-full" style="width: 23%"></div></div></div><div><div class="flex justify-between text-[11px] mb-1"><span class="text-on-surface flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span>DNS Resolution Failures</span><span class="text-on-surface-variant font-medium">546 (14%)</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full" style="width: 14%"></div></div></div><div><div class="flex justify-between text-[11px] mb-1"><span class="text-on-surface flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-outline"></span>SSL/TLS Handshake &amp; Certificate Failures</span><span class="text-on-surface-variant font-medium">853 (21%)</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-outline h-full rounded-full" style="width: 21%"></div></div></div></div>
+</div>
+<!-- SECTION 7: Incident Performance & Response Analytics -->
+<div class="bg-surface-container-low p-space-sm rounded-xl mb-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Incident Performance</h2>
+<span class="font-label-code text-[11px] text-on-surface-variant">SLA Resolution Velocity</span>
+</div>
+<span class="bg-secondary-container/20 text-secondary font-badge-mono text-badge-mono px-2 py-0.5 rounded-full">100% Resolved</span>
+</div>
+<!-- Incident Stat Row -->
+<div class="grid grid-cols-4 gap-1.5 text-center my-space-xs font-label-code">
+<div class="bg-surface-container p-1 rounded-lg">
+<span class="text-[10px] text-on-surface-variant block">Total</span>
+<span class="text-[14px] font-bold text-on-surface">12</span>
+</div>
+<div class="bg-surface-container p-1 rounded-lg">
+<span class="text-[10px] text-secondary block">Active</span>
+<span class="text-[14px] font-bold text-secondary">0</span>
+</div>
+<div class="bg-surface-container p-1 rounded-lg">
+<span class="text-[10px] text-on-surface-variant block">MTTA</span>
+<span class="text-[14px] font-bold text-primary">1.8m</span>
+</div>
+<div class="bg-surface-container p-1 rounded-lg">
+<span class="text-[10px] text-on-surface-variant block">MTTR</span>
+<span class="text-[14px] font-bold text-secondary">14.2m</span>
+</div>
+</div>
+<!-- Severity Badges -->
+<div class="grid grid-cols-4 gap-1.5 my-space-xs font-badge-mono text-center text-[10px]">
+<div class="bg-error-container/40 text-error p-1 rounded">Sev-1: 1</div>
+<div class="bg-tertiary-fixed-dim/20 text-tertiary-fixed p-1 rounded">Sev-2: 3</div>
+<div class="bg-surface-container-high text-primary p-1 rounded">Sev-3: 5</div>
+<div class="bg-surface-container-high text-on-surface-variant p-1 rounded"><span>External Endpoints:</span><span class="text-on-surface truncate">tcp://mail.acme.org:587 • tcp://gateway.api.net:443 • tcp://broker.queue.io:9092</span></div>
+</div>
+<!-- Incident Post-Mortem Snippets (External Black-box only) -->
+<div class="flex flex-col gap-space-xs mt-space-sm font-label-code">
+<!-- Snippet 1 -->
+<div class="p-space-xs bg-surface-container rounded-lg flex items-start justify-between">
+<div class="min-w-0 pr-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="bg-tertiary-container text-on-tertiary-container font-badge-mono text-[9px] px-1 rounded">SEV-1</span>
+<span class="font-bold text-on-surface text-[12px] truncate">api.billing.acme.corp</span>
+</div>
+<p class="text-on-surface-variant text-[11px] mt-0.5 truncate">504 Gateway Timeout during batch invoice cycle</p>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="text-secondary text-[11px] font-semibold block">9m 42s</span>
+<span class="text-on-surface-variant text-[9px]">Oct 21</span>
+</div>
+</div>
+<!-- Snippet 2 -->
+<div class="p-space-xs bg-surface-container rounded-lg flex items-start justify-between">
+<div class="min-w-0 pr-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="bg-tertiary-fixed-dim/30 text-tertiary-fixed font-badge-mono text-[9px] px-1 rounded">SEV-2</span>
+<span class="font-bold text-on-surface text-[12px] truncate">Primary App TCP:5432</span>
+</div>
+<p class="text-on-surface-variant text-[11px] mt-0.5 truncate">TCP ECONNREFUSED external port reachability drop</p>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="text-secondary text-[11px] font-semibold block">9m 00s</span>
+<span class="text-on-surface-variant text-[9px]">Oct 09</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 8: Top Flapping & Unstable Monitors (External Endpoints Only) -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Unstable Monitors</h2>
+<span class="bg-error-container/50 text-error font-badge-mono text-[10px] px-1.5 py-0.5 rounded-full">ACTION REQUIRED</span>
+</div>
+<div class="flex items-center gap-1.5 font-label-code text-[11px] text-on-surface-variant">
+<span>Dampening</span>
+<button class="w-8 h-4 bg-primary-container rounded-full p-0.5 transition-colors relative flex items-center justify-end" onclick="toggleDampening(this)">
+<span class="w-3 h-3 rounded-full bg-on-primary"></span>
+</button>
+</div>
+</div>
+<!-- Filter Pills (Scrollable, mobile fit) -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 -mx-margin-mobile px-margin-mobile" style="scrollbar-width: none;">
+<button class="px-space-sm py-1 bg-primary text-on-primary rounded-lg font-badge-mono text-badge-mono font-medium flex-shrink-0">ALL (5)</button>
+<button class="px-space-sm py-1 bg-surface-container-low text-on-surface-variant rounded-lg font-badge-mono text-badge-mono hover:text-on-surface flex-shrink-0">HTTPS</button>
+<button class="px-space-sm py-1 bg-surface-container-low text-on-surface-variant rounded-lg font-badge-mono text-badge-mono hover:text-on-surface flex-shrink-0">TCP</button>
+<button class="px-space-sm py-1 bg-surface-container-low text-on-surface-variant rounded-lg font-badge-mono text-badge-mono hover:text-on-surface flex-shrink-0">DNS</button>
+<button class="px-space-sm py-1 bg-surface-container-low text-on-surface-variant rounded-lg font-badge-mono text-badge-mono hover:text-on-surface flex-shrink-0">SSL</button>
+</div>
+<!-- Flapping List: Strictly External Synthetic Probes -->
+<div class="flex flex-col gap-space-xs">
+<!-- Flapping Item 1: HTTPS -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-start justify-between">
+<div class="min-w-0 pr-space-xs">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="bg-surface-container-highest text-primary font-badge-mono text-[10px] px-1 rounded">HTTPS</span>
+<span class="font-bold text-on-surface font-body-md text-body-md truncate">API Microservice Gateway</span>
+</div>
+<span class="font-label-code text-[11px] text-on-surface-variant block truncate">https://api.vigilnode.internal/v1/health</span>
+</div>
+<span class="bg-tertiary-container/30 text-tertiary font-badge-mono text-[10px] px-1.5 py-0.5 rounded flex-shrink-0">DAMPENED</span>
+</div>
+<div class="grid grid-cols-3 gap-1 bg-surface-container-lowest p-space-xs rounded-lg mt-space-xs font-label-code text-[11px]">
+<div>
+<span class="text-on-surface-variant text-[9px] block">Failures</span>
+<span class="text-tertiary font-bold">28</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Error Code</span>
+<span class="text-on-surface">504 Timeout</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Fleet SLA</span>
+<span class="text-tertiary font-bold">98.41%</span>
+</div>
+</div>
+</div>
+<!-- Flapping Item 2: TCP Reachability -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-start justify-between">
+<div class="min-w-0 pr-space-xs"><div class="flex items-center gap-1 mb-0.5"><span class="bg-surface-container-highest text-primary font-badge-mono text-[10px] px-1 rounded">TCP</span><span class="font-bold text-on-surface font-body-md text-body-md truncate">External TCP Event Broker</span></div><span class="font-label-code text-[11px] text-on-surface-variant block truncate">tcp://broker.queue.io:9092</span></div>
+<span class="bg-tertiary-container/30 text-tertiary font-badge-mono text-[10px] px-1.5 py-0.5 rounded flex-shrink-0">DAMPENED</span>
+</div>
+<div class="grid grid-cols-3 gap-1 bg-surface-container-lowest p-space-xs rounded-lg mt-space-xs font-label-code text-[11px]">
+<div>
+<span class="text-on-surface-variant text-[9px] block">Failures</span>
+<span class="text-tertiary font-bold">19</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Error Code</span>
+<span class="text-on-surface">ECONNREFUSED</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Fleet SLA</span>
+<span class="text-tertiary font-bold">99.12%</span>
+</div>
+</div>
+</div>
+<!-- Flapping Item 3: Public DNS -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-start justify-between">
+<div class="min-w-0 pr-space-xs">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="bg-surface-container-highest text-primary font-badge-mono text-[10px] px-1 rounded">DNS</span>
+<span class="font-bold text-on-surface font-body-md text-body-md truncate">Authoritative Public DNS</span>
+</div>
+<span class="font-label-code text-[11px] text-on-surface-variant block truncate">ns1.vigilnode.net</span>
+</div>
+<span class="bg-secondary-container/20 text-secondary font-badge-mono text-[10px] px-1.5 py-0.5 rounded flex-shrink-0">MONITORING</span>
+</div>
+<div class="grid grid-cols-3 gap-1 bg-surface-container-lowest p-space-xs rounded-lg mt-space-xs font-label-code text-[11px]">
+<div>
+<span class="text-on-surface-variant text-[9px] block">Failures</span>
+<span class="text-on-surface font-bold">14</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Error Code</span>
+<span class="text-on-surface">SERVFAIL</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Fleet SLA</span>
+<span class="text-secondary font-bold">99.45%</span>
+</div>
+</div>
+</div>
+<!-- Flapping Item 4: HTTPS -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="flex items-start justify-between">
+<div class="min-w-0 pr-space-xs">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="bg-surface-container-highest text-primary font-badge-mono text-[10px] px-1 rounded">HTTPS</span>
+<span class="font-bold text-on-surface font-body-md text-body-md truncate">Auth Token Service</span>
+</div>
+<span class="font-label-code text-[11px] text-on-surface-variant block truncate">https://auth-gateway.internal/oauth</span>
+</div>
+<span class="bg-secondary-container/20 text-secondary font-badge-mono text-[10px] px-1.5 py-0.5 rounded flex-shrink-0">MONITORING</span>
+</div>
+<div class="grid grid-cols-3 gap-1 bg-surface-container-lowest p-space-xs rounded-lg mt-space-xs font-label-code text-[11px]">
+<div>
+<span class="text-on-surface-variant text-[9px] block">Failures</span>
+<span class="text-on-surface font-bold">11</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Error Code</span>
+<span class="text-on-surface">502 Bad GW</span>
+</div>
+<div>
+<span class="text-on-surface-variant text-[9px] block">Fleet SLA</span>
+<span class="text-secondary font-bold">99.62%</span>
+</div>
+</div>
+</div>
+<!-- Flapping Item 5: SSL -->
+<div class="bg-surface-container-low p-space-sm rounded-xl shadow-sm"><span>External Endpoints:</span><span class="text-on-surface truncate">tcp://mail.acme.org:587 • tcp://gateway.api.net:443 • tcp://broker.queue.io:9092</span></div>
+</div>
+<!-- Configure Dampening Button -->
+<button class="w-full bg-surface-container-high hover:bg-surface-bright text-on-surface py-2 rounded-xl font-label-code text-label-code flex items-center justify-center gap-2 mt-space-2xs active:scale-98 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+      Configure Alert Dampening &amp; Backoff
+    </button>
+</div>
+<!-- SECTION 9: Export Modal / Audit Trigger Card (Refined 390px Button Fit) -->
+<div class="bg-surface-container p-space-sm rounded-xl mb-space-md shadow-lg" id="export-modal">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Report Generation Engine</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" onclick="document.getElementById('export-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm leading-relaxed">
+      Download verified SLA uptime proof, latency logs, and MTTR telemetry compiled across all 48 synthetic endpoints.
+    </p>
+<!-- Dual Export Buttons: Styled for zero text wrapping or truncation on 390px -->
+<div class="grid grid-cols-2 gap-2 mb-space-sm">
+<button class="bg-surface-container-highest hover:bg-surface-bright py-2 px-1 rounded-xl flex items-center justify-center gap-1 font-label-code text-[11px] font-medium text-on-surface active:scale-95 transition-all text-center" onclick="triggerExport('CSV')">
+<span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">table_view</span>
+<span class="truncate">Export CSV</span>
+</button>
+<button class="bg-primary-container hover:bg-primary-container/80 py-2 px-1 rounded-xl flex items-center justify-center gap-1 font-label-code text-[11px] font-medium text-on-primary active:scale-95 transition-all text-center shadow-[0_0_8px_rgba(77,142,255,0.3)]" onclick="triggerExport('PDF')">
+<span class="material-symbols-outlined text-[16px] flex-shrink-0">picture_as_pdf</span>
+<span class="truncate">Full PDF Audit</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-[10px] font-label-code text-on-surface-variant bg-surface-container-lowest px-space-xs py-1.5 rounded-lg">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        Audit Daemon Synced (48/48)
+      </span>
+<span id="export-status-text">Ready for snapshot</span>
+</div>
+</div>
+<!-- SECTION 10: Attribution & Project Footer (Clears fixed bottom-nav) -->
+<div class="mt-space-sm pt-space-md text-center flex flex-col items-center gap-1">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-code text-[11px]">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_rgba(78,222,163,0.8)]"></span>
+<span>VigilNode Server / APScheduler Analytics Core • ACTIVE</span>
+</div>
+<div class="font-label-code text-[10px] text-on-surface-variant/80">
+      MCA Capstone Project • Project Owner &amp; Developer: <span class="text-on-surface font-semibold">Shubham Bind</span>
+</div>
+<div class="text-[9px] font-badge-mono text-outline uppercase tracking-widest mt-1">
+      Continuous Telemetry Engine • Ver 3.4.1
+    </div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    function inspectDay(day, uptime, downtime, desc) {
+      const title = document.getElementById('inspect-title');
+      const upt = document.getElementById('inspect-uptime');
+      const description = document.getElementById('inspect-desc');
+      const box = document.getElementById('day-inspect-box');
+
+      if (title && upt && description) {
+        title.innerText = 'Day ' + day + ' Inspection';
+        upt.innerText = uptime + ' Uptime';
+        description.innerText = desc + ' (' + downtime + ' downtime)';
+        
+        box.classList.add('bg-surface-bright');
+        setTimeout(() => {
+          box.classList.remove('bg-surface-bright');
+        }, 300);
+      }
+    }
+
+    function toggleDampening(btn) {
+      if (btn.classList.contains('bg-primary-container')) {
+        btn.classList.remove('bg-primary-container', 'justify-end');
+        btn.classList.add('bg-surface-container-highest', 'justify-start');
+      } else {
+        btn.classList.remove('bg-surface-container-highest', 'justify-start');
+        btn.classList.add('bg-primary-container', 'justify-end');
+      }
+    }
+
+    function triggerExport(type) {
+      const statusText = document.getElementById('export-status-text');
+      if (statusText) {
+        statusText.innerText = 'Compiling ' + type + '...';
+        statusText.classList.add('text-secondary');
+        setTimeout(() => {
+          statusText.innerText = type + ' downloaded successfully';
+          setTimeout(() => {
+            statusText.innerText = 'Ready for snapshot';
+            statusText.classList.remove('text-secondary');
+          }, 2500);
+        }, 1200);
+      }
+    }
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,0,0,0.6)]" data-active-classes="text-primary font-medium"><div class="h-16 max-w-[390px] mx-auto px-space-xs flex items-center justify-around"><a class="flex flex-col items-center justify-center flex-1 h-14 text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-badge-mono text-badge-mono mt-space-2xs">Dashboard</span></a><a class="flex flex-col items-center justify-center flex-1 h-14 text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="monitors" href="#"><span class="material-symbols-outlined text-[22px]">layers</span><span class="font-badge-mono text-badge-mono mt-space-2xs">Monitors</span></a><a class="flex flex-col items-center justify-center flex-1 h-14 text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="incidents" href="#"><span class="material-symbols-outlined text-[22px]">warning</span><span class="font-badge-mono text-badge-mono mt-space-2xs">Incidents</span></a><a aria-current="page" class="relative flex flex-col items-center justify-center flex-1 h-14 transition-colors duration-150 text-primary font-medium" data-path="analytics" href="#"><span class="material-symbols-outlined text-[22px] drop-shadow-[0_0_8px_rgba(173,198,255,0.7)]">trending_up</span><span class="font-badge-mono text-badge-mono mt-space-2xs tracking-tight">Analytics</span><span class="w-1 h-1 rounded-full bg-primary mt-space-2xs shadow-[0_0_6px_#adc6ff]"></span></a><a class="flex flex-col items-center justify-center flex-1 h-14 text-on-surface-variant hover:text-on-surface transition-colors duration-150" data-path="settings" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-badge-mono text-badge-mono mt-space-2xs">Settings</span></a></div></nav>
+
+  <script src="vigilnode-client.js"></script>
+</body></html>
