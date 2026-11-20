@@ -46,13 +46,6 @@ export function createApp(customDb?: Database.Database): { app: express.Express;
   app.use('/api/public', createPublicStatusRouter(db));
   app.use('/api', createAdminSystemRouter(db));
 
-  app.get('/api/export/source.zip', (req, res) => {
-    const { buffer } = buildProjectSourceZipBuffer();
-    res.setHeader('Content-Type', 'application/zip');
-    res.setHeader('Content-Disposition', 'attachment; filename="vigilnode-full-source.zip"');
-    res.setHeader('Content-Length', String(buffer.length));
-    res.send(buffer);
-  });
 
   // Structured API 404 & error handling
   app.use('/api/*', (req, res) => {
